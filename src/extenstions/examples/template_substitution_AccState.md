@@ -4,7 +4,9 @@ title: "Տպելու ձևի ընդլայնման օրինակ"
 tags: TemplateSubstitution
 ---
 
-Ստորև բերված է հաշվի քաղվածքում կիրառվող լրացուցիչ պարամետրերի հաշվարկման համար նախատեսված դասը։ Այն կարելի է օգտագործել որպես ձևանմուշ այլ տպվող ձևերի / քաղվածքների համար պարամետրերի նկարագրության համար։  
+Ստորև բերված է հաշվի քաղվածքում կիրառվող լրացուցիչ պարամետրերի հաշվարկման համար նախատեսված դասը։ 
+Ի տարբերություն այլ դեպքերի ՀԾ-Բանկում հաշվի քաղվածքում նոր պարամետրեր ավելացնելուց արժեքը պետք է լինի Unicode կոդավորմամբ, երբ ձևանմուշը պետք է արտահանվի Unicode, այսինքն գրեթե միշտ։
+
 Օրինակում օգտագործվում է [UserProxyService](/src/extenstions/user_proxy_service.md), որը հասանելի է միայն ՀԾ-Բանկում։
 
 ```c#
@@ -40,7 +42,7 @@ namespace ArmSoft.AS8X.Bank.CustomerSpecific.MyCompany
                 var marz = cliDoc.DISTRICT != "001" ? (await this.proxyService.TreeElPropComment("LRDistr", cliDoc.DISTRICT)) + ", " : "";
                 var bnakavayr = cliDoc.DISTRICT != "001" ? (await this.proxyService.TreeElPropComment("COMMUNTY", cliDoc.COMMUNITY)) + ", " : "";
                 var index = cliDoc.POSTIND != "" ? ", Փոստային ինդեքս` ".ToArmenianANSI() + cliDoc.POSTIND : "";
-                return marz + cliDoc.CITY + ", " + bnakavayr + cliDoc.ADDRESS + index;
+                return (marz + cliDoc.CITY + ", " + bnakavayr + cliDoc.ADDRESS + index).ToArmenianUnicode();
             }, args);
 
             //Ստեղծում է անգլերեն հասցեի տպելու պարամետր
