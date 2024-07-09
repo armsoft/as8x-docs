@@ -9,7 +9,7 @@ title: "Տպելու ձևերի ընդլայնման ձեռնարկ"
 * [C# ֆայլի նկարագրություն](#c-ֆայլի-նկարագրություն)  
 * [Ընդլայնման կապակցում տպելու ձևանմուշին](#ընդլայնման-կապակցում-տպելու-ձևանմուշին)  
 * [Օրինակներ](#օրինակներ)
-
+* [Հատուկ դեպքեր](#հատուկ-դեպքեր)
 
 ## 	Ներածություն
 
@@ -50,7 +50,10 @@ public class AccStateAdr_Extander : ITemplateSubstitutionExtender
 }
 ```
 
-Ավելացվող տպելու պարամետրերի հաշվարկը իրականացվում է `Calculate` ֆունկցիայում։ Այն որպես պարամետր ստանում է `TemplateSubstitutionExtenderArgs` տիպի օբյեկտ, որի միջոցով հնարավոր է հասանելիություն ստանալ տպվող փաստաթղթին և հաշվարկված տպվող կոդերի բազմությանը։
+Ավելացվող տպելու պարամետրերի հաշվարկը իրականացվում է `Calculate` ֆունկցիայում։  
+Այն որպես պարամետր ստանում է `TemplateSubstitutionExtenderArgs` տիպի օբյեկտ, որի միջոցով հնարավոր է հասանելիություն ստանալ տպվող փաստաթղթին և հաշվարկված տպվող կոդերի բազմությանը։
+
+Ավելացվող նոր պարամետրերի արժեքները պետք է լինեն ANSI կոդավորմամբ։ Տե՛ս [հատուկ դեպքերը](#հատուկ-դեպքեր)։
 
 ```c#
 public Task Calculate(TemplateSubstitutionExtenderArgs args)
@@ -63,7 +66,6 @@ public Task Calculate(TemplateSubstitutionExtenderArgs args)
 
     if (agrDoc["CURRENCY"].ToString() == "001" || agrDoc["CURRENCY"].ToString() == "049")
     {
-        // ավելացվում է նոր պարամետր պարտադիր ANSI կոդավորմամբ։
         atomics.Add("CurType", "Ազատ փոխարկելի արտարժույթ".ToArmenianANSI());
     }
     else
@@ -114,3 +116,7 @@ public class AccStatements : ITemplateSubstitutionExtender
 ## Օրինակներ
 
 Տե՛ս [հաշվի քաղվածքի ընդլայնման օրինակ](/src/extenstions/examples/template_substitution_AccState.md)։
+
+## Հատուկ դեպքեր
+
+ՀԾ-Բանկում հաշվի և քարտի քաղվածքում նոր պարամետրեր ավելացնելուց արժեքը պետք է լինի Unicode կոդավորմամբ, երբ ձևանմուշը պետք է արտահանվի Unicode, այսինքն գրեթե միշտ։
