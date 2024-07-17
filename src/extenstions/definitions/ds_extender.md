@@ -28,8 +28,9 @@ tags: [Extender, DSEXTENDER]
 
 ## Օրինակներ
 
-* Նկարագրման օրինակին ծանոթանալու համար [տե՛ս](/src/extentsions/examples/ds_extender_guide.md)։
-[]()
+* [Տվյալների աղբյուրի ընդլայնում 8X-ում](ds_extender_guide.md)
+* [Տվյալների աղբյուրի պարամետրերի ընդլայնում 8X-ում](ds_extender_param_guide.md)
+* [Ընդլայնման միջոցով պարամետրի ավելացմեն ամբողջական օրինակ](/src/extenstions/definitions/ds_extender_param_full_example.md)
 
 ## DSEXTENDER նկարագրություն
 
