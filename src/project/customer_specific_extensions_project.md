@@ -5,15 +5,15 @@ title: "Կազմակերպության սեփական ընդլայնումներ
 
 Ընդլայնումներ մշակելը հեշտացնելու համար C#-ի ֆայլերը կարելի է հավաքել մեկ պրոյեկտի մեջ։  
 Պրոյեկտի կառուցվածքը տարբերվում է, երբ
-* [Հասանելի են պրոյեկտի dll-ները](#հասանելի-են-պրոյեկտի-dll-ները)
-* [Հասանելի են պրոյեկտի կոդերը](#հասանելի-են-պրոյեկտի-կոդերը)
+* [Հասանելի են 8X սերվիսի պրոյեկտի dll-ները](#հասանելի-են-8x-սերվիսի-պրոյեկտի-dll-ները)
+* [Հասանելի են 8X սերվիսի պրոյեկտի կոդերը](#հասանելի-են-8x-սերվիսի-պրոյեկտի-կոդերը)
 
-## Հասանելի են պրոյեկտի dll-ները
+## Հասանելի են 8X սերվիսի պրոյեկտի dll-ները
 
 Պրոյեկտը ստեղծել հետևյալ քայլերով
 * Ստեղծել Class Library տիպի պրոյեկտ։ Ստեղծման եղանակին ծանոթանալու համար [տե'ս](https://learn.microsoft.com/en-us/dotnet/core/tutorials/library-with-visual-studio?create-a-class-library-project):
-* Framework-ը պետք է լինի .NET 8
-  * (.csproj ֆայլում  `<TargetFramework>net8.0</TargetFramework>`)
+* Framework-ը պետք է լինի .NET 8  
+  (.csproj ֆայլում  `<TargetFramework>net8.0</TargetFramework>`)
 * Պրոյեկտում հարկավոր է անջատել հետևյալ հատկությունները
   * Implicit global usings
     (.csproj ֆայլում  `<ImplicitUsings>disable</ImplicitUsings>`)
@@ -26,7 +26,7 @@ title: "Կազմակերպության սեփական ընդլայնումներ
 * ArmSoft.AS8X.Common.dll
 * ArmSoft.AS8X.Core.dll
 
-## Ոչ պարտադիր dll-ներ
+### Ոչ պարտադիր dll-ներ
 
 Ստորև dll-ները պարդիր չեն, բայց հիմնականում օգտագործվում են ընդլայնում գրելուց
 * Armsoft.PrintTemplates2.dll
@@ -73,15 +73,15 @@ title: "Կազմակերպության սեփական ընդլայնումներ
 </Project>
 ```
 
-## Հասանելի են պրոյեկտի կոդերը
+## Հասանելի են 8X սերվիսի պրոյեկտի կոդերը
 
 Պրոյեկտի կոդերի բեռնումը [տե՛ս այստեղ](get_project.md)։
 
 Պրոյեկտը ստեղծել հետևյալ քայլերով
 * Պատճենել ՀԾ-Բանկի հիմնական լուծման ֆայլը (ArmSoft.AS8X.Bank.sln)։ 
 * Ավելացնել նոր Class Library տիպի պրոյեկտ։ Ստեղծման եղանակին ծանոթանալու համար [տե'ս](https://learn.microsoft.com/en-us/dotnet/core/tutorials/library-with-visual-studio?create-a-class-library-project):
-* Framework-ը պետք է լինի .NET 8
-  * (.csproj ֆայլում  `<TargetFramework>net8.0</TargetFramework>`)
+* Framework-ը պետք է լինի .NET 8  
+  (.csproj ֆայլում  `<TargetFramework>net8.0</TargetFramework>`)
 * Պրոյեկտում հարկավոր է անջատել հետևյալ հատկությունները
   * Implicit global usings
     (.csproj ֆայլում  `<ImplicitUsings>disable</ImplicitUsings>`)
