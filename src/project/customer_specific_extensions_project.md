@@ -3,8 +3,10 @@ layout: page
 title: "Կազմակերպության սեփական ընդլայնումները պարունակող պրոյեկտի ստեղծում"
 ---
 
-Ընդլայնումներ մշակելը հեշտացնելու համար C#-ի ֆայլերը կարելի է հավաքել մեկ պրոյեկտի մեջ։ Պրոյեկտը պետք է ունենա հետևյալ կառուցվածքը
-* Ստեղծել Class Library տիպի պրոյեկտ։ Ստեղծման եղանակին ծանոթանալու համար [տե'ս](https://learn.microsoft.com/en-us/dotnet/core/tutorials/library-with-visual-studio?pivots=dotnet-8-0#create-a-class-library-project):
+Ընդլայնումներ մշակելը հեշտացնելու համար C#-ի ֆայլերը կարելի է հավաքել մեկ պրոյեկտի մեջ։ Պրոյեկտը ստեղծել հետևյալ քայլերով
+* Ստեղծել Class Library տիպի պրոյեկտ։ Ստեղծման եղանակին ծանոթանալու համար [տե'ս](https://learn.microsoft.com/en-us/dotnet/core/tutorials/library-with-visual-studio?create-a-class-library-project):
+* Framework-ը պետք է լինի .NET 8
+  * (.csproj ֆայլում  `<TargetFramework>net8.0</TargetFramework>`)
 * Պրոյեկտում հարկավոր է անջատել հետևյալ հատկությունները
   * Implicit global usings
     (.csproj ֆայլում  `<ImplicitUsings>disable</ImplicitUsings>`)
@@ -12,32 +14,26 @@ title: "Կազմակերպության սեփական ընդլայնումներ
     (.csproj ֆայլում  `<Nullable>disable</Nullable>`)
 * Պրոյեկտին ավելացնել աշխատանքի համար անհրաժեշտ dll-ները։
 
-
 ## Պարտադիր dll-ներ
 
 * ArmSoft.AS8X.Common.dll
 * ArmSoft.AS8X.Core.dll
-* Armsoft.PrintTemplates2.dll
 
-## Ստորև dll-ները պարդիր չեն, բայց հիմնականում օգտագործվում են
+## Ոչ պարտադիր dll-ներ
 
+Ստորև dll-ները պարդիր չեն, բայց հիմնականում օգտագործվում են ընդլայնում գրելուց
 * Armsoft.PrintTemplates2.dll
 * Ardalis.SmartEnum.dll
 * Microsoft.Data.SqlClient.dll
 
-## Յուրահատուկ ՀԾ-Բանկի ընդլայնումների համար
+Այս dll-ները յուրահատուկ են ըստ պրոյեկտի
+* ՀԾ-Բանկ -> ArmSoft.AS8X.Bank.dll
+* ՀԾ-Ձեռնարկություն -> ArmSoft.AS8X.Enterprise.dll
+* ՀԾ-Աշխատավարձ -> ArmSoft.AS8X.Wages.dll
 
-* ArmSoft.AS8X.Bank.dll
+8X սերվիսի ընդլայնման համար կարող են օգտագործվել նաև այլ dll-ներ, որ առկա են և օգտագործվում են սերվիսի dll-ների ցանկում։
 
-## Յուրահատուկ ՀԾ-Ձեռնարկության ընդլայնումների համար
-
-* ArmSoft.AS8X.Enterprise.dll
-
-## Յուրահատուկ ՀԾ-Աշխատավարձի ընդլայնումների համար
-
-* ArmSoft.AS8X.Wages.dll
-
-## csproj-ի օրինակ
+## ՀԾ-Բանկի ընդլայնման csproj-ի օրինակ
 
 ``` xml
 <Project Sdk="Microsoft.NET.Sdk">
