@@ -3,7 +3,14 @@ layout: page
 title: "Կազմակերպության սեփական ընդլայնումները պարունակող պրոյեկտի ստեղծում"
 ---
 
-Ընդլայնումներ մշակելը հեշտացնելու համար C#-ի ֆայլերը կարելի է հավաքել մեկ պրոյեկտի մեջ։ Պրոյեկտը ստեղծել հետևյալ քայլերով
+Ընդլայնումներ մշակելը հեշտացնելու համար C#-ի ֆայլերը կարելի է հավաքել մեկ պրոյեկտի մեջ։  
+Պրոյեկտի կառուցվածքը տարբերվում է, երբ
+* [Հասանելի են պրոյեկտի dll-ները](#հասանելի-են-պրոյեկտի-dll-ները)
+* [Հասանելի են պրոյեկտի կոդերը](#հասանելի-են-պրոյեկտի-կոդերը)
+
+## Հասանելի են պրոյեկտի dll-ները
+
+Պրոյեկտը ստեղծել հետևյալ քայլերով
 * Ստեղծել Class Library տիպի պրոյեկտ։ Ստեղծման եղանակին ծանոթանալու համար [տե'ս](https://learn.microsoft.com/en-us/dotnet/core/tutorials/library-with-visual-studio?create-a-class-library-project):
 * Framework-ը պետք է լինի .NET 8
   * (.csproj ֆայլում  `<TargetFramework>net8.0</TargetFramework>`)
@@ -14,7 +21,7 @@ title: "Կազմակերպության սեփական ընդլայնումներ
     (.csproj ֆայլում  `<Nullable>disable</Nullable>`)
 * Պրոյեկտին ավելացնել աշխատանքի համար անհրաժեշտ dll-ները։
 
-## Պարտադիր dll-ներ
+### Պարտադիր dll-ներ
 
 * ArmSoft.AS8X.Common.dll
 * ArmSoft.AS8X.Core.dll
@@ -33,11 +40,10 @@ title: "Կազմակերպության սեփական ընդլայնումներ
 
 8X սերվիսի ընդլայնման համար կարող են օգտագործվել նաև այլ dll-ներ, որ առկա են և օգտագործվում են սերվիսի dll-ների ցանկում։
 
-## ՀԾ-Բանկի ընդլայնման csproj-ի օրինակ
+### ՀԾ-Բանկի ընդլայնման csproj-ի օրինակ
 
 ``` xml
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
@@ -64,6 +70,38 @@ title: "Կազմակերպության սեփական ընդլայնումներ
       <HintPath>..\ServiceLocation\Ardalis.SmartEnum.dll</HintPath>
     </Reference>
   </ItemGroup>
+</Project>
+```
 
+## Հասանելի են պրոյեկտի կոդերը
+
+Պրոյեկտի կոդերի բեռնումը [տե՛ս այստեղ](get_project.md)։
+
+Պրոյեկտը ստեղծել հետևյալ քայլերով
+* Պատճենել ՀԾ-Բանկի հիմնական լուծման ֆայլը (ArmSoft.AS8X.Bank.sln)։ 
+* Ավելացնել նոր Class Library տիպի պրոյեկտ։ Ստեղծման եղանակին ծանոթանալու համար [տե'ս](https://learn.microsoft.com/en-us/dotnet/core/tutorials/library-with-visual-studio?create-a-class-library-project):
+* Framework-ը պետք է լինի .NET 8
+  * (.csproj ֆայլում  `<TargetFramework>net8.0</TargetFramework>`)
+* Պրոյեկտում հարկավոր է անջատել հետևյալ հատկությունները
+  * Implicit global usings
+    (.csproj ֆայլում  `<ImplicitUsings>disable</ImplicitUsings>`)
+  * Nullable
+    (.csproj ֆայլում  `<Nullable>disable</Nullable>`)
+* Պրոյեկտին բանկային հիմնական պրոյեկտի հղում  
+  (.csproj ֆայլում `<ProjectReference Include="..\ProjectLocation\Bank\AS-8X\ArmSoft.AS8X.Bank\ArmSoft.AS8X.Bank.csproj" />`)
+
+### ՀԾ-Բանկի ընդլայնման csproj-ի օրինակ
+
+``` xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectLocation\Bank\AS-8X\ArmSoft.AS8X.Bank\ArmSoft.AS8X.Bank.csproj" />
+  </ItemGroup>
 </Project>
 ```
