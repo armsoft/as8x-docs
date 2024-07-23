@@ -44,25 +44,25 @@ title: "Դիտելու ձևի ընդլայնումներ"
 
 Ստորև օրինակում, որպես նոր պարամետր ավելացվում է հաճախորդի կոդը։
 
-![alt pic](ds_extender_param_guide_extend_params.png)
+![alt pic](view_guide_extend_params.png)
 
 ### Դիալոգում նոր պարամետրի ավելացում
 
 Համակարգային նկարագրությունների «Դիալոգների ընդլայնումներ» թղթապանակում ավելացնել նոր դիալոգի ընդլայնում։
 
-![alt pic](ds_extender_param_guide_dialog_extensions.png)
+![alt pic](view_guide_dialog_extensions.png)
 
 Ավելացնել նոր դաշտ, որտեղ "Դաշտի կոդը" և "Համակարգային տիպը" պետք է համընկնեն տվյալների աղբյուրի ընդլայնիչում `AddParam` ֆունկցիայով հայտարարված պարամետրերի անվան և տիպի հետ։
 
-![alt pic](ds_extender_param_guide_dialog_extensions_create.png)
+![alt pic](view_guide_dialog_extensions_create.png)
 
 Դիալոգի անունը պետք է լինի նույնի ինչ գրանցված է համարգի մեջ տվյալ թղթապանակի համար։ 
 Այն հնարավոր է տեսնել թղթապանակը կանչելով և բացելով թղթապանակի պարամետրերը հաշվետվությունը։ 
 Օրինակում բերված է «Ընդհանուր դիտում» թղթապանակի համար դիալոգի անունը` AllOpers:
 
-![alt pic](ds_extender_param_guide_folder_param.png)
+![alt pic](view_guide_folder_param.png)
 
-![alt pic](ds_extender_param_guide_folder_param_name.png)
+![alt pic](view_guide_folder_param_name.png)
 
 
 
