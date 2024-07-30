@@ -71,10 +71,11 @@ Codegen-ը աշխատում է Text Template (`.tt` ընդլայնմամբ) ֆա
 Օրինակ՝ 
 ```tt
 <#
-string code = DSParser.Parse(configFilePath: this.Host.ResolvePath(@"..\..\CodeGen.xml"),
-                             filename: @"\PAYMENT\DOC\PaySys.as",
-			     dsName: "OBACSOPT",
-			     namespaceName: "Bank.BankSettings.DS");
+string code = DSParser.Parse(
+    configFilePath: this.Host.ResolvePath(@"..\..\CodeGen.xml"),
+    filename: @"\PAYMENT\DOC\PaySys.as",
+    dsName: "OBACSOPT",
+    namespaceName: "Bank.BankSettings.DS");
 #>
 <#= code #>
 ```
@@ -98,10 +99,11 @@ string code = DSParser.Parse(configFilePath: this.Host.ResolvePath(@"..\..\CodeG
 
 ```tt
 <#
-string code = DocParser.Parse(configFilePath: this.Host.ResolvePath(@"..\..\CodeGen.xml"),
-			      filename: @"\SOURCE\Agreement\Contracts.as",
-			      docType: "CnCont",
-			      namespaceName: "Enterprise.Doc.Agreement");
+string code = DocParser.Parse(
+    configFilePath: this.Host.ResolvePath(@"..\..\CodeGen.xml"),
+    filename: @"\SOURCE\Agreement\Contracts.as",
+    docType: "CnCont",
+    namespaceName: "Enterprise.Doc.Agreement");
 #>
 <#= code #>
 ```
@@ -119,10 +121,11 @@ string code = DocParser.Parse(configFilePath: this.Host.ResolvePath(@"..\..\Code
 Օրինակ՝ 
 ```tt
 <#    
-string code = DocParser.ParseClient(configFilePath: this.Host.ResolvePath(@"..\..\CodeGen.xml"),
-                              	   filename: @"\SOURCE\Agreement\Contracts.as",
-                                   docType: "CnCont",
-                                   namespaceName: "Enterprise.Client.Doc.Agreement");   
+string code = DocParser.ParseClient(
+    configFilePath: this.Host.ResolvePath(@"..\..\CodeGen.xml"),
+    filename: @"\SOURCE\Agreement\Contracts.as",
+    docType: "CnCont",
+    namespaceName: "Enterprise.Client.Doc.Agreement");   
 #>
 <#= code #>
 ```
