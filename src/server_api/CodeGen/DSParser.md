@@ -1,21 +1,42 @@
+---
+layout: page
+title: "DSParser դաս: Տվյալների աղբյուրների 8X տեղափոխման մասնակի ավտոմատացում"
+tags: [CodeGen, DSParser]
+---
+
+Բովանդակություն
+* [DSParser](#dsparser)
+* [Մեթոդներ](#մեթոդներ)
+  * [Parse](#parse)
+
 # DSParser
 
-DSParser դասը նախատեսված է 4x-ում նկարագրված տվյալների աղբյուրների նկարագրման հատվածը (Definition) 8x տեղափոխելու համար։
 ```c#
 public static class DSParser
 ```
 
+DSParser դասը նախատեսված է 4X-ում նկարագրված տվյալների աղբյուրների նկարագրման հատվածը (Definition) 8X տեղափոխելու համար։  
+Օգտագործվում է Text Template գործիքի մեջ։  
+Տե՛ս [CodeGen : 4X նկարագրությունների տեղափոխման մասնակի ավտոմատացում](/src/server_api/CodeGen/CodeGen.md) օգտագործումների համար։
 
 # Մեթոդներ
 
 ## Parse
-Parse մեթոդը գեներացնում է տվյալների աղբյուրի 4x-ական նկարագրությանը համարժեք 8x-ական դասը
+
 ```c#
-public static string Parse(string configFilePath, string filename, string dsName, string namespaceName,
-                           string className = "", bool generatePublicConstructor = false, string conditionalCompilationList = "")
+public static string Parse(
+                          string configFilePath,
+                          string filename,
+                          string dsName,
+                          string namespaceName,
+                          string className = "",
+                          bool generatePublicConstructor = false,
+                          string conditionalCompilationList = "")
 ```
 
-Parse մեթոդի պարամետրերի մանրամասն նկարագրություն՝
+Parse մեթոդը գեներացնում է տվյալների աղբյուրի 4X-ական նկարագրությանը համարժեք 8X-ական դասերը:
+
+Պարամետրեր
 
 | Անվանում                  | Տեսակ  | Նկարագրություն                                                                                                                                                                                                                     | Լռությամբ արժեք                                      |
 |---------------------------|:------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
