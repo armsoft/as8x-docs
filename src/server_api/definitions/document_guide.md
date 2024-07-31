@@ -6,62 +6,64 @@ tags: [Document]
 
 ## Բովանդակություն
 
-* [Նախաբան](#նախաբան)
-* [Փաստաթղթի նկարագրման համար անհրաժեշտ քայլեր](#փաստաթղթի-նկարագրման-համար-անհրաժեշտ-քայլեր)
-  * [.as ընդլայնմամբ ֆայլի սահմանում](#as-ընդլայնմամբ-ֆայլի-սահմանում)
-  * [.cs ընդլայնմամբ ֆայլի սահմանում](#cs-ընդլայնմամբ-ֆայլի-սահմանում)
-    * [Կոնստրուկտորի ձևավորում](#կոնստրուկտորի-ձևավորում)
-    * [Նկարագրման հատվածի ձևավորում](#նկարագրման-հատվածի-ձևավորում)
-    * [Մեթոդներ](#մեթոդներ)
+* [Ներածություն](#ներածություն)
+* [.as ֆայլի նկարագրություն](#as-ֆայլի-նկարագրություն)
+* [C# ֆայլի նկարագրություն](#c-ֆայլի-նկարագրություն)
+  * [Կոնստրուկտորի ձևավորում](#կոնստրուկտորի-ձևավորում)
+  * [Նկարագրման հատվածի ձևավորում](#նկարագրման-հատվածի-ձևավորում)
+  * [Մեթոդներ](#մեթոդներ)
 
 
-## Նախաբան
+## Ներածություն
 
-8X-ում փաստաթղթի նկարագրության համար հարկավոր է ունենալ 
-- .as ընդլայնմամբ ֆայլ սկրիպտերում [DOCUMENT](https://armsoft.github.io/as4x-docs/HTM/ProgrGuide/Defs/doc.html) նկարագրությամբ, որը պարունակում է մետատվյալներ փաստաթղթի մասին,
-- .cs ընդլայնմամբ ֆայլ, որը պարունակում է սերվերում աշխատող տրամաբանությունը։ 
+8X-ում փաստաթղթի նկարագրության համար հարկավոր է ունենալ [DOCUMENT](https://armsoft.github.io/as4x-docs/HTM/ProgrGuide/Defs/doc.html) նկարագրություն `.as` ֆայլում, և իրականացնել ինտերֆեյսի հետ չաշխատող իրադարձությունները C# դասում (`.cs` ֆայլում)։
 
-## Փաստաթղթի նկարագրման համար անհրաժեշտ քայլեր
+Փաստաթղթի նկարագրությունը կատարվում է 4X գործիքներով, և դրանում ավելացվում միայն մի քանի 8X-ին յուրահատուկ են հատկություն, ինչպիսին է `PROCESSINGMODE`-ը։
 
-## .as ընդլայնմամբ ֆայլի սահմանում
+C# դասը սովորաբար դրվում է երկու `.cs` ֆայլում։  
+Առաջինը գեներացվում է [CodeGen](/src/server_api/CodeGen/CodeGen.md) գործիքով, և պարունակում է նկարագրության հատվածը։  
+Երկրորդը ստեղծվում է ձեռքով և պարունակում է ոչ ինտերֆեյսային իրադարձությունների իրականացումը (Validate, Action, Folders...)։
 
+## .as ֆայլի նկարագրություն
+
+DOCUMENT-ի սահմանումը տես 4X-ի [համապատասխան](https://armsoft.github.io/as4x-docs/HTM/ProgrGuide/Defs/doc.html) ձեռնարկի։  
+Նկարագրության մեջ հարկավոր է ավելացնել միայն `PROCESSINGMODE` (կատարման ռեժիմ) հատկությունը։
+
+Օրինակ՝
 ``` as4x
 DOCUMENT {
   NAME = UsrAccs;
   CAPTION = "Օգտագործողի հաշիվներ";
   ECAPTION = "User's accounts";
-  PROCESSINGMODE = 2;
+  PROCESSINGMODE = 8; '#DocProcessingMode2
 
-Page { CAPTION = "Ընդհանուր";    ECAPTION = "General";
-REKVIZIT {NAME = USERNAME;        CAPTION = "Օգտագործողի անուն";    ECAPTION="User's name";	     TYPE = C(20);   };
-REKVIZIT {NAME = BRANCH;	  CAPTION = "Մասնաճյուղ";	    ECAPTION="Registration branch";  TYPE = C(10);  };
+  PAGE { CAPTION = "Ընդհանուր"; ECAPTION = "General";
+    REKVIZIT {NAME = USERNAME; CAPTION = "Օգտագործողի անուն"; ECAPTION="User's name";         TYPE = C(20); };
+    REKVIZIT {NAME = BRANCH;   CAPTION = "Մասնաճյուղ";        ECAPTION="Registration branch"; TYPE = C(10); };
 
-GRID {NAME = Accounts;	     CAPTION = "Հաշիվներ";              ECAPTION = "Accounts";     WIDTH = 13000; HEIGHT = 3000;
-  COLUMN {NAME = ACCTYPE;   CAPTION = "Տիպ"; 		       ECAPTION = "Type"; 		      TYPE = C(10);	 };
-  COLUMN {NAME = CODE;      CAPTION = "Կոդ";                    ECAPTION = "Code";	              TYPE = NP(16);	};
-};
+    GRID {NAME = Accounts; CAPTION = "Հաշիվներ"; ECAPTION = "Accounts"; WIDTH = 13000; HEIGHT = 3000;
+      COLUMN {NAME = ACCTYPE; CAPTION = "Տիպ"; ECAPTION = "Type"; TYPE = C(10);  };
+      COLUMN {NAME = CODE;    CAPTION = "Կոդ"; ECAPTION = "Code"; TYPE = NP(16); };
+    };
 
-MEMO {NAME = COMMENT;      CAPTION = "Մեկնաբանություն";         ECAPTION = "Comment";     WIDTH = 7000;  HEIGHT = 2300;};
-};
+    MEMO {NAME = COMMENT; CAPTION = "Մեկնաբանություն"; ECAPTION = "Comment"; WIDTH = 7000; HEIGHT = 2300; };
+  };
 }
 ```
 
-- Ստեղծել .as ընդլայնմամբ ֆայլ՝ ավելացնելով [DOCUMENT](https://armsoft.github.io/as4x-docs/HTM/ProgrGuide/Defs/doc.html) տիպի նկարագրություն, որը պարունակում է փաստաթղթի՝
-  - NAME - Ներքին անունը։
-  - CAPTION - Հայերեն անվանումը `ANSI` կոդավորմամբ։
-  - ECAPTION - Անգլերեն անվանումը։
-  - PROCESSINGMODE - Կատարման ռեժիմը։
-- Ստեղծված ֆայլը ներմուծել տվյալների բազա `Syscon` գործիքով։
+## C# ֆայլի նկարագրություն
 
-## .cs ընդլայնմամբ ֆայլի սահմանում
+C# դասը սովորաբար դրվում է երկու `.cs` ֆայլում։  
+Առաջինը գեներացվում է [CodeGen](/src/server_api/CodeGen/CodeGen.md) գործիքով, և պարունակում է նկարագրության հատվածը։  
+Երկրորդը ստեղծվում է ձեռքով և պարունակում է ոչ ինտերֆեյսային իրադարձությունների իրականացումը (Validate, Action, Folders...)։
 
-Խորհուրդ է տրվում փաստաթղթի նկարագրման հատվածը և սերվերային տրամաբանությունը գրել .cs ընդլայնմամբ 2 տարբեր ֆայլերում՝ ունենալով միևնույն դասը ու իրար միավորելով partial keyword-ի օգնությամբ։
+
 
 Նկարագրման հատվածի ամբողջական կոդը դիտելու համար [տե՛ս](../examples/document_definition_code.cs):
 
 Սերվերային տրամաբանության ամբողջական կոդը դիտելու համար [տե՛ս](../examples/document_logic_code.cs): 
 
-- Հայտատարել դաս, որը ունի փաստաթղթի ներքին անվանումը պարունակող `Document` ատրիբուտը և  ժառանգում է [Document](document.md) դասը։
+- Հայտատարել դաս, որը ունի փաստաթղթի ներքին անվանումը պարունակող `Document` ատրիբուտը և ժառանգում է [Document](document.md) դասը։
 
 ```c#
 [Document("UsrAccs")]
@@ -70,7 +72,8 @@ public class UserAccounts : Document
 
 ### Կոնստրուկտորի ձևավորում
 
-- Ձևավորել կոնստրուկտորը՝ IServiceProvider տիպի պարտադիր պարամետրով, որը պիտի կանչի base Document դասի կոնստրուկտորը և փոխանցի IServiceProvider տիպի պարամետրը: Կոնստուկտորում անհրաժեշտ է [ինյեկցիա](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) անել աշխատանքի համար անհրաժեշտ service-ները։
+- Ձևավորել կոնստրուկտորը՝ IServiceProvider տիպի պարտադիր պարամետրով, որը պիտի կանչի base Document դասի կոնստրուկտորը և փոխանցի IServiceProvider տիպի պարամետրը:
+- Կոնստուկտորում անհրաժեշտ է [ինյեկցիա](/src/project/injection.md) անել աշխատանքի համար անհրաժեշտ service-ները։
 
 ```c#
 public UserAccounts(IParametersService parameterService, IServiceProvider serviceProvider) : base(serviceProvider)
