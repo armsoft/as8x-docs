@@ -146,7 +146,7 @@ public partial class UsrAccs
     {
         if (this.Accounts.RowCount == 0)
         {
-        throw new Exception("Օգտագործողին հաշիվներ կցված չեն".ToArmenianANSI());
+            throw new Exception("Օգտագործողին հաշիվներ կցված չեն".ToArmenianANSI());
         }
         return Task.CompletedTask;
     }
@@ -155,7 +155,7 @@ public partial class UsrAccs
     {
         if (string.IsNullOrWhiteSpace(this.BRANCH))
         {
-        this.BRANCH = await this.parametersService.DefaultBranch();
+            this.BRANCH = await this.parametersService.DefaultBranch();
         }
     }
 
@@ -163,12 +163,12 @@ public partial class UsrAccs
     {
         var folderElement = new FolderElement()
         {
-        FolderId = "UserAccounts",
-        Status = FolderStatus.Edit,
-        Key = this.ISN.ToString(),
-        Comment = this.Description.ArmenianCaption,
-        EComment = this.Description.EnglishCaption,
-        Spec = this.USERNAME.LeftAlign(20) + this.BRANCH.LeftAlign(50)
+            FolderId = "UserAccounts",
+            Status = FolderStatus.Edit,
+            Key = this.USERNAME,
+            Comment = this.Description.ArmenianCaption,
+            EComment = this.Description.EnglishCaption,
+            Spec = this.USERNAME.LeftAlign(20) + this.BRANCH.LeftAlign(50)
         };
         this.DocumentService.StoreInFolder(this, folderElement);
         return Task.CompletedTask;
@@ -179,7 +179,7 @@ public partial class UsrAccs
         bool isDeletionAllowed = await this.parametersService.GetBooleanValue("DELETEALIENDOCS");
         if (!isDeletionAllowed)
         {
-        throw new Exception("Փաստաթուղթը հեռացնելու իրավասություն չունեք".ToArmenianANSI());
+            throw new Exception("Փաստաթուղթը հեռացնելու իրավասություն չունեք".ToArmenianANSI());
         }
     }
 }
