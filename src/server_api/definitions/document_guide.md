@@ -74,12 +74,18 @@ DOCUMENT {
 
 - Ավելացված են մուտքագրման դաշտերը որպես հատկություններ` ճիշտ տիպի բերումները արած։
   ```c#
-  public string NAME
+  /// <summary>
+  /// Օգտագործողի անուն
+  /// </summary>
+  public string USERNAME
   {
-      get { return (string)this[nameof(this.NAME)]; }
-      set { this[nameof(this.NAME)] = value; }
+      get { return (string)this[nameof(this.USERNAME)]; }
+      set { this[nameof(this.USERNAME)] = value; }
   }
 
+  /// <summary>
+  /// Մասնաճյուղ
+  /// </summary>
   public string BRANCH
   {
       get { return (string)this[nameof(this.BRANCH)]; }
@@ -109,7 +115,6 @@ DOCUMENT {
           get { return (decimal)this[nameof(this.CODE)]; }
           set { this[nameof(this.CODE)] = value; }
       }
-
   }
   ```
 
@@ -192,7 +197,7 @@ public override async Task Action(ActionEventArgs args)
 {
     if (string.IsNullOrWhiteSpace(this.BRANCH))
     {
-       this.BRANCH = await this.parametersService.DefaultBranch();
+        this.BRANCH = await this.parametersService.DefaultBranch();
     }
 }
 ```
@@ -208,7 +213,7 @@ public override Task Folders(FoldersEventArgs args)
     {
         FolderId = "UserAccounts",
         Status = FolderStatus.Edit,
-        Key = this.ISN.ToString(),
+        Key = this.USERNAME,
         Comment = this.Description.ArmenianCaption,
         EComment = this.Description.EnglishCaption,
         Spec = this.USERNAME.LeftAlign(20) + this.BRANCH.LeftAlign(50)
@@ -225,10 +230,10 @@ public override Task Folders(FoldersEventArgs args)
 ```c#
 public override async Task Delete(DeleteEventArgs args)
 {
-   bool isDeletionAllowed = await this.parametersService.GetBooleanValue("DELETEALIENDOCS");
-   if (!isDeletionAllowed)
-   {
-      throw new Exception("Փաստաթուղթը հեռացնելու իրավասություն չունեք".ToArmenianANSI());
-   }
+    bool isDeletionAllowed = await this.parametersService.GetBooleanValue("DELETEALIENDOCS");
+    if (!isDeletionAllowed)
+    {
+        throw new Exception("Փաստաթուղթը հեռացնելու իրավասություն չունեք".ToArmenianANSI());
+    }
 }
 ```
