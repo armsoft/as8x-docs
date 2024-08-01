@@ -31,7 +31,7 @@ C# դասը սովորաբար դրվում է երկու `.cs` ֆայլում։
 - *definition*.CodeGen.tt
 - *definition*.CodeGen.cs
 
-Տե՛ս 4 ֆայլերի [օրինակը](/src/server_api/examples/document_2.md):
+Տե՛ս 4 ֆայլերի [օրինակը](/src/server_api/examples/document_definition.md):
 
 ## .as ֆայլի նկարագրություն
 
@@ -64,7 +64,7 @@ DOCUMENT {
 
 Առաջին C# ֆայլը գեներացվում է [CodeGen](/src/server_api/CodeGen/CodeGen.md) գործիքով, և պարունակում է նկարագրության հատվածը։
 
-Տե՛ս [օրինակում](/src/server_api/examples/document_2.md) ձևավորված `UsrAccs.CodeGen.cs` ֆայլը:
+Տե՛ս [օրինակում](/src/server_api/examples/document_definition.md) ձևավորված `UsrAccs.CodeGen.cs` ֆայլը:
 
 - Հայտատարարված է դաս, որը ունի փաստաթղթի ներքին անվանումը պարունակող `Document` ատրիբուտը և ժառանգում է [Document](document.md) դասից։
   ```c#
@@ -145,7 +145,7 @@ DOCUMENT {
 public partial class UsrAccs
 ```
 
-Տե՛ս [օրինակում](/src/server_api/examples/document_2.md) ձևավորված `UsrAccs.cs` ֆայլը:
+Տե՛ս [օրինակում](/src/server_api/examples/document_definition.md) ձևավորված `UsrAccs.cs` ֆայլը:
 
 ### Կոնստրուկտորի ձևավորում
 
