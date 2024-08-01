@@ -1,9 +1,11 @@
 ---
 layout: page
-title: "DOCUMENT 4X-ում և 8X-ում" 
+title: "Փաստաթղթի նկարագրության օրինակ 8X սերվիսում (DOCUMENT)" 
 ---
 
-`UserAccounts.as` ֆայլի պարունակություն։ 4X-ում պետք է գրված լինի ANSI կոդավորմամբ։
+Այս օրինակում բերված են 4 ֆայլերը, որոնք ամբողջությամբ նկարագրում են փաստաթուղթը 8X համակարգում։
+
+`UsrAccs.as` ֆայլի պարունակություն։ Ստեղծվում է 4X գործիքներով։ Պետք է գրված լինի ANSI կոդավորմամբ։
 
 ```as4x
 DOCUMENT {
@@ -26,7 +28,7 @@ DOCUMENT {
 };
 ```
 
-`UsrAccs.CodeGen.tt` ֆայլի պարունակություն։
+`UsrAccs.CodeGen.tt` ֆայլի պարունակություն։ Ստեղծվում է ձեռքով 8X սերվիսի պրոյեկտում կամ ընդլայնման պրոյեկտում։
 
 ```tt
 <#@ template debug="false" hostspecific="true" language="C#" #>
@@ -34,16 +36,16 @@ DOCUMENT {
 <#@ import namespace="ArmSoft.AS8X.CodeGen" #>
 <#@ output extension=".cs" encoding="utf-8" #>
 <#
-	string code = DocParser.Parse(
-		configFilePath: this.Host.ResolvePath(@"..\CodeGen.xml"), 
-		filename: @"\Users\UserAccounts.as", 
-		docType: "UsrAccs", 
-		namespaceName: "Bank");
+    string code = DocParser.Parse(
+        configFilePath: this.Host.ResolvePath(@"..\CodeGen.xml"), 
+        filename: @"\Users\UsrAccs.as", 
+        docType: "UsrAccs", 
+        namespaceName: "Bank");
 #>
 <#= code #>
 ```
 
-`UsrAccs.CodeGen.cs` ֆայլի պարունակություն։
+`UsrAccs.CodeGen.cs` ֆայլի պարունակություն։ Ստեղծվում է ավտոմատ `.tt` ֆայլի վրա `Run Custom Tool` գործողությամբ։
 
 ```c#
 // Ավտոմատ գեներացված է՝ սկիզբ
@@ -123,7 +125,7 @@ namespace ArmSoft.AS8X.Bank
 // Ավտոմատ գեներացված է՝ վերջ
 ```
 
-`UsrAccs.cs` ֆայլի պարունակություն։
+`UsrAccs.cs` ֆայլի պարունակություն։ Ստեղծվում է ձեռքով 8X սերվիսի պրոյեկտում կամ ընդլայնման պրոյեկտում։
 
 ```c#
 using System;
@@ -132,9 +134,53 @@ namespace ArmSoft.AS8X.Bank;
 
 public partial class UsrAccs
 {
-    public UsrAccs(IServiceProvider serviceProvider) : base(serviceProvider)
-    {
+    private readonly IParametersService parametersService;
 
+    public UserAccounts(IParametersService parameterService, IServiceProvider serviceProvider) : base(serviceProvider)
+    {
+        this.parametersService = parameterService;
+
+    }
+
+    public override Task Validate(ValidateEventArgs args)
+    {
+        if (this.Accounts.RowCount == 0)
+        {
+        throw new Exception("Օգտագործողին հաշիվներ կցված չեն".ToArmenianANSI());
+        }
+        return Task.CompletedTask;
+    }
+
+    public override async Task Action(ActionEventArgs args)
+    {
+        if (string.IsNullOrWhiteSpace(this.BRANCH))
+        {
+        this.BRANCH = await this.parametersService.DefaultBranch();
+        }
+    }
+
+    public override Task Folders(FoldersEventArgs args)
+    {
+        var folderElement = new FolderElement()
+        {
+        FolderId = "UserAccounts",
+        Status = FolderStatus.Edit,
+        Key = this.ISN.ToString(),
+        Comment = this.Description.ArmenianCaption,
+        EComment = this.Description.EnglishCaption,
+        Spec = this.USERNAME.LeftAlign(20) + this.BRANCH.LeftAlign(50)
+        };
+        this.DocumentService.StoreInFolder(this, folderElement);
+        return Task.CompletedTask;
+    }
+
+    public override async Task Delete(DeleteEventArgs args)
+    {
+        bool isDeletionAllowed = await this.parametersService.GetBooleanValue("DELETEALIENDOCS");
+        if (!isDeletionAllowed)
+        {
+        throw new Exception("Փաստաթուղթը հեռացնելու իրավասություն չունեք".ToArmenianANSI());
+        }
     }
 }
 ```
