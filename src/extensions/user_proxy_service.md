@@ -143,8 +143,8 @@ public Task<Document> LoadDoc(int isn, GridLoadMode gridLoadMode = GridLoadMode.
 
 **Պարամետրեր**
 
-* `isn` - Տվյալների աղբյուրի ընդլայնման տողերի ցուցակ։
-* `gridLoadMode` - Տվյալների աղբյուրի հաշվարկին սկսելու պարամետրեր։ Պարունակում է տվյալն
+* `isn` - Փաստաթղթի ISN։
+* `gridLoadMode` -  Ոչ պարտադիր, բեռնել նաև փաստաթղթի գրիդերը թե ոչ, հնարավոր արժեքներն են `GridLoadMode.Full` կամ `GridLoadMode.None`։ Լրությամբ արժեք՝ `true`
 * `loadParents` -
 * `throwExceptionIfDeleted` -
 * `lookInArc` -
