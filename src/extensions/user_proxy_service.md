@@ -139,12 +139,16 @@ public Task<Document> LoadDoc(int isn, GridLoadMode gridLoadMode = GridLoadMode.
                                 bool loadImagesAndMemos = false)
 ```
 
-Բեռնում է փաստաթուղթը ըստ ISN-ի
+Բեռնում է սահմանված ISN -ով փաստաթուղթը։ 
 
 **Պարամետրեր**
 
-* `rows` - Տվյալների աղբյուրի ընդլայնման տողերի ցուցակ։
-* `args` - Տվյալների աղբյուրի հաշվարկին սկսելու պարամետրեր։ Պարունակում է տվյալն
+* `isn` - Տվյալների աղբյուրի ընդլայնման տողերի ցուցակ։
+* `gridLoadMode` - Տվյալների աղբյուրի հաշվարկին սկսելու պարամետրեր։ Պարունակում է տվյալն
+* `loadParents` -
+* `throwExceptionIfDeleted` -
+* `lookInArc` -
+* `loadImagesAndMemos` - 
 
 
 
