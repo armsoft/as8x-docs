@@ -124,16 +124,31 @@ UserProxyService պարունակում է մեթոդներ, որոնք հնար
  3. ֆորմատավորել ամսաթվեր, գումարներ
  4. հաշվարկել OLAP-ի, ատոմար ցուցանիշների կամ օգտագործողի կողմից նկարագրված ֆունկցիաներ
 
-UserProxyService -ը ինյեկցիայի միջոցավ հնարավոր փոխանցել և կիրառել օգտագործողի կողմից ստեղծված ընդլայնումների դասերում։
+UserProxyService -ը ինյեկցիայի միջոցավ հնարավոր փոխանցել և կիրառել օգտագործողի կողմից ստեղծվող ընդլայնումների դասերում։
 
-
-## Հատկություններ
 
 
 ## Մեթոդներ
 
+### LoadDoc
 
-LoadDoc
+```c#
+public Task<Document> LoadDoc(int isn, GridLoadMode gridLoadMode = GridLoadMode.Full,
+                                bool loadParents = false,
+                                bool throwExceptionIfDeleted = true, bool lookInArc = true,
+                                bool loadImagesAndMemos = false)
+```
+
+Բեռնում է փաստաթուղթը ըստ ISN-ի
+
+**Պարամետրեր**
+
+* `rows` - Տվյալների աղբյուրի ընդլայնման տողերի ցուցակ։
+* `args` - Տվյալների աղբյուրի հաշվարկին սկսելու պարամետրեր։ Պարունակում է տվյալն
+
+
+
+
 LoadDocFromFolder
 LoadContractDoc
 LoadClientDoc
