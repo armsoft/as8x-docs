@@ -10,17 +10,18 @@ tags: [structure]
 * ՀԾ-Բանկի 8X սերվիսի պրոյեկտներ
   * [ArmSoft.AS8X.BankService](#armsoftas8xbankservice)
   * [ArmSoft.AS8X.Bank](#armsoftas8xbank)
+  * [ArmSoft.AS8X.BankModels](#armsoftas8xbankmodels)
   * [ArmSoft.AS8X.BankOLAP](#armsoftas8xbankolap)
-  * [ArmSoft.AS8X.Bank.Samples](#ArmSoftas8xbanksamples)
+  * [ArmSoft.AS8X.Bank.Samples](#armsoftas8xbanksamples)
 * 8X հարթակի միջուկային պրոյեկտներ
-  * [ArmSoft.AS8X.Service](#armsoft.as8x.service)
-  * [ArmSoft.AS8X.Core](#armsoft.as8x.core)
-  * [ArmSoft.AS8X.Common](#armsoft.as8x.common)
-  * [ArmSoft.AS8X.Models](#armsoft.as8x.models)
+  * [ArmSoft.AS8X.Service](#armsoftas8xservice)
+  * [ArmSoft.AS8X.Core](#armsoftas8xcore)
+  * [ArmSoft.AS8X.Common](#armsoftas8xcommon)
+  * [ArmSoft.AS8X.Models](#armsoftas8xmodels)
 * 8X հարթակի REST API տիպիզացված գրադարան
-  * [ArmSoft.AS8X.Client](#armsoft.as8x.client)
+  * [ArmSoft.AS8X.Client](#armsoftas8xclient)
 * 8X հարթակի կոնֆիգուրացիոն սերվիս
-  * [ArmSoft.AS8X.Configuration.Service](#armsoft.as8x.configuration.service)
+  * [ArmSoft.AS8X.Configuration.Service](#armsoftas8xconfigurationservice)
 
 
 ## Ներածություն
@@ -35,6 +36,9 @@ tags: [structure]
 
 ### ArmSoft.AS8X.Bank
 Պրոյեկտը պարունակում է ՀԾ-Բանկին յուրահատուկ նկարագրությունները (փաստաթղթթերի, տվյալների աղբյուրներ...) և սերվիսները։ 
+
+### ArmSoft.AS8X.BankModels
+Պրոյեկտը պարունակում է ՀԾ-Բանկին յուրահատուկ 8X հարթակի REST API-ին փոխանցվող և դրանից վերադարձվող դասերը։
 
 ### ArmSoft.AS8X.BankOLAP
 Պրոյեկտը պարունակում է OLAP հաշվետվությունների, OLAP բանաձևերին վերաբերող տրամաբանություններ։ 
