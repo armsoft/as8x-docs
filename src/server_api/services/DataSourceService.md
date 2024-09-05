@@ -40,7 +40,7 @@ public Task<List<T>> ExecuteDataSource<T>(string dsName, Dictionary<string, obje
 * `cancellationToken` - Ընդհատման օբյեկտ:
 * `T` - Տվյալների աղբյուրի տողը նկարագրող դասը։
 
-Օգտագործման օրինակին ծանոթանալու համար [տե՛ս](../examples/ds.md#1-չտիպիզացված-կատարում):
+Օգտագործման օրինակին ծանոթանալու համար [տե՛ս](../examples/ds.md#չտիպիզացված-կատարում):
 
 ### ExecuteDataSource
 
@@ -57,7 +57,7 @@ public Task<List<T>> ExecuteDataSource<T>(Type dsType, Dictionary<string, object
 * `cancellationToken` - Ընդհատման օբյեկտ:
 * `T` - Տվյալների աղբյուրի տողը նկարագրող դասը:
 
-Օգտագործման օրինակին ծանոթանալու համար [տե՛ս](../examples/ds.md#1-չտիպիզացված-կատարում):
+Օգտագործման օրինակին ծանոթանալու համար [տե՛ս](../examples/ds.md#չտիպիզացված-կատարում):
 
 ### GetColumnsDefinition
 
@@ -82,7 +82,7 @@ public T GetDataSource<T>() where T : IDataSource
 
 * `T` - Տվյալների աղբյուրի տիպը:
 
-Օգտագործման օրինակին ծանոթանալու համար [տե՛ս](../examples/ds.md#2-տիպիզացված-կատարում):
+Օգտագործման օրինակին ծանոթանալու համար [տե՛ս](../examples/ds.md#տիպիզացված-կատարում):
 
 ### GetDefinition
 
