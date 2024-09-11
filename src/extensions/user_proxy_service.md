@@ -76,43 +76,30 @@ title: "UserProxyService - ՀԾ-Բանկի ընդլայնման յուրահատ
 * [FormatDDMMYY FormatDDMMYYYY FormatYYYYMMDD](#FormatDDMMYY-FormatDDMMYYYY-FormatYYYYMMDD)
 * [CurrencyFormat](#CurrencyFormat)
 * [FormatToPrint](#FormatToPrint)
-
-
-
-
-
-
-
-
-
-
-TryAddAtomicAsync
-TryAddAtomic
-InList
-GetBranchParam
-AcName
-AcEName
-LoadAccountDescByCode
-LoadClientDescByCode
-CliName
-CliEName
-GetAccCodeByAgrISN
-GetGuaranteeISNsByAgrISN
-GetLinkedMortSum
-GetLinkedGuarSum
-GetPenJDaysCount
-GetRating
-GetRatingCode
-ExistsContractByCliISN
-ExistsContractByCliCode
-GetAgrTypeByISN
-GetAllDayAgrJ
-GetAllDayJCount
-GetDayAgrJ
-GetDayPerJ
-MaxOverdueDaysCount
-
-
+* [TryAddAtomicAsync TryAddAtomic](#TryAddAtomicAsync-TryAddAtomic)
+* [InList](#InList)
+* [GetBranchParam](#GetBranchParam)
+* [AcName](#AcName)
+* [AcEName](#AcEName)
+* [LoadAccountDescByCode](#LoadAccountDescByCode)
+* [LoadClientDescByCode](#LoadClientDescByCode)
+* [CliName](#CliName)
+* [CliEName](#CliEName)
+* [GetAccCodeByAgrISN](#GetAccCodeByAgrISN)
+* [GetGuaranteeISNsByAgrISN](#GetGuaranteeISNsByAgrISN)
+* [GetLinkedMortSum](#GetLinkedMortSum)
+* [GetLinkedGuarSum](#GetLinkedGuarSum)
+* [GetPenJDaysCount](#GetPenJDaysCount)
+* [GetRating](#GetRating)
+* [GetRatingCode](#GetRatingCode)
+* [ExistsContractByCliISN](#ExistsContractByCliISN)
+* [ExistsContractByCliCode](#ExistsContractByCliCode)
+* [GetAgrTypeByISN](#GetAgrTypeByISN)
+* [GetAllDayAgrJ](#GetAllDayAgrJ)
+* [GetAllDayJCount](#GetAllDayJCount)
+* [GetDayAgrJ](#GetDayAgrJ)
+* [GetDayPerJ](#GetDayPerJ)
+* [MaxOverdueDaysCount](#MaxOverdueDaysCount)
 * [Պայմանագրերի հաշվառումների կոդեր](#պայմանագրերի-հաշվառումների-կոդեր)
 * [Հաշվառումների գործողությունների կոդեր](#հաշվառումների-գործողությունների-կոդեր)
   
@@ -1467,15 +1454,111 @@ decimal amount = 1500.266m;
 string st = proxyService.FormatToPrint(amount);
 ```
 
+## TryAddAtomicAsync TryAddAtomic
+```c#
+public async Task TryAddAtomicAsync(string key, Func<Task<string>> operation, TemplateSubstitutionExtenderArgs templateSubstitutionArgs)
+
+public void TryAddAtomic(string key, Func<string> operation, TemplateSubstitutionExtenderArgs templateSubstitutionArgs)
+```
+
+TryAddAtomicAsync և TryAddAtomic ֆունկցիաները օգտագործվում են տպվող ձևերում օգտագործողի կողմից նկարագրվող պարամետրերի ավելացման համար։
+
+TryAddAtomicAsync ֆունկցիան օգտագործվում է այն դեպքում երբ երկրորդ պարամետրով պետք է փոխանցել ֆունկցիա (սովորական, static, լոկալ, լամբդա արտահայտություն), որը վերադարձնում է Task<string>։ Նշված ֆունկցիայի միջոցով հաշվարկվում է պարամետրի արժեքը։
+
+TryAddAtomic ֆունկցիան օգտագործվում է այն դեպքում երբ երկրորդ պարամետրով փոխանցված ֆունկցիան (սովորական, static, լոկալ, լամբդա արտահայտություն) վերադարձնում է string։
+
+**Պարամետրեր**
+
+* `key` - Պարտադիր։ Տպվող պարամետրի կոդը։
+* `operation` - Պարտադիր։ ֆունկցիա որը վերադարձնում է պարամետրի արժեքը։
+* `templateSubstitutionArgs` - TemplateSubstitutionExtenderArgs տեսակի օբյեկտ, որը ստանում է Calculate ֆունկցիան։
+
+
+```c#
+{
+    [TemplateSubstitutionExtender]
+    public class Test : ITemplateSubstitutionExtender
+    {
+        private readonly UserProxyService proxyService;
+        
+        private string clicode;
+
+        public Test(UserProxyService proxyService)
+        {
+            this.proxyService = proxyService;
+        }
+
+        public async Task Calculate(TemplateSubstitutionExtenderArgs templateSubstitutionArgs)
+        {
+            clicode = "00000418";
+            await proxyService.TryAddAtomicAsync("param1", Bnak, templateSubstitutionArgs);
+        }
+
+        public async Task<string> Bnak()
+        {
+            var cl = await proxyService.LoadClientDoc(clicode);
+            return (string) cl["COMMUNITY"];
+
+        }
+    }
+}
+```
+
+```c#
+    [TemplateSubstitutionExtender]
+    public class Test : ITemplateSubstitutionExtender
+    {
+        private readonly UserProxyService proxyService;
+        
+        private string clicode;
+
+        public Test(UserProxyService proxyService)
+        {
+            this.proxyService = proxyService;
+        }
+
+        public async Task Calculate(TemplateSubstitutionExtenderArgs templateSubstitutionArgs)
+        {
+            string yb = proxyService.YEAR_BEGIN().ToString();
+            proxyService.TryAddAtomic("param1", () => yb, templateSubstitutionArgs);
+        }
+     
+    }
+}
+```
+
+## InList
+```c#
+public static bool InList(string sValue, params string[] lValues)
+public static bool InList(string sValue, IEnumerable<string> lValues)
+```
+
+Ստուգում է ենթատողի առկայությունը տողի / տողերի կամ որևէ կոլեկցիայի մեջ։
+
+**Պարամետրեր**
+
+* `sValue` - Պարտադիր։ Փնտրվող ենթատող։
+* `lValues` - Պարտադիր։ Տող / տողեր, զանգված կամ այլ տեսակի կոլեկցիա, որտեղ փնտրվում է ենթատողը։
+
+```c#
+bool abcExist = UserProxyService.InList("abc", "ab", "cd", "abc");
+bool abcExist = UserProxyService.InList("abc", ["ab", "cd", "abc"]);
+```
+
+## GetBranchParam
+```c#
+public Task<string> GetBranchParam(string paramCode, string branchCode = "")
+```
+Վերադարձնում է սահմանված կոդով գրասենյակի փաստաթղթի դաշտերի արժեքները։
+
+**Պարամետրեր**
+
+* `paramCode` - Պարտադիր։ Դաշտի ներքին անվանում։
+* `branchCode` - Պարտադիր։ Գրասենյակի կոդ։
 
 
 
 
-
-TryAddAtomicAsync
-TryAddAtomic
-InList
-GetBranchParam
 AcName
 AcEName
 LoadAccountDescByCode
