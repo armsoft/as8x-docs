@@ -1,6 +1,12 @@
 ---
 layout: page
-title: "DPR-ի նկարագրման ձեռնարկ"
+title: "Նոր երկար աշխատող պրոցեսի (DPR) նկարագրման ձեռնարկ"
+tags: [DPR]
+sublinks:
+- { title: "Օժանդակ դասերի սահմանում", ref: օժանդակ-դասերի-սահմանում }
+- { title: "Հիմնական դասի սահմանում", ref: հիմնական-դասի-սահմանում }
+- { title: "Կոնստրուկտորի ձևավորում", ref: կոնստրուկտորի-ձևավորում }
+- { title: "Execute", ref: execute }
 ---
 
 ## Բովանդակություն
@@ -8,14 +14,17 @@ title: "DPR-ի նկարագրման ձեռնարկ"
 - [Ներածություն](#ներածություն)
 - [.cs ընդլայնմամբ ֆայլի սահմանում](#cs-ընդլայնմամբ-ֆայլի-սահմանում)
   - [Օժանդակ դասերի սահմանում](#օժանդակ-դասերի-սահմանում)
+  - [Հիմնական դասի սահմանում](#հիմնական-դասի-սահմանում)
   - [Կոնստրուկտորի ձևավորում](#կոնստրուկտորի-ձևավորում)
   - [Execute](#execute)
 
 ## Ներածություն
 
-Սերվիսային երկար տևող հարցումներ կատարելու և կատարման ընթացքին հետևելու համար նկարագրվում է DPR (Data Processing Request):
+Սերվիսային երկար տևող հարցումներ կատարելու և կատարման ընթացքին հետևելու համար նկարագրվում է երկար աշխատող պրոցես (DPR - Data Processing Request): 
+Տե՛ս [Ասինխրոն մշակում կիրառությունների սերվերի վրա](../../architecture/appserver_async.md)։
 
-8X-ում DPR նկարագրության համար հարկավոր է ունենալ .cs ընդլայնմամբ ֆայլ, որը պարունակում է սերվերում աշխատող տրամաբանությունը։
+8X-ում DPR նկարագրության համար հարկավոր է նկարագրել սերվերում աշխատող տրամաբանությունը C# դասում (`.cs` ֆայլում)։  
+Հարկավոր է սահմնել մուտքային և ելթային պարամետրերի դասեր (կարող ենք օգտագործվել գոյություն ունեցողները)։
 
 Կազմակերպության սեփական DPR-ների ստեղծման համար [տե՛ս](../../extensions/definitions/dpr_new_guide.md):
 
@@ -25,49 +34,49 @@ title: "DPR-ի նկարագրման ձեռնարկ"
 
 ### Օժանդակ դասերի սահմանում
 
-- Ստեղծել DPR-ի կատարման արդյունքում ստացվող տվյալները նկարագրող դասը։
-
-```c#
-public class DeleteDocsByIsnResponse
-{
-    public StorageInfo StorageInfo { get; set; }
-}
-```
-
 - Ստեղծել DPR-ի կատարման համար անհրաժեշտ պարամետրերը նկարագրող դաս։
+  ```c#
+  public class DeleteDocsByIsnRequest
+  {
+      public List<int> DocumentIsns { get; set; }
+  }
+  ```
 
-```c#
-public class DeleteDocsByIsnRequest
-{
-    public List<int> DocumentIsns { get; set; }
-}
-```
+- Ստեղծել DPR-ի կատարման արդյունքում ստացվող տվյալները նկարագրող դասը։
+  ```c#
+  public class DeleteDocsByIsnResponse
+  {
+      public StorageInfo StorageInfo { get; set; }
+  }
+  ```
 
-- Հայտատարել դաս, որը ունի DPR ատրիբուտը և ժառանգում է DataProcessingRequest<R, P> դասը՝ որպես R փոխանցելով DPR-ի կատարման արդյունքում ստացվող տվյալները նկարագրող դասը, իսկ որպես P՝ պարամետրերը նկարագրող դասը։ Պարամետրերի բացակայության դեպքում անհրաժեշտ է փոխանցել `NoParam` դասը,իսկ արդյունքի բացակայության դեպքում՝ `NoResult` դասը։
+### Հիմնական դասի սահմանում
 
-```c#
-[DPR(DPRType = DPRType.Report, ArmenianCaption = "Փաստաթղթերի հեռացում", EnglishCaption = "Deletion of documents")]
-public class DeleteDocsByIsnDPR : DataProcessingRequest<DeleteDocsByIsnResponse, DeleteDocsByIsnRequest>
-```
+- Հայտատարել դաս, որը ունի `DPR` ատրիբուտը և ժառանգում է `DataProcessingRequest<R, P>` դասը՝ որպես `R` փոխանցելով DPR-ի կատարման արդյունքում ստացվող տվյալները նկարագրող դասը, իսկ որպես `P`՝ պարամետրերը նկարագրող դասը։ 
+  Պարամետրերի բացակայության դեպքում անհրաժեշտ է փոխանցել `NoParam` դասը, իսկ արդյունքի բացակայության դեպքում՝ `NoResult` դասը։
+  ```c#
+  [DPR(DPRType = DPRType.Report, ArmenianCaption = "Փաստաթղթերի հեռացում", EnglishCaption = "Deletion of documents")]
+  public class DeleteDocsByIsnDPR : DataProcessingRequest<DeleteDocsByIsnResponse, DeleteDocsByIsnRequest>
+  ```
+  `DPR` ատրիբուտում հարկավոր է նշել խումբը, հայերեն անվանումը յունիկոդ կոդավորմամբ և անգլերեն անվանումը։
 
 ### Կոնստրուկտորի ձևավորում
 
 - Ձևավորել կոնստրուկտորը, որտեղ անհրաժեշտ է [ինյեկցիա](../../project/injection.md) անել աշխատանքի համար անհրաժեշտ service-ները։
-
-```c#
-private readonly IDocumentService documentService;
-private readonly IStorageService storageService;
-
-public DeleteDocsByIsnDPR(IDocumentService documentService, IStorageService storageService)
-{
-    this.documentService = documentService;
-    this.storageService = storageService;
-}
-```
+  ```c#
+  private readonly IDocumentService documentService;
+  private readonly IStorageService storageService;
+  
+  public DeleteDocsByIsnDPR(IDocumentService documentService, IStorageService storageService)
+  {
+      this.documentService = documentService;
+      this.storageService = storageService;
+  }
+  ```
 
 ### Execute 
 
-DPR-ի կատարման տրամաբանությունը անհրաժեշտ է մշակելու համար անհրաժեշտ է override անել բազային դասի [Execute](dpr.md#execute) մեթոդը՝ փոխանցելով պարամետրերը նկարագրող դասը և վերադարձնելով կատարման արդյունքում ստացվող տվյալները նկարագրող դասը։
+DPR-ի կատարման տրամաբանությունը մշակելու համար անհրաժեշտ է մշակել [Execute](dpr.md#execute) մեթոդը, որին փոխանցվում է պարամետրերը նկարագրող դասը և վերադարձնում է կատարման արդյունքում ստացվող տվյալները նկարագրող դասը։
 
 Օրինակում նկարագրված DPR-ը հեռացնում է կատարման պարամետրում տրված ISN-ներով փաստաթղթերը համակարգից [IDocumentService](../services/IDocumentService.md).[Delete](../services/IDocumentService.md#delete) մեթոդի միջոցով, ստեղծում է [TextReport](TextReport.md)՝ կատարման ընթացքում առաջացած սխալները տեքստային հաշվետվությունում գրանցելու, որպես ֆայլ պահելու և վերադարձնելու համար։
 
@@ -100,16 +109,15 @@ public override async Task<DeleteDocsByIsnResponse> Execute(DeleteDocsByIsnReque
 
     foreach (int isn in isns)
     {
-
         if (stoppingToken.IsCancellationRequested)
         {
-            break; // եթե DPR-ի կատարման պրոգրեսի պատուհանից սեղմվել է "Ընդհատել կոճակը", ապա ընդհատվում է կատարումը
+            break; // եթե DPR-ի կատարման պրոգրեսի պատուհանից սեղմվել է «Ընդհատել» կոճակը, ապա ընդհատվում է կատարումը
         }
         this.Progress.CurrentPhase.Row++; // ամեն փաստաթղթի մշակման հետ պատուհանում փոխվում է մշակված փաստաթղթերի քանակը, օրինակ 7/11
         try
         {
             //հերթական փաստաթղթի ամբողջական հեռացում
-            await this.documentService.Delete(isn, true, "Փաստաթղթի հեռացում");
+            await this.documentService.Delete(isn, true, "Փաստաթղթի հեռացում".ToArmenianANSI());
         }
         catch (Exception ex)
         {
@@ -118,8 +126,7 @@ public override async Task<DeleteDocsByIsnResponse> Execute(DeleteDocsByIsnReque
             {
                 report.AddRow(line, isn);
             }
-            report.AddHeader(string.Empty);
-            continue;
+            report.AddRow(string.Empty);
         }
     }
 
