@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Նոր երկար աշխատող պրոցեսի (DPR) նկարագրման ձեռնարկ"
+title: "երկար աշխատող պրոցեսի (DPR) նկարագրման ձեռնարկ"
 tags: [DPR]
 sublinks:
 - { title: "Օժանդակ դասերի սահմանում", ref: օժանդակ-դասերի-սահմանում }
@@ -12,7 +12,7 @@ sublinks:
 ## Բովանդակություն
 
 - [Ներածություն](#ներածություն)
-- [.cs ընդլայնմամբ ֆայլի սահմանում](#cs-ընդլայնմամբ-ֆայլի-սահմանում)
+ - [C# ֆայլի նկարագրություն](#c-ֆայլի-նկարագրություն)
   - [Օժանդակ դասերի սահմանում](#օժանդակ-դասերի-սահմանում)
   - [Հիմնական դասի սահմանում](#հիմնական-դասի-սահմանում)
   - [Կոնստրուկտորի ձևավորում](#կոնստրուկտորի-ձևավորում)
@@ -23,14 +23,14 @@ sublinks:
 Սերվիսային երկար տևող հարցումներ կատարելու և կատարման ընթացքին հետևելու համար նկարագրվում է երկար աշխատող պրոցես (DPR - Data Processing Request): 
 Տե՛ս [Ասինխրոն մշակում կիրառությունների սերվերի վրա](../../architecture/appserver_async.md)։
 
-8X-ում DPR նկարագրության համար հարկավոր է նկարագրել սերվերում աշխատող տրամաբանությունը C# դասում (`.cs` ֆայլում)։  
+DPR-ի նկարագրության համար հարկավոր է իրականացնել սերվերում աշխատող տրամաբանությունը C# դասում (`.cs` ֆայլում)։  
 Հարկավոր է սահմնել մուտքային և ելթային պարամետրերի դասեր (կարող ենք օգտագործվել գոյություն ունեցողները)։
 
-Կազմակերպության սեփական DPR-ների ստեղծման համար [տե՛ս](../../extensions/definitions/dpr_new_guide.md):
+Կազմակերպության սեփական DPR-ների ստեղծման համար տե՛ս [այստեղ](../../extensions/definitions/dpr_new_guide.md):
 
-## .cs ընդլայնմամբ ֆայլի սահմանում
+## C# ֆայլի նկարագրություն
 
-Ամբողջական կոդը դիտելու համար [տե՛ս](../examples/dpr/code.cs):
+Ձեռնարկի ամբողջական կոդը ինչպես նաև սկրիպտից կանչի ձևը տե՛ս [այստեղ](../examples/dpr/code.cs):
 
 ### Օժանդակ դասերի սահմանում
 
@@ -55,14 +55,14 @@ sublinks:
 - Հայտատարել դաս, որը ունի `DPR` ատրիբուտը և ժառանգում է `DataProcessingRequest<R, P>` դասը՝ որպես `R` փոխանցելով DPR-ի կատարման արդյունքում ստացվող տվյալները նկարագրող դասը, իսկ որպես `P`՝ պարամետրերը նկարագրող դասը։ 
   Պարամետրերի բացակայության դեպքում անհրաժեշտ է փոխանցել `NoParam` դասը, իսկ արդյունքի բացակայության դեպքում՝ `NoResult` դասը։
   ```c#
-  [DPR(DPRType = DPRType.Report, ArmenianCaption = "Փաստաթղթերի հեռացում", EnglishCaption = "Deletion of documents")]
+  [DPR(DPRType = DPRType.Other, ArmenianCaption = "Փաստաթղթերի հեռացում", EnglishCaption = "Deletion of documents")]
   public class DeleteDocsByIsnDPR : DataProcessingRequest<DeleteDocsByIsnResponse, DeleteDocsByIsnRequest>
   ```
   `DPR` ատրիբուտում հարկավոր է նշել խումբը, հայերեն անվանումը յունիկոդ կոդավորմամբ և անգլերեն անվանումը։
 
 ### Կոնստրուկտորի ձևավորում
 
-- Ձևավորել կոնստրուկտորը, որտեղ անհրաժեշտ է [ինյեկցիա](../../project/injection.md) անել աշխատանքի համար անհրաժեշտ service-ները։
+- Ձևավորել կոնստրուկտորը, որտեղ անհրաժեշտ է [ինյեկցիա](../../project/injection.md) անել աշխատանքի համար անհրաժեշտ սերվիսները։
   ```c#
   private readonly IDocumentService documentService;
   private readonly IStorageService storageService;
@@ -74,11 +74,11 @@ sublinks:
   }
   ```
 
-### Execute 
+### Execute
 
-DPR-ի կատարման տրամաբանությունը մշակելու համար անհրաժեշտ է մշակել [Execute](dpr.md#execute) մեթոդը, որին փոխանցվում է պարամետրերը նկարագրող դասը և վերադարձնում է կատարման արդյունքում ստացվող տվյալները նկարագրող դասը։
+Հիմնական տրամաբանությունը հարկավոր է իրականացնել [Execute](dpr.md#execute) մեթոդում, այն ստանում է մուտքային պարամետրերը նկարագրող դասը և պետք է վերադարձնի կատարման արդյունքում ստացվող տվյալները նկարագրող դասը։
 
-Օրինակում նկարագրված DPR-ը հեռացնում է կատարման պարամետրում տրված ISN-ներով փաստաթղթերը համակարգից [IDocumentService](../services/IDocumentService.md).[Delete](../services/IDocumentService.md#delete) մեթոդի միջոցով, ստեղծում է [TextReport](../types/TextReport.md)՝ կատարման ընթացքում առաջացած սխալները տեքստային հաշվետվությունում գրանցելու, որպես ֆայլ պահելու և վերադարձնելու համար։
+Ստորև օրինակում նկարագրված DPR-ը հեռացնում է կատարման պարամետրում տրված ISN-ներով փաստաթղթերը համակարգից [IDocumentService](../services/IDocumentService.md).[Delete](../services/IDocumentService.md#delete) մեթոդի միջոցով, ստեղծում է [TextReport](../types/TextReport.md), որում լրացնում է կատարման ընթացքում առաջացած սխալները և վերադարձնում է կլիենտին։
 
 ```c#
 public override async Task<DeleteDocsByIsnResponse> Execute(DeleteDocsByIsnRequest request, CancellationToken stoppingToken)
@@ -95,11 +95,11 @@ public override async Task<DeleteDocsByIsnResponse> Execute(DeleteDocsByIsnReque
     report.AddFragment(fragmentLength);
 
     // հաշվետվությունում գլխագիր տողի ավելացում թավ տառաոճով
-    var formattedText = ApplyStyle("Փաստաթղթերի հեռացման սխալներ", TextReportStyle.Bold);
+    var formattedText = TextReport.TextReport.ApplyStyle("Փաստաթղթերի հեռացման սխալներ".ToArmenianANSI(), TextReportStyle.Bold);
     report.AddHeader(formattedText);
 
     // DPR-ի կատարման պրոգրեսի պատուհանում "Հարցման կատարում" անունով փուլի ավելացում
-    this.Progress.Add("Հարցման կատարում");
+    this.Progress.Add("Հարցման կատարում".ToArmenianANSI());
     var isns = request.DocumentIsns;
 
     this.Progress.CurrentPhase.Total = isns.Count; // պրոգրեսի ընթացիկ փուլում մշակվող տվյալների քանակը տալով
@@ -117,12 +117,14 @@ public override async Task<DeleteDocsByIsnResponse> Execute(DeleteDocsByIsnReque
         try
         {
             //հերթական փաստաթղթի ամբողջական հեռացում
-            await this.documentService.Delete(isn, true, "Փաստաթղթի հեռացում".ToArmenianANSI());
+            await this.documentService.Delete(isn, false, "Փաստաթղթի հեռացում".ToArmenianANSI());
         }
         catch (Exception ex)
         {
+            report.AddRow($"Առաջացել է սխալ {0} փաստաթղթի ջնջման ժամանակ։".ToArmenianANSI(), isn);
+
             // առաջացած սխալի հաղորդագրությունների ավելացում որպես տող տեքստային հաշվետվությունում
-            foreach (string line in ex.Message.Split(['\n']))
+            foreach (string line in ex.Message.Split('\n'))
             {
                 report.AddRow(line, isn);
             }
@@ -131,7 +133,7 @@ public override async Task<DeleteDocsByIsnResponse> Execute(DeleteDocsByIsnReque
     }
 
     // բոլոր փաստաթղթերի մշակումից հետո հաշվետվությունը պահվում է որպես ֆայլ SaveToStorageAndClose մեթոդի միջոցով,
-    // որը վերադարձնում է StorageInfo, որը պարունակում է ֆայլի և ֆայլը պարունակող թղթապանակի անունները
+    // որը վերադարձնում է StorageInfo, որը պարունակում է տվյալներ սերվերից ֆայլը բեռնելու համար
     return new DeleteDocsByIsnResponse { StorageInfo = await report.SaveToStorageAndClose() };
 }
 ```

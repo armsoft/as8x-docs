@@ -8,7 +8,6 @@ using ArmSoft.AS8X.Core.Document;
 using ArmSoft.AS8X.Core.DPR;
 using ArmSoft.AS8X.Core.Storage;
 using ArmSoft.AS8X.Models;
-using static ArmSoft.AS8X.Core.TextReport.TextReport;
 
 namespace ArmSoft.AS8X.Core.DPRImplementation.DocumentOperations;
 
@@ -22,7 +21,7 @@ public class DeleteDocsByIsnRequest
     public List<int> DocumentIsns { get; set; }
 }
 
-[DPR(DPRType = DPRType.Report, ArmenianCaption = "Փաստաթղթերի հեռացում", EnglishCaption = "Deletion of documents")]
+[DPR(DPRType = DPRType.Other, ArmenianCaption = "Փաստաթղթերի հեռացում", EnglishCaption = "Deletion of documents")]
 public class DeleteDocsByIsnDPR : DataProcessingRequest<DeleteDocsByIsnResponse, DeleteDocsByIsnRequest>
 {
     private readonly IDocumentService documentService;
@@ -48,15 +47,15 @@ public class DeleteDocsByIsnDPR : DataProcessingRequest<DeleteDocsByIsnResponse,
         report.AddFragment(fragmentLength);
 
         // հաշվետվությունում գլխագիր տողի ավելացում թավ տառաոճով
-        var formattedText = ApplyStyle("Փաստաթղթերի հեռացման սխալներ", TextReportStyle.Bold);
+        var formattedText = TextReport.TextReport.ApplyStyle("Փաստաթղթերի հեռացման սխալներ".ToArmenianANSI(), TextReportStyle.Bold);
         report.AddHeader(formattedText);
 
         // DPR-ի կատարման պրոգրեսի պատուհանում "Հարցման կատարում" անունով փուլի ավելացում
-        this.Progress.Add("Հարցման կատարում");
+        this.Progress.Add("Հարցման կատարում".ToArmenianANSI());
         var isns = request.DocumentIsns;
 
         this.Progress.CurrentPhase.Total = isns.Count; // պրոգրեսի ընթացիկ փուլում մշակվող տվյալների քանակը տալով
-                                                        // պրոգրեսի պատուհանում հնարավոր է ցույց տալ մշակման ենթակա տվյալներից քանիսն են մշակվել
+                                                       // պրոգրեսի պատուհանում հնարավոր է ցույց տալ մշակման ենթակա տվյալներից քանիսն են մշակվել
 
         this.Progress.CurrentPhase.Row = 0; // ընթացիկ պահին մշակվել է 0 փաստաթուղթ
 
@@ -70,12 +69,14 @@ public class DeleteDocsByIsnDPR : DataProcessingRequest<DeleteDocsByIsnResponse,
             try
             {
                 //հերթական փաստաթղթի ամբողջական հեռացում
-                await this.documentService.Delete(isn, true, "Փաստաթղթի հեռացում");
+                await this.documentService.Delete(isn, false, "Փաստաթղթի հեռացում".ToArmenianANSI());
             }
             catch (Exception ex)
             {
+                report.AddRow($"Առաջացել է սխալ {0} փաստաթղթի ջնջման ժամանակ։".ToArmenianANSI(), isn);
+
                 // առաջացած սխալի հաղորդագրությունների ավելացում որպես տող տեքստային հաշվետվությունում
-                foreach (string line in ex.Message.Split(['\n']))
+                foreach (string line in ex.Message.Split('\n'))
                 {
                     report.AddRow(line, isn);
                 }
@@ -84,8 +85,7 @@ public class DeleteDocsByIsnDPR : DataProcessingRequest<DeleteDocsByIsnResponse,
         }
 
         // բոլոր փաստաթղթերի մշակումից հետո հաշվետվությունը պահվում է որպես ֆայլ SaveToStorageAndClose մեթոդի միջոցով,
-        // որը վերադարձնում է StorageInfo, որը պարունակում է ֆայլի և ֆայլը պարունակող թղթապանակի անունները
+        // որը վերադարձնում է StorageInfo, որը պարունակում է տվյալներ սերվերից ֆայլը բեռնելու համար
         return new DeleteDocsByIsnResponse { StorageInfo = await report.SaveToStorageAndClose() };
     }
-
 }
