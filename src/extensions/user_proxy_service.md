@@ -95,6 +95,23 @@ title: "UserProxyService - ՀԾ-Բանկի ընդլայնման յուրահատ
 * [GetDayAgrJ](#GetDayAgrJ)
 * [GetDayPerJ](#GetDayPerJ)
 * [MaxOverdueDaysCount](#MaxOverdueDaysCount)
+* [GetContractISN](#GetContractISN)
+* [LoadClientDocRO](#LoadClientDocRO)
+* [YEAR_END](#YEAR_END)
+* [CurrencyName](#CurrencyName)
+* [CurrencyISOCode](#CurrencyISOCode)
+* [CliName](#CliName)
+* [CliEName](#CliEName)
+* [GetPenJDaysCount](#GetPenJDaysCount)
+* [GetPerFutur](#GetPerFutur)
+* [GetFutAgrDbt](#GetFutAgrDbt)
+* [GetPerSumJ](#GetPerSumJ)
+* [GetAgrSumJ](#GetAgrSumJ)
+
+
+
+
+  
 * [Պայմանագրերի հաշվառումների կոդեր](#պայմանագրերի-հաշվառումների-կոդեր)
 * [Հաշվառումների գործողությունների կոդեր](#հաշվառումների-գործողությունների-կոդեր)
   
@@ -222,17 +239,6 @@ public Task<Document> LoadContractDoc(string agrType, string agrCode, string agr
 > [!TIP]
 > ՀԾ-Բանկ համակարգում ենթահամակարգերի կոդերը հնարավոր է դիտել SubSys ծառում (այն հասանելի է "Ադմինիստրատորի ԱՇՏ 4.0" &#8594; "Համակարգային աշխատանքներ" &#8594; "Համակարգային նկարագրություններ" տեղեկատուի մեջ։ Ծառը դիտելու համար անհրաժեշտ է կոնտեքստային մենյուի մեջ գործարկել "Բացել ծառը" հրամանը)։
 <br>
-
-
-## GetContractISN
-
-```c#
-public Task<int> GetContractISN(string agrType, string agrCode, string agrLevelCheck = "")??????????????
-```
-
-Վերադարձնում է պայմանագրի ISN-ը։
-
-
 
 ## LoadClientDoc
 
@@ -1818,18 +1824,99 @@ public Task<short> GetAllDayJCount(int agrIsn, DateTime repDate)
 * `getDate` - Պարտադիր։ Հարցման ամսաթիվը:
 
 ```c#
-// Հաշվարկվում է 905721123 պայմանագրի գծով անընդմեջ ժամկետանց լինելու քանակը ընթացիկ ամսաթվի դրությամբ։
+// Հաշվարկվում է 905721123 isn-ով պայմանագրի գծով անընդմեջ ժամկետանց լինելու քանակը ընթացիկ ամսաթվի դրությամբ։
 short agrJc = await proxyService.GetAllDayJCount(905721123, DateTime.Now); 
 ```
 
 ## GetDayAgrJ
-
+```c#
+public async Task<short> GetDayAgrJ(int agrIsn, string agrType, DateTime getDate)
+```
 Վերադարձնում է պայմանագրի մայր-գումարի ժամկետանց օրերի քանակը։
 
+**Պարամետրեր**
+
+* `agrIsn` - Պարտադիր։ Պայմանագրի isn:
+* `agrType` - Պարտադիր։ Պայմանագրի տիպը։ Օրինակ՝ C1Univer, C5Univer, C1Simpl: Դատարկ տող փոխանցելու դեպքում փաստաթղթի տեսակի կորոշվի ավտոմատ։
+* `getDate` - Պարտադիր։ Հարցման ամսաթիվը։
+  
+```c#
+// Հաշվարկվում է 905721123 isn-ով պայմանագրի գծով մայր-գումարի ժամկետանց օրերի քանակը ընթացիկ ամսաթվի դրությամբ։
+short overdDays = await proxyService.GetDayAgrJ(815929352,"", DateTime.Parse("2024-10-15")); 
+```
+
+## GetDayPerJ
+```c#
+public async Task<short> GetDayPerJ(int agrIsn, DateTime getDate)
+```
+Վերադարձնում է պայմանագրի տոկոսների ժամկետանց օրերի քանակը։
+
+**Պարամետրեր**
+
+* `agrIsn` - Պարտադիր։ Պայմանագրի isn:
+* `getDate` - Պարտադիր։ Հարցման ամսաթիվը։
+
+```c#
+// Հաշվարկվում է 836420323 isn-ով պայմանագրի գծով տոկոսների ժամկետանց օրերի քանակը ընթացիկ ամսաթվի դրությամբ։
+short overdPerDays = await proxyService.GetDayPerJ(836420323, DateTime.Parse("2024-10-15"));
+```
+## MaxOverdueDaysCount
+```c#
+public Task<short> MaxOverdueDaysCount(int agrIsn, DateTime dateB, DateTime dateE)
+```
+Վերադարձնում է dateB և dateE պարամետրերով սահմանված ժամանակահատվածում վարկի մայր-գումարի և տոկոսկների առավելագույն ժամկետանց օրերի քանակը։ 
+
+**Պարամետրեր**
+
+* `agrIsn` - Պարտադիր։ Պայմանագրի isn:
+* `dateB` - Պարտադիր։ Ժամանակահատվածի սկիզբ։
+* `dateE` - Պարտադիր։ Ժամանակահատվածի վերջ։
+
+```c#
+// Հաշվարկվում է 30/08/24 -ից 15/01/25 ժամանակահատվածում 822631021 isn-ով պայմանագրի գծով եղած վարկի կամ տոկոսի առավելագույն ժամկետանց օրերի քանակը։
+short maxOverd = await proxyService.MaxOverdueDaysCount(822631021, DateTime.Parse("2024-08-30"), DateTime.Parse("2025-01-15"));
+```
+
+## GetContractISN
+```c#
+public Task<int> GetContractISN(string agrType, string agrCode, string agrLevelCheck = "")
+```
+Վերադարձնում է պայմանագրի isn-ը ըստ պաիմանագրի համարի։
+
+**Պարամետրեր**
+
+* `agrType` - Պարտադիր։ Պայմանագրի տեսակ:
+* `agrCode` - Պարտադիր։ Պայմանագրի N։
+* `agrLevelCheck` - Պարտադիր։ "AGRPARENTS","AGREEMENTS","AGRCHILDREN"։
+
+> [!TIP]
+> ՀԾ-Բանկ համակարգում ենթահամակարգերի կոդերը հնարավոր է դիտել SubSys ծառում (այն հասանելի է "Ադմինիստրատորի ԱՇՏ 4.0" &#8594; "Համակարգային աշխատանքներ" &#8594; "Համակարգային նկարագրություններ" տեղեկատուի մեջ։ Ծառը դիտելու համար անհրաժեշտ է կոնտեքստային մենյուի մեջ գործարկել "Բացել ծառը" հրամանը)։
+<br>
+
+```
+// Ստանում ենք AS80-001 համարով վարկային պայմանագրի isn-ը։
+int agIsn = await proxyService.GetContractISN("C", "AS80-001", "AGRPARENTS");
+```
 
 
-GetDayPerJ
-MaxOverdueDaysCount
+LoadClientDocRO
+YEAR_END
+CurrencyName
+CurrencyISOCode
+CliName
+CliEName
+GetPenJDaysCount
+GetPerFutur
+GetFutAgrDbt
+GetPerSumJ
+GetAgrSumJ
+
+
+
+
+
+
+
 
 
 ## Պայմանագրերի հաշվառումների կոդեր
