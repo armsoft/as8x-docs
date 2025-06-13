@@ -46,4 +46,4 @@ public Task<GetStatusResponse> GetStatus(GetStatusRequest request)
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/ClientIBOptions.md#օրինակ-1)։
+Տե՛ս օգտագործման [օրինակը](../examples/ClientIBOptionsRoutes.md#օրինակ-1)։
