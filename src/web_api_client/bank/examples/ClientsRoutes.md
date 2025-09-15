@@ -102,7 +102,7 @@ private static async Task CreateClient(BankApiClient apiClient)
 
 ## Օրինակ 3
 
-Նոր իրավ. հաճախորդի ստեղծման օրինակ։
+Նոր իրավաբանական անձ հաճախորդի ստեղծման օրինակ։
 
 ```c#
 private static async Task CreateClient(BankApiClient apiClient)
@@ -113,7 +113,7 @@ private static async Task CreateClient(BankApiClient apiClient)
         var res = await apiClient.Clients.CreateJuridicalClientByFullData(new()
         {
             Name = "Կազմակերպություն".ToArmenianANSI(), // հաճախորդի անվանում
-            NameEng = "Organization".ToArmenianANSI(), // հաճախորդի անգլերեն անվանում
+            NameEng = "Organization", // հաճախորդի անգլերեն անվանում
             TaxCode = "11223344", // հաճախորդի ՀՎՀՀ
             RegNum = "1111111111", // գրանցման համար
             RegDate = new DateTime(2020, 11, 15), // տրված
@@ -130,10 +130,10 @@ private static async Task CreateClient(BankApiClient apiClient)
             AccessType = "21", // հաճախորդի հաս. տիպ
             ClientNote2 = "2", // նշում 2
             ClientNote3 = "01", // նշում 3
-            OtherFieldValues = new() { { "UDRWCOUNT", "555" } }
+            OtherFieldValues = new() { { "UDRWCOUNT", "555" } },
 
             // հաճախորդի գրանցման հասցե
-            address = new()
+            Address = new()
             {
                 Country = "AM", // երկիր
                 Community = "010010635", // բնակավայր
@@ -174,7 +174,7 @@ private static async Task UpdateClient(BankApiClient apiClient)
             NewEmail = "client@gmail.com", // նոր էլ. հասցե
             NewStmtType = ArmSoft.AS8X.Public.BankModels.Clients.StatementDeliverModes.Bank, // նոր քաղվածքի ստացման եղանակ,
             FillCurrentAddressAsReg = true, // true - Փաստացի հասցեն լրացվում է Գրանցման հասցեյի նման
-            UpdateFromEkeng = true // հաճախորդի վրա դրվում է "Տվյալների թարմացում ԷԿԵՆԳ-ից" նշիչը
+            UpdateFromEkeng = true, // հաճախորդի վրա դրվում է "Տվյալների թարմացում ԷԿԵՆԳ-ից" նշիչը
             OtherFieldValues = new() { { "UDRWCOUNT", "555" } },
             // հաճախորդի անձնագրի տվյալներ
             Passport = new()
@@ -186,10 +186,6 @@ private static async Task UpdateClient(BankApiClient apiClient)
                 DateExpire = new DateTime(2030, 11, 15), // վավեր է մինչև
             }
         });
-
-        
-        Console.WriteLine(res.Client);  // տպում է ստեղծված հաճախորդի կոդը
-        Console.WriteLine(res.IsFinalState);  //ստեղծված հաճախորդը վերջնական վիճակում է
     }
     catch (ApiException ex)
     {
@@ -202,7 +198,7 @@ private static async Task UpdateClient(BankApiClient apiClient)
 ```
 ## Օրինակ 5
 
-Իրավաբանական հաճախորդի խմբագրման օրինակ։
+Իրավաբանական անձ հաճախորդի խմբագրման օրինակ։
 
 ```c#
 private static async Task UpdateClient(BankApiClient apiClient)
@@ -231,9 +227,6 @@ private static async Task UpdateClient(BankApiClient apiClient)
                 StreetEng = "Charents" // փողոց անգլերեն
             }
         });
-
-        Console.WriteLine(res.Client);  // տպում է ստեղծված հաճախորդի կոդը
-        Console.WriteLine(res.IsFinalState);  //ստեղծված հաճախորդը վերջնական վիճակում է
     }
     catch (ApiException ex)
     {
