@@ -29,7 +29,7 @@ ClientsRoutes դասը պարունակում է մեթոդներ հաճախոր
 ### CreateClientFromEkeng
 
 ```c#
-public Task<CreatePhysicalClientByFullDataResponse> CreateClientFromEkeng(
+public Task<CreateClientResponse> CreateClientFromEkeng(
     CreateClientFromEkengRequest request)
 ```
 
