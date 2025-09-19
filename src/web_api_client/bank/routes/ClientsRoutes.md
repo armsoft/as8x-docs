@@ -4,6 +4,9 @@ title: "ClientsRoutes դաս"
 sublinks:
 - { title: "CreateClientFromEkeng", ref: createclientfromekeng }
 - { title: "CreatePhysicalClientByFullData", ref: createphysicalclientbyfulldata }
+- { title: "CreateJuridicalClientByFullData", ref: createjuridicalclientbyfulldata }
+- { title: "UpdatePhysicalClientData", ref: updatephysicalclientdata }
+- { title: "UpdateJuridicalClientData", ref: updatejuridicalclientdata }
 ---
 
 ## Բովանդակություն
@@ -12,6 +15,9 @@ sublinks:
 - [Մեթոդներ](#մեթոդներ)
   - [CreateClientFromEkeng](#createclientfromekeng)
   - [CreatePhysicalClientByFullData](#createphysicalclientbyfulldata)
+  - [CreateJuridicalClientByFullData](#createjuridicalclientbyfulldata)    
+  - [UpdatePhysicalClientData](#updatephysicalclientdata)
+  - [UpdateJuridicalClientData](#updatejuridicalclientdata)
 
 ## Ներածություն
 
@@ -23,7 +29,7 @@ ClientsRoutes դասը պարունակում է մեթոդներ հաճախոր
 ### CreateClientFromEkeng
 
 ```c#
-public Task<CreatePhysicalClientByFullDataResponse> CreateClientFromEkeng(
+public Task<CreateClientResponse> CreateClientFromEkeng(
     CreateClientFromEkengRequest request)
 ```
 
@@ -42,7 +48,7 @@ public Task<CreatePhysicalClientByFullDataResponse> CreateClientFromEkeng(
 ### CreatePhysicalClientByFullData
 
 ```c#
-public Task<CreatePhysicalClientByFullDataResponse> CreatePhysicalClientByFullDat(
+public Task<CreateClientResponse> CreatePhysicalClientByFullData(
     CreatePhysicalClientByFullDataRequest request)
 ```
 
@@ -56,3 +62,53 @@ public Task<CreatePhysicalClientByFullDataResponse> CreatePhysicalClientByFullDa
 **Օրինակ**
 
 Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-2)։
+
+### CreateJuridicalClientByFullData
+
+```c#
+public Task<CreateClientResponse> CreateJuridicalClientByFullData(
+    CreateJuridicalClientByFullDataRequest request)
+```
+
+Ստեղծում է նոր իրավ. հաճախորդ ըստ հաճախորդի հիմնական տվյալների։ 
+Վերադարձնում հաճախորդի ստեղծված լինելու մասին տվյալներ՝ հաճախորդի կոդ, ստեղված հաճախորդի վիճակը վերջնական է, թե ոչ։
+
+**Պարամետրեր**
+
+* `request` - Ավելացվող հաճախորդի տվյալներ։
+
+**Օրինակ**
+
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-3)։
+
+### UpdatePhysicalClientData
+
+```c#
+public async Task<UpdateClientResponse> UpdatePhysicalClientData(UpdatePhysicalClientDataRequest request)
+```
+
+Խմբագրում է ֆիզ. անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
+
+**Պարամետրեր**
+
+* `request` - Խմբագրվող հաճախորդի տվյալներ։
+
+**Օրինակ**
+
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-4)։
+
+### UpdateJuridicalClientData
+
+```c#
+public async Task<UpdateClientResponse> UpdateJuridicalClientData(UpdateJuridicalClientDataRequest request)
+```
+
+Խմբագրում է իրավաբանական անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
+
+**Պարամետրեր**
+
+* `request` - Խմբագրվող հաճախորդի տվյալներ։
+
+**Օրինակ**
+
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-5)։
