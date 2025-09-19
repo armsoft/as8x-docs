@@ -173,7 +173,7 @@ private static async Task UpdateClient(BankApiClient apiClient)
             NewMobile = "37477111111", // նոր հեռախոսահամար
             NewEmail = "client@gmail.com", // նոր էլ. հասցե
             NewStmtType = ArmSoft.AS8X.Public.BankModels.Clients.StatementDeliverModes.Bank, // նոր քաղվածքի ստացման եղանակ,
-            FillCurrentAddressAsReg = true, // true - Փաստացի հասցեն լրացվում է Գրանցման հասցեյի նման
+            FillCurrentAddressAsReg = true, // true - Փաստացի հասցեն լրացվում է Գրանցման հասցեի նման
             UpdateFromEkeng = true, // հաճախորդի վրա դրվում է "Տվյալների թարմացում ԷԿԵՆԳ-ից" նշիչը
             OtherFieldValues = new() { { "UDRWCOUNT", "555" } },
             // հաճախորդի անձնագրի տվյալներ
@@ -212,7 +212,7 @@ private static async Task UpdateClient(BankApiClient apiClient)
             NewMobile = "37477111111", // նոր հեռախոսահամար
             NewEmail = "client@gmail.com", // նոր էլ. հասցե
             NewStmtType = ArmSoft.AS8X.Public.BankModels.Clients.StatementDeliverModes.Bank, // նոր քաղվածքի ստացման եղանակ,
-            FillCurrentAddressAsReg = true, // true - Փաստացի հասցեն լրացվում է Գրանցման հասցեյի նման
+            FillCurrentAddressAsReg = true, // true - Փաստացի հասցեն լրացվում է Գրանցման հասցեի նման
             OtherFieldValues = new() { { "UDRWCOUNT", "555" } },
 
             // հաճախորդի փաստացի հասցե
