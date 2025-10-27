@@ -145,69 +145,8 @@ public class CreatePhysicalClientByFullDataRequest
     /// <summary> Այլ ռեկվիզիտներ/ընդլայնված ռեկվիզիտներ (UDR)</summary>
     public Dictionary<string, string> OtherFieldValues { get; set; }
 }
-
-
-public class Address
-{
-    /// <summary> Երկիր </summary>
-    public string Country { get; set; }
-
-    /// <summary> Մարզ </summary>
-    public string Community { get; set; }
-
-    /// <summary> Ինդեք </summary>
-    public string Index { get; set; }
-
-    /// <summary> Քաղաք </summary>
-    public string City { get; set; }
-
-    /// <summary> Քաղաք անգլերեն </summary>
-    public string CityEng { get; set; }
-
-    /// <summary> Փողոց </summary>
-    public string Street { get; set; }
-
-    /// <summary> Փողոց անգլերեն </summary>
-    public string StreetEng { get; set; }
-
-    /// <summary> Տուն/Շենք </summary>
-    public string BuildNum { get; set; }
-
-    /// <summary> Տուն/Շենք անգլերեն </summary>
-    public string BuildNumEng { get; set; }
-
-    /// <summary> Բնակարան </summary>
-    public string Apartment { get; set; }
-
-    /// <summary> Բնակարան անգլերեն </summary>
-    public string ApartmentEng { get; set; }
-}
-
-public class PassData
-{
-    /// <summary> Տիպ </summary>
-    public string PassType { get; set; }
-
-    /// <summary> Անձ. հաստ. փաստ. կոդ </summary>
-    public string PassCode { get; set; }
-
-    /// <summary> Տրված </summary>
-    public string PassBy { get; set; }
-
-    /// <summary> Ամսաթիվ </summary>
-    public DateTime? DatePass { get; set; }
-
-    /// <summary> Վավեր է մինչև </summary>
-    public DateTime? DateExpire { get; set; }
-
-    /// <summary> Ում կողմից է տրված </summary>
-    public string ForeignPassBy { get; set; }
-}
-public enum StatementDeliverModes
-{
-    Post = 1,
-    Email = 2,
-    Bank = 3,
-    Fax = 4
-}
 ```
+
+* [PassData](../types/PassData.md) դասի նկարագիր
+* [Address](../types/Address.md) դասի նկարագիր
+* [StatementDeliverModes](../types/StatementDeliverModes.md) դասի նկարագիր
