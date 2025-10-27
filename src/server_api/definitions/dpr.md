@@ -100,8 +100,9 @@ public DPRExecutionProgress Progress { get; }
 
 Վերադարձնում է տվյալների մշակման հարցման (`DPR`-ի) կատարման պրոգրեսը:
 
-Այս օբյեկտի միջոցով հնարավոր է կառավարել կատարման փուլերը, UI-ում ցույց տալ այդ փուլերը և UI-ում ցույց տալ հաղորդագրության պատուհան ([MessageBox](../types/UIRequestExecutionProgress.md#messagebox-1)):
+Այս օբյեկտի միջոցով հնարավոր է կառավարել կատարման փուլերը, UI-ում ցույց տալ այդ փուլերը և UI-ում ցույց տալ հաղորդագրության պատուհան ([MessageBox](../types/IUIRequestExecutionProgress.md#messagebox-1)):
 
+Տե՛ս [IUIRequestExecutionProgress](../types/IUIRequestExecutionProgress.md)։  
 Տե՛ս օգտագործման [օրինակը](../examples/dpr/code.md)։
 
 ### DPRType

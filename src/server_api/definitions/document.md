@@ -499,9 +499,10 @@ public DocumentExecutionProgress Progress { get; private set; }
 
 Վերադարձնում է փաստաթղթի կատարման պրոգրեսը։
 
-Այս օբյեկտի միջոցով հնարավոր է կառավարել գրանցման փուլերը, UI-ում ցույց տալ այդ փուլերը և UI-ում ցույց տալ հաղորդագրության պատուհան ([MessageBox](../types/UIRequestExecutionProgress.md#messagebox-1)):
+Այս օբյեկտի միջոցով հնարավոր է կառավարել գրանցման փուլերը, UI-ում ցույց տալ այդ փուլերը և UI-ում ցույց տալ հաղորդագրության պատուհան ([MessageBox](../types/IUIRequestExecutionProgress.md#messagebox-1)):
 
-Տե՛ս օգտագործման [օրինակը](../types/UIRequestExecutionProgress.md#օրինակ)։
+Տե՛ս [IUIRequestExecutionProgress](../types/IUIRequestExecutionProgress.md)։  
+Տե՛ս օգտագործման [օրինակը](../examples/IUIRequestExecutionProgress.md#օրինակ-1)։
 
 ---
 
