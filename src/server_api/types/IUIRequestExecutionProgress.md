@@ -22,7 +22,9 @@ sublinks:
 
 IUIRequestExecutionProgress ինտերֆեյսը նախատեսված է [Փաստաթղթի](../definitions/document.md) և [Տվյալների մշակման հարցման (DPR)](../definitions/dpr.md) կատարման ընթացքում սերվերից կլիենտին [հարցումներ ուղարկելու](#addcustomuirequest), կլիենտում [հաղորդագրության պատուհան ցույց տալու](#messagebox) և պատասխանը ստանալու ֆունկցիոնալությունը ապահովելու համար։
 
-Իրականացնում է [IExecutionProgress](IExecutionProgress.md)
+Իրականացնում է [IExecutionProgress](IExecutionProgress.md)։
+
+Օգտագործման [օրինակներ](../examples/IUIRequestExecutionProgress.md)։
 
 ## Հատկություններ
 
