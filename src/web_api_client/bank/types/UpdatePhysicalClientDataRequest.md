@@ -10,7 +10,7 @@ title: "UpdatePhysicalClientDataRequest դաս"
 ```c#
 public class UpdatePhysicalClientDataRequest
 {
-    /// <summary> Հաճախորդի կոդ՝ որ հաճախորդն է խմբագրվելու</summary>
+    /// <summary> Խմբագրվող Հաճախորդի կոդ </summary>
     public string ClientCode { get; set; }
 
     /// <summary> Նոր հեռախոսահամար </summary>
