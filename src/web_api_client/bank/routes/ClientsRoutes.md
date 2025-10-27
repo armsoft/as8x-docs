@@ -57,7 +57,8 @@ public Task<CreateClientResponse> CreatePhysicalClientByFullData(
 
 **Պարամետրեր**
 
-* `request` - Ավելացվող հաճախորդի տվյալներ։
+* `request` -  [CreatePhysicalClientByFullDataRequest](../types/CreatePhysicalClientByFullDataRequest.md)  
+  Ավելացվող հաճախորդի տվյալներ։
 
 **Օրինակ**
 
@@ -75,7 +76,8 @@ public Task<CreateClientResponse> CreateJuridicalClientByFullData(
 
 **Պարամետրեր**
 
-* `request` - Ավելացվող հաճախորդի տվյալներ։
+* `request` -  [CreateJuridicalClientByFullDataRequest](../types/CreateJuridicalClientByFullDataRequest.md)  
+  Ավելացվող հաճախորդի տվյալներ։
 
 **Օրինակ**
 
@@ -91,7 +93,8 @@ public async Task<UpdateClientResponse> UpdatePhysicalClientData(UpdatePhysicalC
 
 **Պարամետրեր**
 
-* `request` - Խմբագրվող հաճախորդի տվյալներ։
+* `request` -  [UpdatePhysicalClientDataRequest](../types/UpdatePhysicalClientDataRequest.md)  
+   Խմբագրվող հաճախորդի տվյալներ։
 
 **Օրինակ**
 
@@ -107,7 +110,8 @@ public async Task<UpdateClientResponse> UpdateJuridicalClientData(UpdateJuridica
 
 **Պարամետրեր**
 
-* `request` - Խմբագրվող հաճախորդի տվյալներ։
+* `request` -  [UpdateJuridicalClientDataRequest](../types/UpdateJuridicalClientDataRequest.md)  
+   Խմբագրվող հաճախորդի տվյալներ։
 
 **Օրինակ**
 
