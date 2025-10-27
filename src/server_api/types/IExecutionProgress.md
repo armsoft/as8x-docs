@@ -46,7 +46,7 @@ foreach (var row in rows)
 }
 ```
 
-![Ռիսկի հաշվարկի թղթապանակի բացման ընթացքի պատուհան](IExecutionProgress_progress.png)
+![Պրոգրեսի պատուհան](IExecutionProgress_progress.png)
 
 ## Հատկություններ
 
