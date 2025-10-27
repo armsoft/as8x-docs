@@ -178,6 +178,8 @@ public DataSourceExecutionProgress Progress { get; }
 
 Այս օբյեկտի միջոցով հնարավոր է կառավարել UI-ում ցույց տրվող փուլերը:
 
+Տե՛ս [IExecutionProgress](../types/IExecutionProgress.md)։  
+
 ### QueryTimeOut
 
 ```c#
