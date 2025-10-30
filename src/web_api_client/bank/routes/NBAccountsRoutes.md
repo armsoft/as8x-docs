@@ -3,6 +3,7 @@ layout: page
 title: "NBAccountsRoutes դաս" 
 sublinks:
 - { title: "CreateNBAccount", ref: createnbaccount }
+- { title: "GetNBAccountRemainder", ref: getnbaccountremainder }
 ---
 
 ## Բովանդակություն
@@ -10,6 +11,7 @@ sublinks:
 - [Ներածություն](#ներածություն)
 - [Մեթոդներ](#մեթոդներ)
   - [CreateNBAccount](#createnbaccount)
+  - [GetNBAccountRemainder](#getnbaccountremainder)
 
 ## Ներածություն
 
@@ -34,3 +36,19 @@ public Task<CreateNBAccountResponse> CreateNBAccount(CreateNBAccountRequest requ
 **Օրինակ**
 
 Տե՛ս օգտագործման [օրինակը](../examples/NBAccountsRoutes.md#օրինակ-1)։
+
+### GetNBAccountRemainder
+
+```c#
+public Task<GetNBAccountRemainderResponse> GetNBAccountRemainder(GetNBAccountRemainderRequest request)
+```
+
+Վերադարձնում է հաճախորդի ետհաշվեկշռային հաշվի մնացորդը հաշվի արժույթով ստանալով հաշվեհամարը և հարկ եղած դեպքում մնացորդի ամսաթիվը։
+
+**Պարամետրեր**
+
+* `request` - Ետհաշվեկշռային հաշվի տվյալները։
+
+**Օրինակ**
+
+Տե՛ս օգտագործման [օրինակը](../examples/NBAccountsRoutes.md#օրինակ-2)։
