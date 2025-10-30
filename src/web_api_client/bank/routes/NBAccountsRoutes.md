@@ -43,7 +43,7 @@ public Task<CreateNBAccountResponse> CreateNBAccount(CreateNBAccountRequest requ
 public Task<GetNBAccountRemainderResponse> GetNBAccountRemainder(GetNBAccountRemainderRequest request)
 ```
 
-Վերադարձնում է հաճախորդի ետհաշվեկշռային հաշվի մնացորդը հաշվի արժույթով ստանալով հաշվեհամարը և հարկ եղած դեպքում մնացորդի ամսաթիվը։
+Վերադարձնում է հաճախորդի ետհաշվեկշռային հաշվի մնացորդը հաշվի արժույթով, հաշվի արժույթը և մնացորդի ամսաթիվը ստանալով հաշվեհամարը և հարկ եղած դեպքում մնացորդի ամսաթիվը։
 
 **Պարամետրեր**
 
