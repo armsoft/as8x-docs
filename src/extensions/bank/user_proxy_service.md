@@ -34,6 +34,7 @@ sublinks:
 - { title: "GetClientFullName", ref: getclientfullname }
 - { title: "GetClientISN", ref: getclientisn }
 - { title: "GetClientISNByAcc", ref: getclientisnbyacc }
+- { title: "GetCodebtorsByIsnListAsync, GetCodebtorsByIsnAsync, GetClientsByParentIsnListAsync, GetClientsByParentIsnAsync",    ref:getcodebtorsbyisnlistasync-getcodebtorsbyisnasync-getclientsbyparentisnlistasync-getclientsbyparentisnasync}
 - { title: "GetClientRezJurVolortByAccount", ref: getclientrezjurvolortbyaccount }
 - { title: "GetCollateralISNsByAgrNum", ref: getcollateralisnsbyagrnum }
 - { title: "GetContractISN", ref: getcontractisn }
@@ -127,6 +128,7 @@ sublinks:
    * [GetClientFullName](#getclientfullname)
    * [GetClientISN](#getclientisn)
    * [GetClientISNByAcc](#getclientisnbyacc)
+   * [GetCodebtorsByIsnListAsync, GetCodebtorsByIsnAsync, GetClientsByParentIsnListAsync, GetClientsByParentIsnAsync](#getcodebtorsbyisnlistasync-getcodebtorsbyisnasync-getclientsbyparentisnlistasync-getclientsbyparentisnasync)
    * [GetClientRezJurVolortByAccount](#getclientrezjurvolortbyaccount)
    * [GetCollateralISNsByAgrNum](#getcollateralisnsbyagrnum)
    * [GetContractISN](#getcontractisn)
@@ -1080,7 +1082,6 @@ public Task<int> GetClientISN(string cliCode)
 ```c#
 int isn = await proxyService.GetClientISN("00006525");
 ```
-
 ### GetClientISNByAcc
 
 ```c#
@@ -1098,6 +1099,96 @@ public Task<int> GetClientISNByAcc(string acc)
 
 ```c#
 int isn = await proxyService.GetClientISNByAcc("10000081200");
+```
+### GetCodebtorsByIsnListAsync, GetCodebtorsByIsnAsync, GetClientsByParentIsnListAsync, GetClientsByParentIsnAsync
+
+```c#
+ public Task<Dictionary<int, List<ClientRow>>> GetCodebtorsByIsnListAsync(IEnumerable<int> isnList)
+ public Task<List<ClientRow>> GetCodebtorsByIsnAsync(int isn)
+ public async Task<Dictionary<int, List<ClientRow>>> GetClientsByParentIsnListAsync(IEnumerable<int> isnList, string gridName, string colName)
+ public async Task<List<ClientRow>> GetClientsByParentIsnAsync(int isn, string gridName, string colName)
+```
+**GetCodebtorsByIsnListAsync, GetCodebtorsByIsnAsync** ֆունկցիաները վերադարձնում են վարկային, օվերդրաֆտի և լիզինգի  պայմանագրերի համավարկառու / համալիզիգառու հաճախորդների տվյալները։
+
+**GetClientsByParentIsnListAsync, GetClientsByParentIsnAsync** ֆունկցիաները նախատեսված են տարբեր փաստաթղթերում պարունակվող աղյուսակներում սահմաված հաճախորդների վերաբերյալ լրացուցիչ տվյալներ բեռնելու համար։
+
+**Պարամետրեր**
+
+* `isnList` - Հաճախորդի կոդը։
+* `isn` - Փաստաթղթի ISN
+* `gridName` Փաստաթղթի աղյուսակի ներքին անվանում
+* `colName` **gridName** պարամետրով սահմանված փաստաթղթի աղյուսակում հաճախորդի կոդը պարունակող սյունակի ներքին անվանում
+
+
+**ClientRow** դասի դաշտերն են
+
+* CODE - Հաճախորդի կոդ
+* NAME - Անվանում 
+* PASCODE - Անձնագիր
+* DATEPASS - Անձնագրի տրամադրման ամսաթիվ
+* PASBY - Տրված 
+* REGNUM - Գրանցման N
+* DATEBIRTH - Ծննդյան ամսաթիվ
+* ADDRESS - Հասցե
+* TAXCODE - ՀՎՀՀ
+* GENDER - Սեռ
+* COUNTRY - Երկիր
+* DISTRICT - Մարզ
+* JURSTAT - Իր.կարգավիճակ
+* MOBCODE - Բջջային կոդ
+* MOBILE - Բջջային համար
+* EMAIL - էլ.փոստ
+
+**Օրինակ**
+
+```c#
+ /* Ստանում ենք agrIsnList զանգվածում պարունակվող isn-ներ ունեցող պայմանագրերի համավարկառուների աղյուսակում թվարկված հաճախորդների էլ. փոստի հասցեները։ 
+ */
+ List<int> agrIsnList = [2115023365, 1696227769];
+ Dictionary<int, List<ClientRow>> cliList = await _proxyService.GetCodebtorsByIsnListAsync(agrIsnList);
+ string CodebtorsEmails = "";
+ foreach (var (isn, clients) in cliList)
+ {
+     foreach (var cli in clients)
+     {
+         CodebtorsEmails += cli.EMAIL + " ";
+     }
+ }
+
+ // Ստանում ենք 2115023365 isn-ով պայմանագրի համավարկառուների էլ. փոստի հասցեները։  
+ string CodebtorsEmails2 = "";
+ List<ClientRow> cliList2 = await _proxyService.GetCodebtorsByIsnAsync(2115023365);
+
+ foreach (ClientRow cli in cliList2)
+ {
+     CodebtorsEmails2 += cli.EMAIL + " ";
+ }
+
+ /*Օրինակում ստանում ենք զանգվածով փոխանցված isn-ներով "Կապակցված հաճախորդներ"  փաստաթղթերի "Կապակցված հաճախորդներ" աղյուսակներում թվարկված հաճախորդների հասցեները
+  */
+ Dictionary<int, List<ClientRow>> cliList3 = await _proxyService.GetClientsByParentIsnListAsync([342359074, 1696227769], "RELCLIENTS", "CLICODE");
+
+ string CodebtorsAddresses2 = "";
+
+ foreach (var (isn, clients) in cliList3)
+ {
+     foreach (var cli in clients)
+     {
+         CodebtorsAddresses2 += cli.ADDRESS + " ";
+     }
+ }
+
+
+ /* Ստանում ենք փոխանցված isn-նով "Կապակցված հաճախորդներ"  փաստաթղթի "Կապակցված հաճախորդներ" աղյուսակում թվարկված հաճախորդների հասցեները
+ */
+ List<ClientRow> cliList4 = await _proxyService.GetClientsByParentIsnAsync(342359074, "RELCLIENTS", "CLICODE");
+
+ string CodebtorsAddresses3 = "";
+
+ foreach (ClientRow cli in cliList4)
+ {
+     CodebtorsAddresses3 += cli.ADDRESS + " ";
+ }
 ```
 
 ### GetClientRezJurVolortByAccount
