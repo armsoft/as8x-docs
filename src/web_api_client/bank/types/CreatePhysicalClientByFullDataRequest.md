@@ -131,7 +131,7 @@ public class CreatePhysicalClientByFullDataRequest
     /// <summary>Փաստացի հասցե</summary>
     public Address CurrentAddress { get; set; }
     
-    /// <summary>Լրացնել փաստացի հասցեն ըստ գրանցման հասցեյի</summary>
+    /// <summary>Լրացնել փաստացի հասցեն ըստ գրանցման հասցեի</summary>
     public bool FillCurrentAddressAsReg { get; set; }
     
     // Քաղվածքներ/ Ծանուցումներ
