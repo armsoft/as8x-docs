@@ -6,7 +6,7 @@ title: "StatementDeliverModes enum"
 Քաղվածքի տրամադրման ձևեր։ Enum-ը նախատեսված է հաճախորդի ստեղծման/խմբագրման համար։
 
 ```c#
-public class StatementDeliverModes
+public enum StatementDeliverModes
 {
     Post = 1,
     Email = 2,
