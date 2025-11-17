@@ -1,16 +1,16 @@
 ---
 layout: page
-title: "Օրինակ NBAccountsRoutes" 
+title: "Օրինակ NBOrdersRoutes" 
 sublinks:
-- { title: "Օրինակ CreateNBInputOrder", ref: օրինակ-3 }
-- { title: "Օրինակ CreateNBOutputOrder", ref: օրինակ-4 }
+- { title: "Օրինակ CreateNBInputOrder", ref: օրինակ-1 }
+- { title: "Օրինակ CreateNBOutputOrder", ref: օրինակ-2 }
 ---
 
 ## Բովանդակություն
-- [CreateNBInputOrder-ի օգտագործման օրինակ](#օրինակ-3)
-- [CreateNBOutputOrder-ի օգտագործման օրինակ](#օրինակ-4)
+- [CreateNBInputOrder-ի օգտագործման օրինակ](#օրինակ-1)
+- [CreateNBOutputOrder-ի օգտագործման օրինակ](#օրինակ-2)
 
-## Օրինակ 3
+## Օրինակ 1
 Ե/Հ մուտքի օրդեր ստեղծման օրինակ։
 
 ```c#
@@ -46,7 +46,7 @@ sublinks:
     }
 ```
 
-## Օրինակ 4
+## Օրինակ 2
 Ե/Հ ելքի օրդեր ստեղծման օրինակ։
 
 ```c#
