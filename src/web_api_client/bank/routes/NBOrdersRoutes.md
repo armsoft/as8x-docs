@@ -36,7 +36,7 @@ public async Task<CreateNBOrderResponse> CreateNBInputOrder(CreateNBOrderRequest
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/NBOrdersRoutes.md#օրինակ-3)։
+Տե՛ս օգտագործման [օրինակը](../examples/NBOrdersRoutes.md#օրինակ-1)։
 
 ### CreateNBOutputOrder
 
@@ -54,4 +54,4 @@ public async Task<CreateNBOrderResponse> CreateNBOutputOrder(CreateNBOrderReques
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/NBOrdersRoutes.md#օրինակ-4)։
+Տե՛ս օգտագործման [օրինակը](../examples/NBOrdersRoutes.md#օրինակ-2)։
