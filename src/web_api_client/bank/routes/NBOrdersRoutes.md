@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "NBAccountsRoutes դաս" 
+title: "NBOrdersRoutes դաս" 
 sublinks:
 - { title: "CreateNBInputOrder", ref: createnbinputorder }
 - { title: "CreateNBOutputOrder", ref: createnboutputorder }
@@ -15,7 +15,7 @@ sublinks:
 
 ## Ներածություն
 
-`NBAccountsRoutes` դասը պարունակում է մեթոդներ ետհաշվեկշռային հաշիվների հետ աշխատանքը ապահովելու համար։  
+`NBOrdersRoutes` դասը պարունակում է մեթոդներ ետհաշվեկշռային հաշիվների հետ աշխատանքը ապահովելու համար։  
 Այն հասանելի է [`BankApiClient`](../types/BankApiClient.md) դասի միջից։
 
 ## Մեթոդներ
@@ -36,7 +36,7 @@ public async Task<CreateNBOrderResponse> CreateNBInputOrder(CreateNBOrderRequest
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/NBAccountsRoutes.md#օրինակ-3)։
+Տե՛ս օգտագործման [օրինակը](../examples/NBOrdersRoutes.md#օրինակ-3)։
 
 ### CreateNBOutputOrder
 
@@ -54,4 +54,4 @@ public async Task<CreateNBOrderResponse> CreateNBOutputOrder(CreateNBOrderReques
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/NBAccountsRoutes.md#օրինակ-4)։
+Տե՛ս օգտագործման [օրինակը](../examples/NBOrdersRoutes.md#օրինակ-4)։
