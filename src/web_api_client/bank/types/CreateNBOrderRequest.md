@@ -5,8 +5,8 @@ title: "CreateNBOrderRequest դաս"
 
 Այս դասը նախատեսված է Ե/Հ մուտքի օրդեր, Ե/Հ ելքի օրդեր փաստաթղթերի ստեղծման համար։
 
-Օգտագործվում է [NBAccountsRoutes](../routes/NBAccountsRoutes.md).[CreateNBInputOrder](../routes/NBAccountsRoutes.md#createnbinputorder) ,
-   [NBAccountsRoutes](../routes/NBAccountsRoutes.md).[CreateNBOutputOrder](../routes/NBAccountsRoutes.md#createnboutputorder) մեթոդներում։
+Օգտագործվում է [NBOrdersRoutes](../routes/NBOrdersRoutes.md).[CreateNBInputOrder](../routes/NBOrdersRoutes.md#createnbinputorder) ,
+   [NBOrdersRoutes](../routes/NBOrdersRoutes.md).[CreateNBOutputOrder](../routes/NBOrdersRoutes.md#createnboutputorder) մեթոդներում։
 
 ```c#
 public class CreateNBOrderRequest
