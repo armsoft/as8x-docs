@@ -49,5 +49,8 @@ public class CreateNBOrderRequest
 
     /// <summary> Բաժին </summary>
     public string Depart { get; set; }
+
+    /// <summary> Արտաքին N </summary>
+    public string OuterCode { get; set; }
 }
 ```
