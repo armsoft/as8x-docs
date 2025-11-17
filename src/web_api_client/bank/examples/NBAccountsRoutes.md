@@ -29,7 +29,8 @@ sublinks:
                 Amount = 100, // Գումար
                 PayerReceiverName = "Մուտք Անողը".ToArmenianANSI(), // Արժեքները մուտք անող
                 Base = "Հիմք".ToArmenianANSI(), // Հիմք
-                Aim = "Նպատակ".ToArmenianANSI() // Նպատակ
+                Aim = "Նպատակ".ToArmenianANSI(), // Նպատակ
+                OuterCode = "12345678" // Արտաքին N
             });
 
             // տպում է կարգավիճակը
@@ -64,7 +65,8 @@ sublinks:
                 Amount = 100, // Գումար
                 PayerReceiverName = "Մուտք Անողը".ToArmenianANSI(), // Արժեքները ստացող
                 Base = "Հիմք".ToArmenianANSI(), // Հիմք
-                Aim = "Նպատակ".ToArmenianANSI() // Նպատակ
+                Aim = "Նպատակ".ToArmenianANSI(), // Նպատակ
+                OuterCode = "12345679" // Արտաքին N
             });
 
             // տպում է կարգավիճակը
