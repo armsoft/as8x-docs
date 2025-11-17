@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "StatementDeliverModes դաս" 
+title: "StatementDeliverModes enum" 
 ---
 
 Քաղվածքի տրամադրման ձևեր։ Enum-ը նախատեսված է հաճախորդի ստեղծման/խմբագրման համար։
