@@ -38,4 +38,4 @@ public class UpdateJuridicalClientDataRequest
 
 * [PassData](../types/PassData.md) դասի նկարագիր
 * [Address](../types/Address.md) դասի նկարագիր 
-* [StatementDeliverModes](../types/StatementDeliverModes.md) դասի նկարագիր
+* [StatementDeliverModes](../types/StatementDeliverModes.md) enum-ի նկարագիր
