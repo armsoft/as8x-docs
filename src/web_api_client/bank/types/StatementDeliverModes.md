@@ -3,7 +3,7 @@ layout: page
 title: "StatementDeliverModes դաս" 
 ---
 
-Այս դասը նախատեսված է հաճախորդի ստեղծման/խմբագրման համար։
+Քաղվածքի տրամադրման ձևեր։ Enum-ը նախատեսված է հաճախորդի ստեղծման/խմբագրման համար։
 
 ```c#
 public class StatementDeliverModes
