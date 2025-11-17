@@ -130,4 +130,4 @@ public class CreateJuridicalClientByFullDataRequest
 ```
 
 * [Address](../types/Address.md) դասի նկարագիր
-* [StatementDeliverModes](../types/StatementDeliverModes.md) դասի նկարագիր
+* [StatementDeliverModes](../types/StatementDeliverModes.md) enum-ի նկարագիր
