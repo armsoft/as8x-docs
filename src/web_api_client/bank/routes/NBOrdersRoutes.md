@@ -26,7 +26,7 @@ sublinks:
 public async Task<CreateNBOrderResponse> CreateNBInputOrder(CreateNBOrderRequest request)
 ```
 
-Ստեղծում է Ե/Հ մուտքի օրդեր ստանալով անհրաժեշտ պարամտերերը։
+Ստեղծում է Ե/Հ մուտքի օրդեր ստանալով անհրաժեշտ պարամետրերը։
 Վերադարձնում է կարգավիճակ, որը ցույց է տալիս գործողությունը բարեհաջող է անցել, թե՝ ոչ։
 
 **Պարամետրեր**
@@ -44,7 +44,7 @@ public async Task<CreateNBOrderResponse> CreateNBInputOrder(CreateNBOrderRequest
 public async Task<CreateNBOrderResponse> CreateNBOutputOrder(CreateNBOrderRequest request)
 ```
 
-Ստեղծում է Ե/Հ ելքի օրդեր ստանալով անհրաժեշտ պարամտերերը։
+Ստեղծում է Ե/Հ ելքի օրդեր ստանալով անհրաժեշտ պարամետրերը։
 Վերադարձնում է կարգավիճակ, որը ցույց է տալիս գործողությունը բարեհաջող է անցել, թե՝ ոչ։
 
 **Պարամետրեր**
