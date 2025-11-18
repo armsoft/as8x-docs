@@ -2,24 +2,24 @@
 layout: page
 title: "Օրինակ NBAccountsRoutes" 
 sublinks:
-- { title: "Օրինակ CreateNBAccount", ref: օրինակ-1 }
-- { title: "Օրինակ GetNBAccountRemainder", ref: օրինակ-2 }
+- { title: "Օրինակ Create", ref: օրինակ-1 }
+- { title: "Օրինակ GetRemainder", ref: օրինակ-2 }
 ---
 
 ## Բովանդակություն
-- [CreateNBAccount-ի օգտագործման օրինակ](#օրինակ-1)
-- [GetNBAccountRemainder-ի օգտագործման օրինակ](#օրինակ-2)
+- [Create-ի օգտագործման օրինակ](#օրինակ-1)
+- [GetRemainder-ի օգտագործման օրինակ](#օրինակ-2)
 
 ## Օրինակ 1
 Նոր ետհաշվեկշռային հաշվի ստեղծման օրինակ։
 
 ```c#
-public static async Task CreateNBAccount(BankApiClient apiClient)
+public static async Task Create(BankApiClient apiClient)
 {
     try
     {
         // ստեղծում է հաճախորդի ետհաշվեկշռային հաշիվ՝ նշելով Հ/Պ ետհաշվեկշռային հաշիվը, հաճախորդին, արժույթը և հաշվի տիպը
-        var res = await apiClient.NBAccounts.CreateGeneralAccForCli(new()
+        var res = await apiClient.NBAccounts.Create(new()
         {
             BalAcc = "8000000",
             CliCode = "00000001",
@@ -27,7 +27,8 @@ public static async Task CreateNBAccount(BankApiClient apiClient)
             AccType = "22"
         });
 
-        Console.WriteLine(res.AccCode);         //Վերադարձվում է ձևավորված հաշվի համարը
+        Console.WriteLine(res.BalAcc);         //Վերադարձնում է ձևավորված հաշվի Հ/Պ կոդը
+        Console.WriteLine(res.AccCode);         //Վերադարձնում է ձևավորված հաշվի համարը
     }
     catch (ApiException ex)
     {
@@ -43,19 +44,20 @@ public static async Task CreateNBAccount(BankApiClient apiClient)
 Ետհաշվեկշռային հաշվի մնացորդի ստացման օրինակ։
 
 ```c#
-public static async Task GetNBAccountRemainder(BankApiClient apiClient)
+public static async Task GetRemainder(BankApiClient apiClient)
 {
     try
     {
         // Ստանում է ետհաշվեկշռային հաշվի մնացորդը, արժույթը և մնացորդի ամսաթիվը՝ նշելով հաշվեհամարը
-        var res = await apiClient.NBAccounts.GetNBAccountRemainder(new()
+        var res = await apiClient.NBAccounts.GetRemainder(new()
         {
-            AccountCode = "8000000/0000101"
+            BalAcc = "8000000",
+            AccountCode = "0000101"
         });
 
-        Console.WriteLine(res.Remainder);         //Վերադարձվում է մնացորդը
-        Console.WriteLine(res.Currency);         //Վերադարձվում է հաշվի արժույթը
-        Console.WriteLine(res.Date);         //Վերադարձվում է մնացորդի ամսաթիվը
+        Console.WriteLine(res.Remainder);         //Վերադարձնում է մնացորդը
+        Console.WriteLine(res.Currency);         //Վերադարձնում է հաշվի արժույթը
+        Console.WriteLine(res.Date);         //Վերադարձնում է մնացորդի ամսաթիվը
     }
     catch (ApiException ex)
     {
