@@ -32,9 +32,6 @@ sublinks:
                 Aim = "Նպատակ".ToArmenianANSI(), // Նպատակ
                 OuterCode = "12345678" // Արտաքին N
             });
-
-            // տպում է կարգավիճակը
-            Console.WriteLine(res.Success);
         }
         catch (ApiException ex)
         {
@@ -68,9 +65,6 @@ sublinks:
                 Aim = "Նպատակ".ToArmenianANSI(), // Նպատակ
                 OuterCode = "12345679" // Արտաքին N
             });
-
-            // տպում է կարգավիճակը
-            Console.WriteLine(res.Success);
         }
         catch (ApiException ex)
         {
