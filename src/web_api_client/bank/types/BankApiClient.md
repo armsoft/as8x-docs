@@ -110,4 +110,4 @@ public LoanApplicationsRoutes LoanApplications { get; }
 public NBOrdersRoutes NBOrders { get; }
 ```
 
-Վերադարձնում է [NBOrdersRoutes](../routes/NBOrdersRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ տհաշվեկշռային հաշիվների մուտքի/ելքի օրդերների հետ աշխատանքը ապահովելու համար։
+Վերադարձնում է [NBOrdersRoutes](../routes/NBOrdersRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ Ե/Հ մուտքի/ելքի օրդերների հետ աշխատանքը ապահովելու համար։
