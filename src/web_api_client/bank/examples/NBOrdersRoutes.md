@@ -32,6 +32,8 @@ private static async Task CreateNBInputOrder(BankApiClient apiClient)
             Aim = "Նպատակ".ToArmenianANSI(), // Նպատակ
             OuterCode = "12345678" // Արտաքին N
         });
+
+        Console.WriteLine(res.ISN); // Վերադարձնում է ստեղծված Ե/Հ մուտքի օրդերի ISN-ը
     }
     catch (ApiException ex)
     {
@@ -65,6 +67,8 @@ private static async Task CreateNBOutputOrder(BankApiClient apiClient)
             Aim = "Նպատակ".ToArmenianANSI(), // Նպատակ
             OuterCode = "12345679" // Արտաքին N
         });
+
+        Console.WriteLine(res.ISN); // Վերադարձնում է ստեղծված Ե/Հ ելքի օրդերի ISN-ը
     }
     catch (ApiException ex)
     {
