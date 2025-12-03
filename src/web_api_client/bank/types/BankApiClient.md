@@ -7,6 +7,7 @@ sublinks:
 - { title: "ClientIBOptions", ref: clientiboptions }
 - { title: "Clients", ref: clients }
 - { title: "LoanApplications", ref: loanapplications }
+- { title: "NBOrders", ref: nborders }
 - { title: "Կոնստրուկտոր", ref: կոնստրուկտոր }
 ---
 
@@ -20,6 +21,7 @@ sublinks:
   - [ClientIBOptions](#clientiboptions)
   - [Clients](#clients)
   - [LoanApplications](#loanapplications)
+  - [NBOrders](#nborders)
 
 ## Ներածություն
 
@@ -101,3 +103,11 @@ public LoanApplicationsRoutes LoanApplications { get; }
 ```
 
 Վերադարձնում է [LoanApplicationsRoutes](../routes/LoanApplicationsRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ վարկային հայտերի հետ աշխատանքը ապահովելու համար։
+
+### NBOrders
+
+```c#
+public NBOrdersRoutes NBOrders { get; }
+```
+
+Վերադարձնում է [NBOrdersRoutes](../routes/NBOrdersRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ տհաշվեկշռային հաշիվների մուտքի/ելքի օրդերների հետ աշխատանքը ապահովելու համար։
