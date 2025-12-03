@@ -19,7 +19,7 @@ private static async Task CreateNBInputOrder(BankApiClient apiClient)
     try
     {
         // ստեղծում է Ե/Հ մուտքի օրդեր՝ նշելով անհրաժեշտ տվյալները
-        var res = await apiClient.NBAccounts.CreateNBInputOrder(new()
+        var res = await apiClient.NBOrders.CreateNBInputOrder(new()
         {
             Date = new DateTime(2025,1,1), // Ամսաթիվ
             BalAcc = "8000000", // Ետհաշվեկշռային հաշվի Հ/Պ
@@ -54,7 +54,7 @@ private static async Task CreateNBOutputOrder(BankApiClient apiClient)
     try
     {
         // ստեղծում է Ե/Հ ելքի օրդեր՝ նշելով անհրաժեշտ տվյալները
-        var res = await apiClient.NBAccounts.CreateNBOutputOrder(new()
+        var res = await apiClient.NBOrders.CreateNBOutputOrder(new()
         {
             Date = new DateTime(2025,1,1), // Ամսաթիվ
             BalAcc = "8000000", // Ետհաշվեկշռային հաշվի Հ/Պ
