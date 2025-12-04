@@ -14,7 +14,7 @@ public class GetNBAccountRemainderRequest
     public string BalAcc { get; set; }
 
     /// <summary> Ետհաշվեկշռային հաշվի համարը </summary>
-    public string AccountCode { get; set; }
+    public string NBAcc { get; set; }
 
     /// <summary> Ամսաթիվ </summary>
     public DateTime? Date { get; set; }
