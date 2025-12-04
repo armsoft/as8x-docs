@@ -17,7 +17,7 @@ public class CreateNBAccountRequest
     public string CliCode { get; set; }
 
     /// <summary> ՀԾ-Բանկ համակարգում արժույթի կոդ </summary>
-    public string Currency { get; set; }
+    public string Cur { get; set; }
 
     /// <summary> Ետհաշվեկշռային հաշվի տիպը </summary>
     public string AccType { get; set; }
