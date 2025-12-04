@@ -28,7 +28,7 @@ public static async Task Create(BankApiClient apiClient)
         });
 
         Console.WriteLine(res.BalAcc);         //Վերադարձնում է ձևավորված հաշվի Հ/Պ կոդը
-        Console.WriteLine(res.AccCode);         //Վերադարձնում է ձևավորված հաշվի համարը
+        Console.WriteLine(res.NBAcc);         //Վերադարձնում է ձևավորված հաշվի համարը
     }
     catch (ApiException ex)
     {
@@ -52,11 +52,11 @@ public static async Task GetRemainder(BankApiClient apiClient)
         var res = await apiClient.NBAccounts.GetRemainder(new()
         {
             BalAcc = "8000000",
-            AccountCode = "0000101"
+            NBAcc = "0000101"
         });
 
         Console.WriteLine(res.Remainder);         //Վերադարձնում է մնացորդը
-        Console.WriteLine(res.Currency);         //Վերադարձնում է հաշվի արժույթը
+        Console.WriteLine(res.Cur);         //Վերադարձնում է հաշվի արժույթը
         Console.WriteLine(res.Date);         //Վերադարձնում է մնացորդի ամսաթիվը
     }
     catch (ApiException ex)
