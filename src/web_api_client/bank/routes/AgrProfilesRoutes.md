@@ -18,10 +18,10 @@ sublinks:
 
 ## Մեթոդներ
 
-### CreateNBInputOrder
+### CacheClientContracts
 
 ```c#
-public async Task<CreateNBOrderResponse> CreateNBInputOrder(CreateNBOrderRequest request)
+public async Task<CreateNBOrderResponse> CacheClientContracts(CreateNBOrderRequest request)
 ```
 
 Ստեղծում է Ե/Հ մուտքի օրդեր ստանալով անհրաժեշտ պարամետրերը։ Վերադարձնում է ստեղծված Ե/Հ մուտքի օրդերի ISN-ը։
