@@ -13,7 +13,7 @@ sublinks:
 
 ## Ներածություն
 
-`AgrProfilesRoutes` դասը պարունակում է մեթոդներ պայմանագրերի քեշավորման համար։  
+`AgrProfilesRoutes` դասը պարունակում է մեթոդներ պայմանագրերը քեշավորման համար։  
 Այն հասանելի է [`BankApiClient`](../types/BankApiClient.md) դասի միջից։
 
 ## Մեթոդներ
@@ -21,16 +21,16 @@ sublinks:
 ### CacheClientContracts
 
 ```c#
-public async Task<CreateNBOrderResponse> CacheClientContracts(CreateNBOrderRequest request)
+public async Task<CacheClientContractsResponse> CacheClientContracts(CacheClientContractsRequest request)
 ```
 
-Ստեղծում է Ե/Հ մուտքի օրդեր ստանալով անհրաժեշտ պարամետրերը։ Վերադարձնում է ստեղծված Ե/Հ մուտքի օրդերի ISN-ը։
+Կատարում է հաճախորդի պայմանագրերի քեշավորում։
 
 **Պարամետրեր**
 
-* `request` -  [CreateNBOrderRequest](../types/CreateNBOrderRequest.md)  
-   Ստեղծվող Ե/Հ մուտքի օրդերի տվյալներ։
+* `request` -  [CacheClientContractsRequest](../types/CacheClientContractsRequest.md)  
+   Հաճախորդի պայմանագրերի քեշավորման հարցման տվյալներ։
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/NBOrdersRoutes.md#օրինակ-1)։
+Տե՛ս օգտագործման [օրինակը](../examples/AgrProfilesRoutes.md#օրինակ-1)։
