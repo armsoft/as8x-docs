@@ -10,13 +10,13 @@ title: "CacheClientContractsRequest դաս"
 ```c#
 public class CacheClientContractsRequest
 {
-/// <summary>Հաճախորդի կոդ</summary>
-public string CliCode { get; set; }
-
-/// <summary>Քեշավորման ամսաթիվ</summary>
-public DateTime Date { get; set; }
-
-/// <summary>Ենթահամակարգերի ցուցակ</summary>
-public List<string> Subsystems { get; set; }
+    /// <summary>Հաճախորդի կոդ</summary>
+    public string CliCode { get; set; }
+    
+    /// <summary>Քեշավորման ամսաթիվ</summary>
+    public DateTime Date { get; set; }
+    
+    /// <summary>Ենթահամակարգերի ցուցակ</summary>
+    public List<string> Subsystems { get; set; }
 }
 ```
