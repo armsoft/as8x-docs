@@ -9,12 +9,11 @@ sublinks:
 
 - [Ներածություն](#ներածություն)
 - [Մեթոդներ](#մեթոդներ)
-  - [CreateNBInputOrder](#createnbinputorder)
-  - [CreateNBOutputOrder](#createnboutputorder)
+  - [CacheClientContracts](#cacheclientcontracts)
 
 ## Ներածություն
 
-`NBOrdersRoutes` դասը պարունակում է մեթոդներ ետհաշվեկշռային հաշիվների մուտքի/ելքի օրդերների ստեղծման համար։  
+`AgrProfilesRoutes` դասը պարունակում է մեթոդներ պայմանագրերի քեշավորման համար։  
 Այն հասանելի է [`BankApiClient`](../types/BankApiClient.md) դասի միջից։
 
 ## Մեթոդներ
@@ -35,20 +34,3 @@ public async Task<CreateNBOrderResponse> CreateNBInputOrder(CreateNBOrderRequest
 **Օրինակ**
 
 Տե՛ս օգտագործման [օրինակը](../examples/NBOrdersRoutes.md#օրինակ-1)։
-
-### CreateNBOutputOrder
-
-```c#
-public async Task<CreateNBOrderResponse> CreateNBOutputOrder(CreateNBOrderRequest request)
-```
-
-Ստեղծում է Ե/Հ ելքի օրդեր ստանալով անհրաժեշտ պարամետրերը։ Վերադարձնում է ստեղծված Ե/Հ ելքի օրդերի ISN-ը։
-
-**Պարամետրեր**
-
-* `request` -  [CreateNBOrderRequest](../types/CreateNBOrderRequest.md)  
-   Ստեղծվող Ե/Հ ելքի օրդերի տվյալներ։
-
-**Օրինակ**
-
-Տե՛ս օգտագործման [օրինակը](../examples/NBOrdersRoutes.md#օրինակ-2)։
