@@ -1,9 +1,8 @@
 ---
 layout: page
-title: "NBOrdersRoutes դաս" 
+title: "AgrProfilesRoutes դաս" 
 sublinks:
-- { title: "CreateNBInputOrder", ref: createnbinputorder }
-- { title: "CreateNBOutputOrder", ref: createnboutputorder }
+- { title: "CacheClientContracts", ref: cacheclientcontracts }
 ---
 
 ## Բովանդակություն
