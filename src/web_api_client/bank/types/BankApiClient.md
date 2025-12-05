@@ -8,6 +8,7 @@ sublinks:
 - { title: "Clients", ref: clients }
 - { title: "LoanApplications", ref: loanapplications }
 - { title: "NBOrders", ref: nborders }
+- { title: "AgrProfiles", ref: agrprofiles }
 - { title: "Կոնստրուկտոր", ref: կոնստրուկտոր }
 ---
 
@@ -22,6 +23,7 @@ sublinks:
   - [Clients](#clients)
   - [LoanApplications](#loanapplications)
   - [NBOrders](#nborders)
+  - [AgrProfiles](#agrprofiles)
 
 ## Ներածություն
 
@@ -111,3 +113,11 @@ public NBOrdersRoutes NBOrders { get; }
 ```
 
 Վերադարձնում է [NBOrdersRoutes](../routes/NBOrdersRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ Ե/Հ մուտքի/ելքի օրդերների հետ աշխատանքը ապահովելու համար։
+
+### AgrProfiles
+
+```c#
+public AgrProfilesRoutes AgrProfiles { get; }
+```
+
+Վերադարձնում է [AgrProfilesRoutes](../routes/AgrProfilesRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ պայմանագրերի քեշավորման հետ աշխատանքը ապահովելու համար։
