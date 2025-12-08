@@ -2,7 +2,7 @@
 layout: page
 title: "Օրինակ AgrProfilesRoutes" 
 sublinks:
-- { title: "Օրինակ CreateNBInputOrder", ref: օրինակ-1 }
+- { title: "Օրինակ CacheClientContracts", ref: օրինակ-1 }
 ---
 
 ## Բովանդակություն
@@ -20,7 +20,7 @@ private static async Task CacheClientContracts(BankApiClient apiClient)
         await apiClient.AgrProfiles.CacheClientContracts(new()
         {
             CliCode = "00000001", // Հաճախորդի կոդ
-            Date = DateTime.Now, // Քեշավորման ամսաթիվ
+            Date = DateTime.Today, // Քեշավորման ամսաթիվ
             Subsystems = ["C1", "C3"] // Ենթահամակարգերի ցուցակ
         });
     }
