@@ -3,6 +3,7 @@ layout: page
 title: "BankApiClient դաս"
 sublinks:
 - { title: "Accounts", ref: accounts }
+- { title: "AgrProfiles", ref: agrprofiles }
 - { title: "Cards", ref: cards }
 - { title: "ClientIBOptions", ref: clientiboptions }
 - { title: "Clients", ref: clients }
@@ -18,6 +19,7 @@ sublinks:
 - [Կոնստրուկտոր 1](#կոնստրուկտոր) և [Կոնստրուկտոր 2](#կոնստրուկտոր-1)
 - [Հատկություններ](#հատկություններ)
   - [Accounts](#accounts)
+  - [AgrProfiles](#agrprofiles)
   - [Cards](#cards)
   - [ClientIBOptions](#clientiboptions)
   - [Clients](#clients)
@@ -73,6 +75,14 @@ public AccountsRoutes Accounts { get; }
 ```
 
 Վերադարձնում է [AccountsRoutes](../routes/AccountsRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ հաշիվների տվյալների հետ աշխատանքը ապահովելու համար։
+
+### AgrProfiles
+
+```c#
+public AgrProfilesRoutes AgrProfiles { get; }
+```
+
+Վերադարձնում է [AgrProfilesRoutes](../routes/AgrProfilesRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ պայմանագրերի քեշավորման հետ աշխատանքը ապահովելու համար։
 
 ### Cards
 
