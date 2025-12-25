@@ -3,7 +3,7 @@ layout: page
 title: "CreateCurrencyExchangeRequest դաս" 
 ---
 
-Այս դասը նախատեսված է հիշարար օրդեր փաստաթղթի ստեղծման համար։
+Այս դասը նախատեսված է արտարժույթի փոխանակում փաստաթղթի ստեղծման համար։
 
 Օգտագործվում է [TransactionDocsRoutes](../routes/TransactionDocsRoutes.md).[CreateCurrencyExchangeRequest](../routes/TransactionDocsRoutes.md#createcurrencyexchangerequest) մեթոդում։
 
