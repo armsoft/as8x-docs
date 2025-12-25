@@ -31,8 +31,9 @@ public async Task<CreateMemOrderResponse> CreateMemOrder(CreateMemOrderRequest r
 
 **Պարամետրեր**
 
-* `request` - Ստեղծվող հիշարար օրդերի տվյալներ։
-
+* `request` -  [CreateMemOrderRequest](../types/CreateMemOrderRequest.md)  
+    Ստեղծվող հիշարար օրդերի տվյալներ։
+  
 **Օրինակ**
 
 Տե՛ս օգտագործման [օրինակը](../examples/TransactionDocsRoutes.md#օրինակ-1)։
@@ -48,7 +49,8 @@ public async Task<CreateCurrencyExchangeResponse> CreateCurrencyExchange(CreateC
 
 **Պարամետրեր**
 
-* `request` - Ստեղծվող արտարժույթի փոխանակման տվյալներ։
+* `request` -  [CreateCurrencyExchangeRequest](../types/CreateCurrencyExchangeRequest.md)  
+    Ստեղծվող արտարժույթի փոխանակման տվյալներ։
 
 **Օրինակ**
 
