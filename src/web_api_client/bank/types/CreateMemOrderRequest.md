@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "CreateCurrencyExchangeRequest դաս" 
+title: "CreateMemOrderRequest դաս" 
 ---
 
 Այս դասը նախատեսված է հիշարար օրդեր փաստաթղթի ստեղծման համար։
