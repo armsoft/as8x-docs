@@ -67,7 +67,7 @@ public async Task<decimal> Evaluate(AppProcessContext context, CancellationToken
 ### ClientDoc
 
 ```c#
-public async Task<Client> ClientDoc()
+public Task<Client> ClientDoc()
 ```
 
 Վերադարձնում է Վարկային հայտում լրացված հաճախորդի քարտի օբյեկտը։
@@ -86,7 +86,7 @@ public async Task<decimal> Evaluate(AppProcessContext context, CancellationToken
 ### AcraData
 
 ```c#
-async Task<AcraReport> AcraData(string reportType)
+public Task<AcraReport> AcraData(string reportType)
 ```
 
 Վերադարձնում է ACRA հարցման պատասխանը պարունակող օբյեկտ։  
@@ -249,7 +249,7 @@ public class XPathScoreSample : IAppCustomScore
 ### EkengPEKData
 
 ```c#
-public async Task<List<PEKTaxInfo>> EkengPEKData()
+public Task<List<PEKTaxInfo>> EkengPEKData()
 ```
 
 Վերադարձնում է ArmSoft.AS8X.Bank.General.Ekeng.PEKTax.DTO.PEKTaxInfo տիպի օբյեկտների ցուցակ (list)։  
@@ -400,7 +400,7 @@ public class CalculateScore2 : IAppCustomScore
 ### CurrentLoansAmount
 
 ```c#
-public async Task<decimal> CurrentLoansAmount()
+public Task<decimal> CurrentLoansAmount()
 ```
 
 Վերադարձնում է հայտում սահմանված հաճախորդի գործող տեղաբաշխված պայմանագրերի ընդհանուր մնացորդը հայտի ամսաթվով և հայտի արժութով։

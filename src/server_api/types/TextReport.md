@@ -292,8 +292,8 @@ public Task<StorageInfo> SaveToStorageAndClose()
 ### SaveToStorageAsText
 
 ```c#
-public async Task SaveToStorageAsText(StorageInfo storageInfo, bool replaceTags = false,
-                                      bool htmlformat = false, bool toUnicode = false)
+public Task SaveToStorageAsText(StorageInfo storageInfo, bool replaceTags = false,
+                                bool htmlformat = false, bool toUnicode = false)
 ```
 
 Պահպանում է հաշվետվության տեքսը ֆայլի մեջ։

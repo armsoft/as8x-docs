@@ -152,7 +152,7 @@ public Task<DataSourceResult<R>> ExecuteAsync(P param, HashSet<string> columns =
 ### LoadDefinitionAsync
 
 ```c#
-public async Task LoadDefinitionAsync(string name, CancellationToken cancellationToken = default)
+public Task LoadDefinitionAsync(string name, CancellationToken cancellationToken = default)
 ```
 
 Բեռնում է տվյալների աղբյուրի նկարագրությունը և վերագրում [Definition](#definition) հատկությանը։

@@ -21,7 +21,7 @@ sublinks:
 ### CacheClientContracts
 
 ```c#
-public async Task<CacheClientContractsResponse> CacheClientContracts(CacheClientContractsRequest request)
+public Task<CacheClientContractsResponse> CacheClientContracts(CacheClientContractsRequest request)
 ```
 
 Կատարում է հաճախորդի պայմանագրերի քեշավորում։

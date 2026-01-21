@@ -23,7 +23,7 @@ sublinks:
 ### CreateNBInputOrder
 
 ```c#
-public async Task<CreateNBOrderResponse> CreateNBInputOrder(CreateNBOrderRequest request)
+public Task<CreateNBOrderResponse> CreateNBInputOrder(CreateNBOrderRequest request)
 ```
 
 Ստեղծում է Ե/Հ մուտքի օրդեր ստանալով անհրաժեշտ պարամետրերը։ Վերադարձնում է ստեղծված Ե/Հ մուտքի օրդերի ISN-ը։
@@ -40,7 +40,7 @@ public async Task<CreateNBOrderResponse> CreateNBInputOrder(CreateNBOrderRequest
 ### CreateNBOutputOrder
 
 ```c#
-public async Task<CreateNBOrderResponse> CreateNBOutputOrder(CreateNBOrderRequest request)
+public Task<CreateNBOrderResponse> CreateNBOutputOrder(CreateNBOrderRequest request)
 ```
 
 Ստեղծում է Ե/Հ ելքի օրդեր ստանալով անհրաժեշտ պարամետրերը։ Վերադարձնում է ստեղծված Ե/Հ ելքի օրդերի ISN-ը։

@@ -27,7 +27,7 @@ LoanApplicationsRoutes դասը պարունակում է մեթոդներ հա�
 ### Create
 
 ```c#
-public async Task<CreateResponse> Create(CreateRequest request)
+public Task<CreateResponse> Create(CreateRequest request)
 ```
 
 Ստեղծում է վարկային հայտ ըստ հաճախորդի հայտի տվյալների։
@@ -43,7 +43,7 @@ public async Task<CreateResponse> Create(CreateRequest request)
 ### GetAll
 
 ```c#
-public async Task<GetAllResponse> GetAll(GetAllRequest request)
+public Task<GetAllResponse> GetAll(GetAllRequest request)
 ```
 
 Վերադարձնում է հաճախորդի բոլոր վարկային հայտերի տվյալները։
@@ -59,7 +59,7 @@ public async Task<GetAllResponse> GetAll(GetAllRequest request)
 ### GetPrintForms
 
 ```c#
-public async Task<LoanApplications.GetPrintFormsResponse> GetPrintForms(GetPrintFormsRequest request)
+public Task<LoanApplications.GetPrintFormsResponse> GetPrintForms(GetPrintFormsRequest request)
 ```
 
 Վերադարձնում է վարկային հայտի լրացված տպելու ձևանմուշների տվյալները և պարունակությունը ցուցակով։
@@ -76,7 +76,7 @@ public async Task<LoanApplications.GetPrintFormsResponse> GetPrintForms(GetPrint
 ### Sign
 
 ```c#
-public async Task<SignResponse> Sign(SignRequest request)
+public Task<SignResponse> Sign(SignRequest request)
 ```
 
 Հաստատում կամ մերժում վարկային հայտը, եթե այն գտնվում է համապատասխան վիճակում։

@@ -160,9 +160,9 @@ public Task<T> LoadIntoCache<T>(int isn,
 ### LookUpInCache
 
 ```c#
-public async Task<T> LookUpInCache<T>(int isn, TimeSpan checkAfter, 
-                                      Ref<bool> isRefreshed = null, 
-                                      bool lookInArc = true) where T : RODocument, new()
+public Task<T> LookUpInCache<T>(int isn, TimeSpan checkAfter, 
+                                Ref<bool> isRefreshed = null, 
+                                bool lookInArc = true) where T : RODocument, new()
                                         
 ```
 

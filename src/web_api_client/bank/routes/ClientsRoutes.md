@@ -86,7 +86,7 @@ public Task<CreateClientResponse> CreateJuridicalClientByFullData(
 ### UpdatePhysicalClientData
 
 ```c#
-public async Task<UpdateClientResponse> UpdatePhysicalClientData(UpdatePhysicalClientDataRequest request)
+public Task<UpdateClientResponse> UpdatePhysicalClientData(UpdatePhysicalClientDataRequest request)
 ```
 
 Խմբագրում է ֆիզ. անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
@@ -103,7 +103,7 @@ public async Task<UpdateClientResponse> UpdatePhysicalClientData(UpdatePhysicalC
 ### UpdateJuridicalClientData
 
 ```c#
-public async Task<UpdateClientResponse> UpdateJuridicalClientData(UpdateJuridicalClientDataRequest request)
+public Task<UpdateClientResponse> UpdateJuridicalClientData(UpdateJuridicalClientDataRequest request)
 ```
 
 Խմբագրում է իրավաբանական անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
