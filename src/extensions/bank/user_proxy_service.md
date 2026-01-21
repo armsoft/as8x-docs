@@ -1105,8 +1105,8 @@ int isn = await proxyService.GetClientISNByAcc("10000081200");
 ```c#
  public Task<Dictionary<int, List<ClientRow>>> GetCodebtorsByIsnListAsync(IEnumerable<int> isnList)
  public Task<List<ClientRow>> GetCodebtorsByIsnAsync(int isn)
- public async Task<Dictionary<int, List<ClientRow>>> GetClientsByParentIsnListAsync(IEnumerable<int> isnList, string gridName, string colName)
- public async Task<List<ClientRow>> GetClientsByParentIsnAsync(int isn, string gridName, string colName)
+ public Task<Dictionary<int, List<ClientRow>>> GetClientsByParentIsnListAsync(IEnumerable<int> isnList, string gridName, string colName)
+ public Task<List<ClientRow>> GetClientsByParentIsnAsync(int isn, string gridName, string colName)
 ```
 **GetCodebtorsByIsnListAsync, GetCodebtorsByIsnAsync** ֆունկցիաները վերադարձնում են վարկային, օվերդրաֆտի և լիզինգի  պայմանագրերի համավարկառու / համալիզիգառու հաճախորդների տվյալները։
 
