@@ -10,6 +10,7 @@ sublinks:
 - { title: "LoanApplications", ref: loanapplications }
 - { title: "NBAccounts", ref: nbaccounts }
 - { title: "NBOrders", ref: nborders }
+- { title: "TransactionDocs", ref: transactiondocs }
 - { title: "Կոնստրուկտոր", ref: կոնստրուկտոր }
 ---
 
@@ -26,6 +27,7 @@ sublinks:
   - [LoanApplications](#loanapplications)
   - [NBAccounts](#nbaccounts)
   - [NBOrders](#nborders)
+  - [TransactionDocs](#transactiondocs)
 
 ## Ներածություն
 
@@ -131,3 +133,11 @@ public NBOrdersRoutes NBOrders { get; }
 ```
 
 Վերադարձնում է [NBOrdersRoutes](../routes/NBOrdersRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ Ե/Հ մուտքի/ելքի օրդերների հետ աշխատանքը ապահովելու համար։
+
+### TransactionDocs
+
+```c#
+public TransactionDocsRoutes TransactionDocs { get; }
+```
+
+Վերադարձնում է [TransactionDocsRoutes](../routes/TransactionDocsRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ գործողությունների փաստաթղթերի հետ աշխատանքը ապահովելու համար։
