@@ -23,7 +23,7 @@ sublinks:
 ### CreateMemOrder
 
 ```c#
-public async Task<CreateMemOrderResponse> CreateMemOrder(CreateMemOrderRequest request)
+public Task<CreateMemOrderResponse> CreateMemOrder(CreateMemOrderRequest request)
 ```
 
 Ստեղծում է հիշարար օրդեր փաստաթուղթ ստանալով անհրաժեշտ տվյալները։
@@ -38,10 +38,10 @@ public async Task<CreateMemOrderResponse> CreateMemOrder(CreateMemOrderRequest r
 
 Տե՛ս օգտագործման [օրինակը](../examples/TransactionDocsRoutes.md#օրինակ-1)։
 
-### CreateMemOrder
+### CreateCurrencyExchange
 
 ```c#
-public async Task<CreateCurrencyExchangeResponse> CreateCurrencyExchange(CreateCurrencyExchangeRequest request)
+public Task<CreateCurrencyExchangeResponse> CreateCurrencyExchange(CreateCurrencyExchangeRequest request)
 ```
 
 Ստեղծում է արտարժույթի փոխանակման փաստաթուղթ ստանալով անհրաժեշտ տվյալները։
