@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "CacheClientContractsRequest դաս"
+title: "PrematureRepaymentChargeRequest դաս"
 ---
 
 Այս դասը նախատեսված է վաղաժամկետ մարումից տույժի հաշվարկման համար։
