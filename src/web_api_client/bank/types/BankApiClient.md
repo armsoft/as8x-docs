@@ -11,6 +11,7 @@ sublinks:
 - { title: "NBAccounts", ref: nbaccounts }
 - { title: "NBOrders", ref: nborders }
 - { title: "TransactionDocs", ref: transactiondocs }
+- { title: "PrematureCharges", ref: prematureCharges }
 - { title: "Կոնստրուկտոր", ref: կոնստրուկտոր }
 ---
 
@@ -28,6 +29,7 @@ sublinks:
   - [NBAccounts](#nbaccounts)
   - [NBOrders](#nborders)
   - [TransactionDocs](#transactiondocs)
+  - [PrematureCharges](#prematureCharges)
 
 ## Ներածություն
 
