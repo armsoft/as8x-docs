@@ -18,7 +18,7 @@ sublinks:
 
 ## Մեթոդներ
 
-### PrematureChargesRoutes
+### PrematureRepaymentCharge
 
 ```c#
 public Task<PrematureRepaymentChargeResponse> PrematureRepaymentCharge(PrematureRepaymentChargeRequest request)
