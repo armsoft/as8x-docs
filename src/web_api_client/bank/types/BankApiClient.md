@@ -10,8 +10,8 @@ sublinks:
 - { title: "LoanApplications", ref: loanapplications }
 - { title: "NBAccounts", ref: nbaccounts }
 - { title: "NBOrders", ref: nborders }
+- { title: "PrematureCharges", ref: prematurecharges }
 - { title: "TransactionDocs", ref: transactiondocs }
-- { title: "PrematureCharges", ref: prematureCharges }
 - { title: "Կոնստրուկտոր", ref: կոնստրուկտոր }
 ---
 
@@ -28,8 +28,8 @@ sublinks:
   - [LoanApplications](#loanapplications)
   - [NBAccounts](#nbaccounts)
   - [NBOrders](#nborders)
+  - [PrematureCharges](#prematurecharges)
   - [TransactionDocs](#transactiondocs)
-  - [PrematureCharges](#prematureCharges)
 
 ## Ներածություն
 
@@ -135,6 +135,14 @@ public NBOrdersRoutes NBOrders { get; }
 ```
 
 Վերադարձնում է [NBOrdersRoutes](../routes/NBOrdersRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ Ե/Հ մուտքի/ելքի օրդերների հետ աշխատանքը ապահովելու համար։
+
+### PrematureCharges
+
+```c#
+public PrematureChargesRoutes PrematureCharges { get; }
+```
+
+Վերադարձնում է [PrematureChargesRoutes](../routes/PrematureChargesRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ վաղաժամկետ մարումից տույժի հետ աշխատանքը ապահովելու համար։
 
 ### TransactionDocs
 
