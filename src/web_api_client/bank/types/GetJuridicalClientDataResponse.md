@@ -5,7 +5,7 @@ title: "GetJuridicalClientDataResponse դաս"
 
 Այս դասը վերադարձվում է իրավաբանական հաճախորդի տվյալների ստացման ժամանակ։
 
-Օգտագործվում է [ClientsRoutes](../routes/ClientsRoutes.md).[GetJuridicalClientDataResponse](../routes/ClientsRoutes.md#getjuridicalclientdataresponse) մեթոդում։
+Օգտագործվում է [ClientsRoutes](../routes/ClientsRoutes.md).[GetJuridicalClientData](../routes/ClientsRoutes.md#getjuridicalclientdata) մեթոդում։
 
 ```c#
 public class GetJuridicalClientDataResponse
