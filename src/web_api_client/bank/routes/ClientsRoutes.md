@@ -7,6 +7,8 @@ sublinks:
 - { title: "CreateJuridicalClientByFullData", ref: createjuridicalclientbyfulldata }
 - { title: "UpdatePhysicalClientData", ref: updatephysicalclientdata }
 - { title: "UpdateJuridicalClientData", ref: updatejuridicalclientdata }
+- { title: "GetPhysicalClientData", ref: getphysicalclientdata }
+- { title: "GetJuridicalClientData", ref: getjuridicalclientdata }
 ---
 
 ## Բովանդակություն
@@ -18,6 +20,8 @@ sublinks:
   - [CreateJuridicalClientByFullData](#createjuridicalclientbyfulldata)    
   - [UpdatePhysicalClientData](#updatephysicalclientdata)
   - [UpdateJuridicalClientData](#updatejuridicalclientdata)
+  - [GetPhysicalClientData](#getphysicalclientdata)
+  - [GetJuridicalClientData](#getjuridicalclientdata)
 
 ## Ներածություն
 
@@ -116,3 +120,60 @@ public Task<UpdateClientResponse> UpdateJuridicalClientData(UpdateJuridicalClien
 **Օրինակ**
 
 Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-5)։
+
+### UpdateJuridicalClientData
+
+```c#
+public Task<UpdateClientResponse> UpdateJuridicalClientData(UpdateJuridicalClientDataRequest request)
+```
+
+Խմբագրում է իրավաբանական անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
+
+**Պարամետրեր**
+
+* `request` -  [UpdateJuridicalClientDataRequest](../types/UpdateJuridicalClientDataRequest.md)  
+   Խմբագրվող հաճախորդի տվյալներ։
+
+**Օրինակ**
+
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-5)։
+
+### GetPhysicalClientData
+
+```c#
+public Task<GetPhysicalClientDataResponse> GetPhysicalClientData(GetClientDataRequest request)
+```
+
+Վերադարձնում է ֆիզիկական անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
+
+**Պարամետրեր**
+
+* `request` -  [GetClientDataRequest](../types/GetClientDataRequest.md)  
+   Փնտրվող հաճախորդի տվյալներ։
+
+* `response` -  [GetPhysicalClientDataResponse](../types/GetPhysicalClientDataResponse.md)  
+   Հաճախորդի վերադարձվող տվյալներ։
+  
+**Օրինակ**
+
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-6)։
+
+### GetJuridicalClientData
+
+```c#
+public Task<GetJuridicalClientDataResponse> GetJuridicalClientData(GetClientDataRequest request)
+```
+
+Վերադարձնում է իրավաբանական անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
+
+**Պարամետրեր**
+
+* `request` -  [GetClientDataRequest](../types/GetClientDataRequest.md)  
+   Փնտրվող հաճախորդի տվյալներ։
+  
+* `response` -  [GetJuridicalClientDataResponse](../types/GetJuridicalClientDataResponse.md)  
+   Հաճախորդի վերադարձվող տվյալներ։
+
+**Օրինակ**
+
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-7)։
