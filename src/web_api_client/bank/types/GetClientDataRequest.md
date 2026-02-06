@@ -3,7 +3,7 @@ layout: page
 title: "GetClientDataRequest դաս" 
 ---
 
-Այս դասը նախատեսված է ֆիզիկական անձ հաճախորդի տվյալների ստացման համար։
+Այս դասը նախատեսված է հաճախորդի տվյալների ստացման համար։
 
 Օգտագործվում է [ClientsRoutes](../routes/ClientsRoutes.md).[GetPhysicalClientData](../routes/ClientsRoutes.md#getphysicalclientdata) և [ClientsRoutes](../routes/ClientsRoutes.md).[GetJuridicalClientData](../routes/ClientsRoutes.md#getjuridicalclientdata) մեթոդում։
 
