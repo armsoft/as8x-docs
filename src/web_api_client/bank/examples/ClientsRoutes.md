@@ -7,6 +7,8 @@ sublinks:
 - { title: "Օրինակ CreateJuridicalClientByFullData", ref: օրինակ-3 }
 - { title: "Օրինակ UpdatePhysicalClientData", ref: օրինակ-4 }
 - { title: "Օրինակ UpdateJuridicalClientData", ref: օրինակ-5 }
+- { title: "Օրինակ GetPhysicalClientData", ref: օրինակ-6 }
+- { title: "Օրինակ GetJuridicalClientData", ref: օրինակ-7 }
 ---
 
 ## Բովանդակություն
@@ -15,6 +17,8 @@ sublinks:
 - [CreateJuridicalClientByFullData-ի օգտագործման օրինակ](#օրինակ-3)
 - [UpdatePhysicalClientData-ի օգտագործման օրինակ](#օրինակ-4)
 - [UpdateJuridicalClientData-ի օգտագործման օրինակ](#օրինակ-5)
+- [GetPhysicalClientData-ի օգտագործման օրինակ](#օրինակ-6)
+- [GetJuridicalClientData-ի օգտագործման օրինակ](#օրինակ-7)
 
 ## Օրինակ 1
 
@@ -236,4 +240,52 @@ private static async Task UpdateClient(BankApiClient apiClient)
         Console.WriteLine(ex.StatusCode); // սխալի վիճակի կոդ
     } 
 }
+```
+## Օրինակ 6
+
+Ֆիզիկական անձ հաճախորդի տվյալների ստացման օրինակ։
+
+```c#
+    private static async Task GetPhysicalClientData(BankApiClient apiClient)
+    {
+        try
+        {
+            // վերադարձնում է ֆիզիկական անձ հաճախորդի տվյալները
+            var res = await apiClient.Clients.GetPhysicalClientData(new()
+            {
+                ClientCode = "00000001", // հաճախորդի կոդ
+            });
+        }
+        catch (ApiException ex)
+        {
+            // մեթոդի կանչի ընթացքում սխալի առաջացման դեպքում տպում է սխալի մանրամասները
+            Console.WriteLine(ex.Code); // սխալի կոդ
+            Console.WriteLine(ex.Message); // սխալի հաղորդագրություն
+            Console.WriteLine(ex.StatusCode); // սխալի վիճակի կոդ
+        }
+    }
+```
+## Օրինակ 6
+
+Իրավաբանական հաճախորդի տվյալների ստացման օրինակ։
+
+```c#
+    private static async Task GetJuridicalClientData(BankApiClient apiClient)
+    {
+        try
+        {
+            // վերադարձնում է իրավաբանական հաճախորդի տվյալները
+            var res = await apiClient.Clients.GetJuridicalClientData(new()
+            {
+                ClientOuterID = "00000001", // հաճախորդի արտաքին կոդ
+            });
+        }
+        catch (ApiException ex)
+        {
+            // մեթոդի կանչի ընթացքում սխալի առաջացման դեպքում տպում է սխալի մանրամասները
+            Console.WriteLine(ex.Code); // սխալի կոդ
+            Console.WriteLine(ex.Message); // սխալի հաղորդագրություն
+            Console.WriteLine(ex.StatusCode); // սխալի վիճակի կոդ
+        }
+    }
 ```
