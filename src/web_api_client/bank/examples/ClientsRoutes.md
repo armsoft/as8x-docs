@@ -265,9 +265,9 @@ private static async Task UpdateClient(BankApiClient apiClient)
         }
     }
 ```
-## Օրինակ 6
+## Օրինակ 7
 
-Իրավաբանական հաճախորդի տվյալների ստացման օրինակ։
+Իրավաբանական անձ հաճախորդի տվյալների ստացման օրինակ։
 
 ```c#
     private static async Task GetJuridicalClientData(BankApiClient apiClient)
