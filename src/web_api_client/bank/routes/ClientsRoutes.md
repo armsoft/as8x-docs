@@ -121,23 +121,6 @@ public Task<UpdateClientResponse> UpdateJuridicalClientData(UpdateJuridicalClien
 
 Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-5)։
 
-### UpdateJuridicalClientData
-
-```c#
-public Task<UpdateClientResponse> UpdateJuridicalClientData(UpdateJuridicalClientDataRequest request)
-```
-
-Խմբագրում է իրավաբանական անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
-
-**Պարամետրեր**
-
-* `request` -  [UpdateJuridicalClientDataRequest](../types/UpdateJuridicalClientDataRequest.md)  
-   Խմբագրվող հաճախորդի տվյալներ։
-
-**Օրինակ**
-
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-5)։
-
 ### GetPhysicalClientData
 
 ```c#
@@ -150,6 +133,8 @@ public Task<GetPhysicalClientDataResponse> GetPhysicalClientData(GetClientDataRe
 
 * `request` -  [GetClientDataRequest](../types/GetClientDataRequest.md)  
    Փնտրվող հաճախորդի տվյալներ։
+
+**Վերադարձվող արժեք**
 
 * `response` -  [GetPhysicalClientDataResponse](../types/GetPhysicalClientDataResponse.md)  
    Հաճախորդի վերադարձվող տվյալներ։
@@ -171,6 +156,8 @@ public Task<GetJuridicalClientDataResponse> GetJuridicalClientData(GetClientData
 * `request` -  [GetClientDataRequest](../types/GetClientDataRequest.md)  
    Փնտրվող հաճախորդի տվյալներ։
   
+**Վերադարձվող արժեք**
+
 * `response` -  [GetJuridicalClientDataResponse](../types/GetJuridicalClientDataResponse.md)  
    Հաճախորդի վերադարձվող տվյալներ։
 
