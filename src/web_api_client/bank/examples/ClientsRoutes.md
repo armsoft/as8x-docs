@@ -246,46 +246,63 @@ private static async Task UpdateClient(BankApiClient apiClient)
 Ֆիզիկական անձ հաճախորդի տվյալների ստացման օրինակ։
 
 ```c#
-    private static async Task GetPhysicalClientData(BankApiClient apiClient)
+private static async Task GetPhysicalClientData(BankApiClient apiClient)
+{
+    try
     {
-        try
+        // վերադարձնում է ֆիզիկական անձ հաճախորդի տվյալները
+        var res = await apiClient.Clients.GetPhysicalClientData(new()
         {
-            // վերադարձնում է ֆիզիկական անձ հաճախորդի տվյալները
-            var res = await apiClient.Clients.GetPhysicalClientData(new()
-            {
-                ClientCode = "00000001", // հաճախորդի կոդ
-            });
-        }
-        catch (ApiException ex)
-        {
-            // մեթոդի կանչի ընթացքում սխալի առաջացման դեպքում տպում է սխալի մանրամասները
-            Console.WriteLine(ex.Code); // սխալի կոդ
-            Console.WriteLine(ex.Message); // սխալի հաղորդագրություն
-            Console.WriteLine(ex.StatusCode); // սխալի վիճակի կոդ
-        }
+            ClientCode = "00000001", // հաճախորդի կոդ
+        });
+
+        Console.WriteLine(res.ClientCode);  // տպում է հաճախորդի կոդը
+        Console.WriteLine(res.OuterID);  // հաճախորդի արտաքին կոդը
+        Console.WriteLine(res.TaxCode);  // հաճախորդի ՀՎՀՀ-ն
+        Console.WriteLine(res.FirstName);  // հաճախորդի անունը
+        Console.WriteLine(res.LastName);  // հաճախորդի ազգանունը
+        Console.WriteLine(res.SSNNumber);  // հաճախորդի սոց. քարտը
+        Console.WriteLine(res.RelatedWithBank);  // հաճախորդի բանկի հետ կապակցվածությունը
+        Console.WriteLine(res.Resident);  // հաճախորդի ռեզիդենտությունը
     }
+    catch (ApiException ex)
+    {
+        // մեթոդի կանչի ընթացքում սխալի առաջացման դեպքում տպում է սխալի մանրամասները
+        Console.WriteLine(ex.Code); // սխալի կոդ
+        Console.WriteLine(ex.Message); // սխալի հաղորդագրություն
+        Console.WriteLine(ex.StatusCode); // սխալի վիճակի կոդ
+    }
+}
 ```
 ## Օրինակ 7
 
 Իրավաբանական անձ հաճախորդի տվյալների ստացման օրինակ։
 
 ```c#
-    private static async Task GetJuridicalClientData(BankApiClient apiClient)
+private static async Task GetJuridicalClientData(BankApiClient apiClient)
+{
+    try
     {
-        try
+        // վերադարձնում է իրավաբանական հաճախորդի տվյալները
+        var res = await apiClient.Clients.GetJuridicalClientData(new()
         {
-            // վերադարձնում է իրավաբանական հաճախորդի տվյալները
-            var res = await apiClient.Clients.GetJuridicalClientData(new()
-            {
-                ClientOuterID = "00000001", // հաճախորդի արտաքին կոդ
-            });
-        }
-        catch (ApiException ex)
-        {
-            // մեթոդի կանչի ընթացքում սխալի առաջացման դեպքում տպում է սխալի մանրամասները
-            Console.WriteLine(ex.Code); // սխալի կոդ
-            Console.WriteLine(ex.Message); // սխալի հաղորդագրություն
-            Console.WriteLine(ex.StatusCode); // սխալի վիճակի կոդ
-        }
+            ClientOuterID = "14DB9231-D311-4E41-A7D3-E07FADC8A00F", // հաճախորդի արտաքին կոդ
+        });
+
+        Console.WriteLine(res.ClientCode);  // տպում է հաճախորդի կոդը
+        Console.WriteLine(res.OuterID);  // հաճախորդի արտաքին կոդը
+        Console.WriteLine(res.TaxCode);  // հաճախորդի ՀՎՀՀ-ն
+        Console.WriteLine(res.Name);  // հաճախորդի անվանումը
+        Console.WriteLine(res.NameEng);  // հաճախորդի անգլերեն անվանումը
+        Console.WriteLine(res.RelatedWithBank);  // հաճախորդի բանկի հետ կապակցվածությունը
+        Console.WriteLine(res.Resident);  // հաճախորդի ռեզիդենտությունը
     }
+    catch (ApiException ex)
+    {
+        // մեթոդի կանչի ընթացքում սխալի առաջացման դեպքում տպում է սխալի մանրամասները
+        Console.WriteLine(ex.Code); // սխալի կոդ
+        Console.WriteLine(ex.Message); // սխալի հաղորդագրություն
+        Console.WriteLine(ex.StatusCode); // սխալի վիճակի կոդ
+    }
+}
 ```
