@@ -3,12 +3,12 @@ layout: page
 title: "ClientsRoutes դաս" 
 sublinks:
 - { title: "CreateClientFromEkeng", ref: createclientfromekeng }
-- { title: "CreatePhysicalClientByFullData", ref: createphysicalclientbyfulldata }
 - { title: "CreateJuridicalClientByFullData", ref: createjuridicalclientbyfulldata }
-- { title: "UpdatePhysicalClientData", ref: updatephysicalclientdata }
-- { title: "UpdateJuridicalClientData", ref: updatejuridicalclientdata }
-- { title: "GetPhysicalClientData", ref: getphysicalclientdata }
+- { title: "CreatePhysicalClientByFullData", ref: createphysicalclientbyfulldata }
 - { title: "GetJuridicalClientData", ref: getjuridicalclientdata }
+- { title: "GetPhysicalClientData", ref: getphysicalclientdata }
+- { title: "UpdateJuridicalClientData", ref: updatejuridicalclientdata }
+- { title: "UpdatePhysicalClientData", ref: updatephysicalclientdata }
 ---
 
 ## Բովանդակություն
@@ -16,12 +16,12 @@ sublinks:
 - [Ներածություն](#ներածություն)
 - [Մեթոդներ](#մեթոդներ)
   - [CreateClientFromEkeng](#createclientfromekeng)
-  - [CreatePhysicalClientByFullData](#createphysicalclientbyfulldata)
   - [CreateJuridicalClientByFullData](#createjuridicalclientbyfulldata)    
-  - [UpdatePhysicalClientData](#updatephysicalclientdata)
+  - [CreatePhysicalClientByFullData](#createphysicalclientbyfulldata)
   - [UpdateJuridicalClientData](#updatejuridicalclientdata)
-  - [GetPhysicalClientData](#getphysicalclientdata)
+  - [UpdatePhysicalClientData](#updatephysicalclientdata)
   - [GetJuridicalClientData](#getjuridicalclientdata)
+  - [GetPhysicalClientData](#getphysicalclientdata)
 
 ## Ներածություն
 
@@ -49,25 +49,6 @@ public Task<CreateClientResponse> CreateClientFromEkeng(
 
 Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-1)։
 
-### CreatePhysicalClientByFullData
-
-```c#
-public Task<CreateClientResponse> CreatePhysicalClientByFullData(
-    CreatePhysicalClientByFullDataRequest request)
-```
-
-Ստեղծում է նոր ֆիզ. անձ հաճախորդ ըստ հաճախորդի հիմնական տվյալների։ 
-Վերադարձնում հաճախորդի ստեղծված լինելու մասին տվյալներ՝ հաճախորդի կոդ, ստեղված հաճախորդի վիճակը վերջնական է, թե ոչ։
-
-**Պարամետրեր**
-
-* `request` -  [CreatePhysicalClientByFullDataRequest](../types/CreatePhysicalClientByFullDataRequest.md)  
-  Ավելացվող հաճախորդի տվյալներ։
-
-**Օրինակ**
-
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-2)։
-
 ### CreateJuridicalClientByFullData
 
 ```c#
@@ -85,24 +66,26 @@ public Task<CreateClientResponse> CreateJuridicalClientByFullData(
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-3)։
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-2)։
 
-### UpdatePhysicalClientData
+### CreatePhysicalClientByFullData
 
 ```c#
-public Task<UpdateClientResponse> UpdatePhysicalClientData(UpdatePhysicalClientDataRequest request)
+public Task<CreateClientResponse> CreatePhysicalClientByFullData(
+    CreatePhysicalClientByFullDataRequest request)
 ```
 
-Խմբագրում է ֆիզ. անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
+Ստեղծում է նոր ֆիզ. անձ հաճախորդ ըստ հաճախորդի հիմնական տվյալների։ 
+Վերադարձնում հաճախորդի ստեղծված լինելու մասին տվյալներ՝ հաճախորդի կոդ, ստեղված հաճախորդի վիճակը վերջնական է, թե ոչ։
 
 **Պարամետրեր**
 
-* `request` -  [UpdatePhysicalClientDataRequest](../types/UpdatePhysicalClientDataRequest.md)  
-   Խմբագրվող հաճախորդի տվյալներ։
+* `request` -  [CreatePhysicalClientByFullDataRequest](../types/CreatePhysicalClientByFullDataRequest.md)  
+  Ավելացվող հաճախորդի տվյալներ։
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-4)։
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-3)։
 
 ### UpdateJuridicalClientData
 
@@ -119,29 +102,24 @@ public Task<UpdateClientResponse> UpdateJuridicalClientData(UpdateJuridicalClien
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-5)։
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-4)։
 
-### GetPhysicalClientData
+### UpdatePhysicalClientData
 
 ```c#
-public Task<GetPhysicalClientDataResponse> GetPhysicalClientData(GetClientDataRequest request)
+public Task<UpdateClientResponse> UpdatePhysicalClientData(UpdatePhysicalClientDataRequest request)
 ```
 
-Վերադարձնում է ֆիզիկական անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
+Խմբագրում է ֆիզ. անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
 
 **Պարամետրեր**
 
-* `request` -  [GetClientDataRequest](../types/GetClientDataRequest.md)  
-   Փնտրվող հաճախորդի տվյալներ։
+* `request` -  [UpdatePhysicalClientDataRequest](../types/UpdatePhysicalClientDataRequest.md)  
+   Խմբագրվող հաճախորդի տվյալներ։
 
-**Վերադարձվող արժեք**
-
-* `response` -  [GetPhysicalClientDataResponse](../types/GetPhysicalClientDataResponse.md)  
-   Հաճախորդի վերադարձվող տվյալներ։
-  
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-6)։
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-5)։
 
 ### GetJuridicalClientData
 
@@ -154,13 +132,35 @@ public Task<GetJuridicalClientDataResponse> GetJuridicalClientData(GetClientData
 **Պարամետրեր**
 
 * `request` -  [GetClientDataRequest](../types/GetClientDataRequest.md)  
-   Փնտրվող հաճախորդի տվյալներ։
+   Փնտրվող հաճախորդի տվյալներ։ Հաճախորդի փնտրումն իրականացվում է ըստ Հաճախորդի կոդի կամ ըստ Հաճախորդի արտաքին կոդի։
   
 **Վերադարձվող արժեք**
 
 * `response` -  [GetJuridicalClientDataResponse](../types/GetJuridicalClientDataResponse.md)  
    Հաճախորդի վերադարձվող տվյալներ։
 
+**Օրինակ**
+
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-6)։
+
+### GetPhysicalClientData
+
+```c#
+public Task<GetPhysicalClientDataResponse> GetPhysicalClientData(GetClientDataRequest request)
+```
+
+Վերադարձնում է ֆիզիկական անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
+
+**Պարամետրեր**
+
+* `request` -  [GetClientDataRequest](../types/GetClientDataRequest.md)  
+   Փնտրվող հաճախորդի տվյալներ։ Հաճախորդի փնտրումն իրականացվում է ըստ Հաճախորդի կոդի կամ ըստ Հաճախորդի արտաքին կոդի։
+
+**Վերադարձվող արժեք**
+
+* `response` -  [GetPhysicalClientDataResponse](../types/GetPhysicalClientDataResponse.md)  
+   Հաճախորդի վերադարձվող տվյալներ։
+  
 **Օրինակ**
 
 Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-7)։
