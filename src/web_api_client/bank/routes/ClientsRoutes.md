@@ -18,10 +18,10 @@ sublinks:
   - [CreateClientFromEkeng](#createclientfromekeng)
   - [CreateJuridicalClientByFullData](#createjuridicalclientbyfulldata)    
   - [CreatePhysicalClientByFullData](#createphysicalclientbyfulldata)
-  - [UpdateJuridicalClientData](#updatejuridicalclientdata)
-  - [UpdatePhysicalClientData](#updatephysicalclientdata)
   - [GetJuridicalClientData](#getjuridicalclientdata)
   - [GetPhysicalClientData](#getphysicalclientdata)
+  - [UpdateJuridicalClientData](#updatejuridicalclientdata)
+  - [UpdatePhysicalClientData](#updatephysicalclientdata)
 
 ## Ներածություն
 
@@ -87,40 +87,6 @@ public Task<CreateClientResponse> CreatePhysicalClientByFullData(
 
 Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-3)։
 
-### UpdateJuridicalClientData
-
-```c#
-public Task<UpdateClientResponse> UpdateJuridicalClientData(UpdateJuridicalClientDataRequest request)
-```
-
-Խմբագրում է իրավաբանական անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
-
-**Պարամետրեր**
-
-* `request` -  [UpdateJuridicalClientDataRequest](../types/UpdateJuridicalClientDataRequest.md)  
-   Խմբագրվող հաճախորդի տվյալներ։
-
-**Օրինակ**
-
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-4)։
-
-### UpdatePhysicalClientData
-
-```c#
-public Task<UpdateClientResponse> UpdatePhysicalClientData(UpdatePhysicalClientDataRequest request)
-```
-
-Խմբագրում է ֆիզ. անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
-
-**Պարամետրեր**
-
-* `request` -  [UpdatePhysicalClientDataRequest](../types/UpdatePhysicalClientDataRequest.md)  
-   Խմբագրվող հաճախորդի տվյալներ։
-
-**Օրինակ**
-
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-5)։
-
 ### GetJuridicalClientData
 
 ```c#
@@ -141,7 +107,7 @@ public Task<GetJuridicalClientDataResponse> GetJuridicalClientData(GetClientData
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-6)։
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-4)։
 
 ### GetPhysicalClientData
 
@@ -163,4 +129,39 @@ public Task<GetPhysicalClientDataResponse> GetPhysicalClientData(GetClientDataRe
   
 **Օրինակ**
 
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-5)։
+
+### UpdateJuridicalClientData
+
+```c#
+public Task<UpdateClientResponse> UpdateJuridicalClientData(UpdateJuridicalClientDataRequest request)
+```
+
+Խմբագրում է իրավաբանական անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
+
+**Պարամետրեր**
+
+* `request` -  [UpdateJuridicalClientDataRequest](../types/UpdateJuridicalClientDataRequest.md)  
+   Խմբագրվող հաճախորդի տվյալներ։
+
+**Օրինակ**
+
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-6)։
+
+### UpdatePhysicalClientData
+
+```c#
+public Task<UpdateClientResponse> UpdatePhysicalClientData(UpdatePhysicalClientDataRequest request)
+```
+
+Խմբագրում է ֆիզ. անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
+
+**Պարամետրեր**
+
+* `request` -  [UpdatePhysicalClientDataRequest](../types/UpdatePhysicalClientDataRequest.md)  
+   Խմբագրվող հաճախորդի տվյալներ։
+
+**Օրինակ**
+
 Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-7)։
+
