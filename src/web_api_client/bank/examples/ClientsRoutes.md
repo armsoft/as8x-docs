@@ -13,12 +13,12 @@ sublinks:
 
 ## Բովանդակություն
 - [CreateClientFromEkeng-ի օգտագործման օրինակ](#օրինակ-1)
-- [CreateJuridicalClientByFullData-ի օգտագործման օրինակ](#օրինակ-3)
-- [CreatePhysicalClientByFullData-ի օգտագործման օրինակ](#օրինակ-2)
-- [GetJuridicalClientData-ի օգտագործման օրինակ](#օրինակ-7)
-- [GetPhysicalClientData-ի օգտագործման օրինակ](#օրինակ-6)
-- [UpdateJuridicalClientData-ի օգտագործման օրինակ](#օրինակ-5)
-- [UpdatePhysicalClientData-ի օգտագործման օրինակ](#օրինակ-4)
+- [CreateJuridicalClientByFullData-ի օգտագործման օրինակ](#օրինակ-2)
+- [CreatePhysicalClientByFullData-ի օգտագործման օրինակ](#օրինակ-3)
+- [GetJuridicalClientData-ի օգտագործման օրինակ](#օրինակ-4)
+- [GetPhysicalClientData-ի օգտագործման օրինակ](#օրինակ-5)
+- [UpdateJuridicalClientData-ի օգտագործման օրինակ](#օրինակ-6)
+- [UpdatePhysicalClientData-ի օգտագործման օրինակ](#օրինակ-7)
 
 ## Օրինակ 1
 
