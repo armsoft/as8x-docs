@@ -3,7 +3,7 @@ layout: page
 title: "GetClientDataRequest դաս" 
 ---
 
-Այս դասը նախատեսված է հաճախորդի տվյալների ստացման համար։
+Այս դասը նախատեսված է հաճախորդի տվյալների ստացման համար։ Հաճախորդի փնտրումն իրականացվում է ըստ Հաճախորդի կոդի կամ ըստ Հաճախորդի արտաքին կոդի։
 
 Օգտագործվում է [ClientsRoutes](../routes/ClientsRoutes.md).[GetPhysicalClientData](../routes/ClientsRoutes.md#getphysicalclientdata) և [ClientsRoutes](../routes/ClientsRoutes.md).[GetJuridicalClientData](../routes/ClientsRoutes.md#getjuridicalclientdata) մեթոդներում։
 
