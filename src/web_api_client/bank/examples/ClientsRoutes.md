@@ -3,22 +3,22 @@ layout: page
 title: "Օրինակ ClientsRoutes" 
 sublinks:
 - { title: "Օրինակ CreateClientFromEkeng", ref: օրինակ-1 }
-- { title: "Օրինակ CreateJuridicalClientByFullData", ref: օրինակ-2 }
-- { title: "Օրինակ CreatePhysicalClientByFullData", ref: օրինակ-3 }
-- { title: "Օրինակ GetJuridicalClientData", ref: օրինակ-4 }
-- { title: "Օրինակ GetPhysicalClientData", ref: օրինակ-5 }
-- { title: "Օրինակ UpdateJuridicalClientData", ref: օրինակ-6 }
-- { title: "Օրինակ UpdatePhysicalClientData", ref: օրինակ-7 }
+- { title: "Օրինակ CreatePhysicalClientByFullData", ref: օրինակ-2 }
+- { title: "Օրինակ CreateJuridicalClientByFullData", ref: օրինակ-3 }
+- { title: "Օրինակ UpdatePhysicalClientData", ref: օրինակ-4 }
+- { title: "Օրինակ UpdateJuridicalClientData", ref: օրինակ-5 }
+- { title: "Օրինակ GetPhysicalClientData", ref: օրինակ-6 }
+- { title: "Օրինակ GetJuridicalClientData", ref: օրինակ-7 }
 ---
 
 ## Բովանդակություն
 - [CreateClientFromEkeng-ի օգտագործման օրինակ](#օրինակ-1)
-- [CreateJuridicalClientByFullData-ի օգտագործման օրինակ](#օրինակ-2)
-- [CreatePhysicalClientByFullData-ի օգտագործման օրինակ](#օրինակ-3)
-- [GetJuridicalClientData-ի օգտագործման օրինակ](#օրինակ-4)
-- [GetPhysicalClientData-ի օգտագործման օրինակ](#օրինակ-5)
-- [UpdateJuridicalClientData-ի օգտագործման օրինակ](#օրինակ-6)
-- [UpdatePhysicalClientData-ի օգտագործման օրինակ](#օրինակ-7)
+- [CreatePhysicalClientByFullData-ի օգտագործման օրինակ](#օրինակ-2)
+- [CreateJuridicalClientByFullData-ի օգտագործման օրինակ](#օրինակ-3)
+- [UpdatePhysicalClientData-ի օգտագործման օրինակ](#օրինակ-4)
+- [UpdateJuridicalClientData-ի օգտագործման օրինակ](#օրինակ-5)
+- [GetJuridicalClientData-ի օգտագործման օրինակ](#օրինակ-6)
+- [GetPhysicalClientData-ի օգտագործման օրինակ](#օրինակ-7)
 
 ## Օրինակ 1
 
@@ -54,7 +54,57 @@ public static async Task CreateClientFromEkeng(BankApiClient apiClient)
 }
 ```
 
+
 ## Օրինակ 2
+
+Նոր ֆիզ. անձ հաճախորդի ստեղծման օրինակ։
+
+```c#
+private static async Task CreateClient(BankApiClient apiClient)
+{
+    try
+    {
+        // ստեղծում է ֆիզիկական անձ տիպի հաճախորդ՝ նշելով անհրաժեշտ տվյալները
+        var res = await apiClient.Clients.CreatePhysicalClientByFullData(new()
+        {
+            // հաճախորդի անձնագրի տվյալներ
+            Passport = new()
+            {
+                PassCode = "AH1234567891", // կոդ
+                PassType = "01", //տեսակ
+                PassBy = "001", // ում կողմից է տրված
+                DatePass = new DateTime(2020, 11, 15), // տրման ամսաթիվ
+                DateExpire = new DateTime(2030, 11, 15), // վավեր է մինչև
+            },
+
+            FirstName = "Պողոս".ToArmenianANSI(), // հաճախորդի անուն
+            LastName = "Պողոսյան".ToArmenianANSI(), // հաճախորդի ազգանուն
+            Resident = true, // հաճախորդի ռեզիդենտության հայտանիշ
+            ResidenceCountry = "AM", // հաճախորդի ռեզիդենտության երկրի կոդ
+            RelatedWithBank = false, // հաճախորդը ունի բանկի հետ կապվածություն թե ոչ
+            IsBankEmployee = false, // հաճախորդը հանդիսանում է բանկի աշխատակից թե ոչ
+            CitizenshipCountry = "AM", // հաճախորդի քաղաքացիության երկրի կոդ
+            StmtType = ArmSoft.AS8X.Public.BankModels.Clients.StatementDeliverModes.Bank, // քաղվածքի ստացման եղանակ
+            OtherFieldValues = new() { { "UDRWCOUNT", "555" } },
+            SSNNumber = "1234567891", // սոց. քարտի համար
+            SSNDate = new DateTime(2020, 11, 15), // սոց. քարտ-ի տրման ամսաթիվ
+            SSNType = "2", // սոց. քարտի տիպ
+        });
+
+        
+        Console.WriteLine(res.Client);  // տպում է ստեղծված հաճախորդի կոդը
+        Console.WriteLine(res.IsFinalState);  //ստեղծված հաճախորդը վերջնական վիճակում է
+    }
+    catch (ApiException ex)
+    {
+        // մեթոդի կանչի ընթացքում սխալի առաջացման դեպքում տպում է սխալի մանրամասները
+        Console.WriteLine(ex.Code); // սխալի կոդ
+        Console.WriteLine(ex.Message); // սխալի հաղորդագրություն
+        Console.WriteLine(ex.StatusCode); // սխալի վիճակի կոդ
+    } 
+}
+```
+## Օրինակ 3
 
 Նոր իրավաբանական անձ հաճախորդի ստեղծման օրինակ։
 
@@ -111,18 +161,26 @@ private static async Task CreateClient(BankApiClient apiClient)
     } 
 }
 ```
-## Օրինակ 3
 
-Նոր ֆիզ. անձ հաճախորդի ստեղծման օրինակ։
+## Օրինակ 4
+
+Ֆիզ. անձ հաճախորդի խմբագրման օրինակ։
 
 ```c#
-private static async Task CreateClient(BankApiClient apiClient)
+private static async Task UpdateClient(BankApiClient apiClient)
 {
     try
     {
         // ստեղծում է ֆիզիկական անձ տիպի հաճախորդ՝ նշելով անհրաժեշտ տվյալները
-        var res = await apiClient.Clients.CreatePhysicalClientByFullData(new()
+        var res = await apiClient.Clients.UpdatePhysicalClientData(new()
         {
+            ClientCode = "00000001", // խմբագրվող հաճախորդի կոդ
+            NewMobile = "37477111111", // նոր հեռախոսահամար
+            NewEmail = "client@gmail.com", // նոր էլ. հասցե
+            NewStmtType = ArmSoft.AS8X.Public.BankModels.Clients.StatementDeliverModes.Bank, // նոր քաղվածքի ստացման եղանակ,
+            FillCurrentAddressAsReg = true, // true - Փաստացի հասցեն լրացվում է Գրանցման հասցեի նման
+            UpdateFromEkeng = true, // հաճախորդի վրա դրվում է "Տվյալների թարմացում ԷԿԵՆԳ-ից" նշիչը
+            OtherFieldValues = new() { { "UDRWCOUNT", "555" } },
             // հաճախորդի անձնագրի տվյալներ
             Passport = new()
             {
@@ -131,25 +189,8 @@ private static async Task CreateClient(BankApiClient apiClient)
                 PassBy = "001", // ում կողմից է տրված
                 DatePass = new DateTime(2020, 11, 15), // տրման ամսաթիվ
                 DateExpire = new DateTime(2030, 11, 15), // վավեր է մինչև
-            },
-
-            FirstName = "Պողոս".ToArmenianANSI(), // հաճախորդի անուն
-            LastName = "Պողոսյան".ToArmenianANSI(), // հաճախորդի ազգանուն
-            Resident = true, // հաճախորդի ռեզիդենտության հայտանիշ
-            ResidenceCountry = "AM", // հաճախորդի ռեզիդենտության երկրի կոդ
-            RelatedWithBank = false, // հաճախորդը ունի բանկի հետ կապվածություն թե ոչ
-            IsBankEmployee = false, // հաճախորդը հանդիսանում է բանկի աշխատակից թե ոչ
-            CitizenshipCountry = "AM", // հաճախորդի քաղաքացիության երկրի կոդ
-            StmtType = ArmSoft.AS8X.Public.BankModels.Clients.StatementDeliverModes.Bank, // քաղվածքի ստացման եղանակ
-            OtherFieldValues = new() { { "UDRWCOUNT", "555" } },
-            SSNNumber = "1234567891", // սոց. քարտի համար
-            SSNDate = new DateTime(2020, 11, 15), // սոց. քարտ-ի տրման ամսաթիվ
-            SSNType = "2", // սոց. քարտի տիպ
+            }
         });
-
-        
-        Console.WriteLine(res.Client);  // տպում է ստեղծված հաճախորդի կոդը
-        Console.WriteLine(res.IsFinalState);  //ստեղծված հաճախորդը վերջնական վիճակում է
     }
     catch (ApiException ex)
     {
@@ -160,73 +201,8 @@ private static async Task CreateClient(BankApiClient apiClient)
     } 
 }
 ```
-## Օրինակ 4
-
-Իրավաբանական անձ հաճախորդի տվյալների ստացման օրինակ։
-
-```c#
-private static async Task GetJuridicalClientData(BankApiClient apiClient)
-{
-    try
-    {
-        // վերադարձնում է իրավաբանական հաճախորդի տվյալները
-        var res = await apiClient.Clients.GetJuridicalClientData(new()
-        {
-            ClientOuterID = "14DB9231-D311-4E41-A7D3-E07FADC8A00F", // հաճախորդի արտաքին կոդ
-        });
-
-        Console.WriteLine(res.ClientCode);  // տպում է հաճախորդի կոդը
-        Console.WriteLine(res.OuterID);  // հաճախորդի արտաքին կոդը
-        Console.WriteLine(res.TaxCode);  // հաճախորդի ՀՎՀՀ-ն
-        Console.WriteLine(res.Name);  // հաճախորդի անվանումը
-        Console.WriteLine(res.NameEng);  // հաճախորդի անգլերեն անվանումը
-        Console.WriteLine(res.RelatedWithBank);  // հաճախորդի բանկի հետ կապակցվածությունը
-        Console.WriteLine(res.Resident);  // հաճախորդի ռեզիդենտությունը
-    }
-    catch (ApiException ex)
-    {
-        // մեթոդի կանչի ընթացքում սխալի առաջացման դեպքում տպում է սխալի մանրամասները
-        Console.WriteLine(ex.Code); // սխալի կոդ
-        Console.WriteLine(ex.Message); // սխալի հաղորդագրություն
-        Console.WriteLine(ex.StatusCode); // սխալի վիճակի կոդ
-    }
-}
-```
 
 ## Օրինակ 5
-
-Ֆիզիկական անձ հաճախորդի տվյալների ստացման օրինակ։
-
-```c#
-private static async Task GetPhysicalClientData(BankApiClient apiClient)
-{
-    try
-    {
-        // վերադարձնում է ֆիզիկական անձ հաճախորդի տվյալները
-        var res = await apiClient.Clients.GetPhysicalClientData(new()
-        {
-            ClientCode = "00000001", // հաճախորդի կոդ
-        });
-
-        Console.WriteLine(res.ClientCode);  // տպում է հաճախորդի կոդը
-        Console.WriteLine(res.OuterID);  // հաճախորդի արտաքին կոդը
-        Console.WriteLine(res.TaxCode);  // հաճախորդի ՀՎՀՀ-ն
-        Console.WriteLine(res.FirstName);  // հաճախորդի անունը
-        Console.WriteLine(res.LastName);  // հաճախորդի ազգանունը
-        Console.WriteLine(res.SSNNumber);  // հաճախորդի սոց. քարտը
-        Console.WriteLine(res.RelatedWithBank);  // հաճախորդի բանկի հետ կապակցվածությունը
-        Console.WriteLine(res.Resident);  // հաճախորդի ռեզիդենտությունը
-    }
-    catch (ApiException ex)
-    {
-        // մեթոդի կանչի ընթացքում սխալի առաջացման դեպքում տպում է սխալի մանրամասները
-        Console.WriteLine(ex.Code); // սխալի կոդ
-        Console.WriteLine(ex.Message); // սխալի հաղորդագրություն
-        Console.WriteLine(ex.StatusCode); // սխալի վիճակի կոդ
-    }
-}
-```
-## Օրինակ 6
 
 Իրավաբանական անձ հաճախորդի խմբագրման օրինակ։
 
@@ -267,35 +243,28 @@ private static async Task UpdateClient(BankApiClient apiClient)
     } 
 }
 ```
-## Օրինակ 7
+## Օրինակ 6
 
-Ֆիզ. անձ հաճախորդի խմբագրման օրինակ։
+Իրավաբանական անձ հաճախորդի տվյալների ստացման օրինակ։
 
 ```c#
-private static async Task UpdateClient(BankApiClient apiClient)
+private static async Task GetJuridicalClientData(BankApiClient apiClient)
 {
     try
     {
-        // ստեղծում է ֆիզիկական անձ տիպի հաճախորդ՝ նշելով անհրաժեշտ տվյալները
-        var res = await apiClient.Clients.UpdatePhysicalClientData(new()
+        // վերադարձնում է իրավաբանական հաճախորդի տվյալները
+        var res = await apiClient.Clients.GetJuridicalClientData(new()
         {
-            ClientCode = "00000001", // խմբագրվող հաճախորդի կոդ
-            NewMobile = "37477111111", // նոր հեռախոսահամար
-            NewEmail = "client@gmail.com", // նոր էլ. հասցե
-            NewStmtType = ArmSoft.AS8X.Public.BankModels.Clients.StatementDeliverModes.Bank, // նոր քաղվածքի ստացման եղանակ,
-            FillCurrentAddressAsReg = true, // true - Փաստացի հասցեն լրացվում է Գրանցման հասցեի նման
-            UpdateFromEkeng = true, // հաճախորդի վրա դրվում է "Տվյալների թարմացում ԷԿԵՆԳ-ից" նշիչը
-            OtherFieldValues = new() { { "UDRWCOUNT", "555" } },
-            // հաճախորդի անձնագրի տվյալներ
-            Passport = new()
-            {
-                PassCode = "AH1234567891", // կոդ
-                PassType = "01", //տեսակ
-                PassBy = "001", // ում կողմից է տրված
-                DatePass = new DateTime(2020, 11, 15), // տրման ամսաթիվ
-                DateExpire = new DateTime(2030, 11, 15), // վավեր է մինչև
-            }
+            ClientOuterID = "14DB9231-D311-4E41-A7D3-E07FADC8A00F", // հաճախորդի արտաքին կոդ
         });
+
+        Console.WriteLine(res.ClientCode);  // տպում է հաճախորդի կոդը
+        Console.WriteLine(res.OuterID);  // հաճախորդի արտաքին կոդը
+        Console.WriteLine(res.TaxCode);  // հաճախորդի ՀՎՀՀ-ն
+        Console.WriteLine(res.Name);  // հաճախորդի անվանումը
+        Console.WriteLine(res.NameEng);  // հաճախորդի անգլերեն անվանումը
+        Console.WriteLine(res.RelatedWithBank);  // հաճախորդի բանկի հետ կապակցվածությունը
+        Console.WriteLine(res.Resident);  // հաճախորդի ռեզիդենտությունը
     }
     catch (ApiException ex)
     {
@@ -303,6 +272,40 @@ private static async Task UpdateClient(BankApiClient apiClient)
         Console.WriteLine(ex.Code); // սխալի կոդ
         Console.WriteLine(ex.Message); // սխալի հաղորդագրություն
         Console.WriteLine(ex.StatusCode); // սխալի վիճակի կոդ
-    } 
+    }
+}
+```
+
+## Օրինակ 7
+
+Ֆիզիկական անձ հաճախորդի տվյալների ստացման օրինակ։
+
+```c#
+private static async Task GetPhysicalClientData(BankApiClient apiClient)
+{
+    try
+    {
+        // վերադարձնում է ֆիզիկական անձ հաճախորդի տվյալները
+        var res = await apiClient.Clients.GetPhysicalClientData(new()
+        {
+            ClientCode = "00000001", // հաճախորդի կոդ
+        });
+
+        Console.WriteLine(res.ClientCode);  // տպում է հաճախորդի կոդը
+        Console.WriteLine(res.OuterID);  // հաճախորդի արտաքին կոդը
+        Console.WriteLine(res.TaxCode);  // հաճախորդի ՀՎՀՀ-ն
+        Console.WriteLine(res.FirstName);  // հաճախորդի անունը
+        Console.WriteLine(res.LastName);  // հաճախորդի ազգանունը
+        Console.WriteLine(res.SSNNumber);  // հաճախորդի սոց. քարտը
+        Console.WriteLine(res.RelatedWithBank);  // հաճախորդի բանկի հետ կապակցվածությունը
+        Console.WriteLine(res.Resident);  // հաճախորդի ռեզիդենտությունը
+    }
+    catch (ApiException ex)
+    {
+        // մեթոդի կանչի ընթացքում սխալի առաջացման դեպքում տպում է սխալի մանրամասները
+        Console.WriteLine(ex.Code); // սխալի կոդ
+        Console.WriteLine(ex.Message); // սխալի հաղորդագրություն
+        Console.WriteLine(ex.StatusCode); // սխալի վիճակի կոդ
+    }
 }
 ```
