@@ -93,12 +93,12 @@ public Task<CreateClientResponse> CreatePhysicalClientByFullData(
 public Task<GetJuridicalClientDataResponse> GetJuridicalClientData(GetClientDataRequest request)
 ```
 
-Վերադարձնում է իրավաբանական անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
+Վերադարձնում է իրավաբանական անձ հաճախորդի տվյալները ըստ հաճախորդի կոդի կամ ըստ հաճախորդի արտաքին կոդի։
 
 **Պարամետրեր**
 
 * `request` -  [GetClientDataRequest](../types/GetClientDataRequest.md)  
-   Փնտրվող հաճախորդի տվյալներ։ Հաճախորդի փնտրումն իրականացվում է ըստ Հաճախորդի կոդի կամ ըստ Հաճախորդի արտաքին կոդի։
+   Փնտրվող հաճախորդի տվյալներ։
   
 **Վերադարձվող արժեք**
 
@@ -115,12 +115,12 @@ public Task<GetJuridicalClientDataResponse> GetJuridicalClientData(GetClientData
 public Task<GetPhysicalClientDataResponse> GetPhysicalClientData(GetClientDataRequest request)
 ```
 
-Վերադարձնում է ֆիզիկական անձ հաճախորդի տվյալները ըստ փոխանցված տվյալների։
+Վերադարձնում է ֆիզիկական անձ հաճախորդի տվյալները ըստ հաճախորդի կոդի կամ ըստ հաճախորդի արտաքին կոդի։
 
 **Պարամետրեր**
 
 * `request` -  [GetClientDataRequest](../types/GetClientDataRequest.md)  
-   Փնտրվող հաճախորդի տվյալներ։ Հաճախորդի փնտրումն իրականացվում է ըստ Հաճախորդի կոդի կամ ըստ Հաճախորդի արտաքին կոդի։
+   Փնտրվող հաճախորդի տվյալներ։
 
 **Վերադարձվող արժեք**
 
