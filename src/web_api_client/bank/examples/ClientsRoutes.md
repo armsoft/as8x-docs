@@ -77,6 +77,7 @@ private static async Task CreateClient(BankApiClient apiClient)
                 DateExpire = new DateTime(2030, 11, 15), // վավեր է մինչև
             },
 
+            OuterID = "14DB9231-D311-4E41-A7D3-E07FADC8A00F", // արտաքին կոդ
             FirstName = "Պողոս".ToArmenianANSI(), // հաճախորդի անուն
             LastName = "Պողոսյան".ToArmenianANSI(), // հաճախորդի ազգանուն
             Resident = true, // հաճախորդի ռեզիդենտության հայտանիշ
@@ -116,6 +117,7 @@ private static async Task CreateClient(BankApiClient apiClient)
         // ստեղծում է ֆիզիկական անձ տիպի հաճախորդ՝ նշելով անհրաժեշտ տվյալները
         var res = await apiClient.Clients.CreateJuridicalClientByFullData(new()
         {
+            OuterID = "14DB9231-D311-4E41-A7D3-E07FADC8A00F", // արտաքին կոդ
             Name = "Կազմակերպություն".ToArmenianANSI(), // հաճախորդի անվանում
             NameEng = "Organization", // հաճախորդի անգլերեն անվանում
             TaxCode = "11223344", // հաճախորդի ՀՎՀՀ
