@@ -11,6 +11,9 @@ title: "CreateJuridicalClientByFullDataRequest դաս"
 public class CreateJuridicalClientByFullDataRequest
 {
     // Ընդհանուր էջ
+    /// <summary> Ունիկալ համար </summary>
+    public string OuterID { get; set; }
+
     /// <summary>Անվանում</summary>
     public string Name { get; set; }
 
