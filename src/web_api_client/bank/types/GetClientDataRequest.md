@@ -16,3 +16,4 @@ public class GetClientDataRequest
     /// <summary> Հաճախորդի արտաքին ID </summary>
     public string ClientOuterID { get; set; }
 }
+```

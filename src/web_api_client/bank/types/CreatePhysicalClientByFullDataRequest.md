@@ -10,6 +10,9 @@ title: "CreatePhysicalClientByFullDataRequest դաս"
 ```c#
 public class CreatePhysicalClientByFullDataRequest
 {
+    /// <summary> Ունիկալ համար </summary>
+    public string OuterID { get; set; }
+
     /// <summary>ՀՎՀՀ</summary>
     public string TaxCode { get; set; }
 
