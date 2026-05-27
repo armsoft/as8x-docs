@@ -2,15 +2,15 @@
 layout: page
 title: PaymentDocsRoutes դաս
 sublinks:
-  - title: CreateCrPayOrd
-    ref: createcrpayord
+  - title: CreateCreditPaymentOrder
+    ref: createcreditpaymentorder
 ---
 
 # Բովանդակություն
 
 - [Ներածություն](#ներածություն)
 - [Մեթոդներ](#մեթոդներ)
-  - [CreateCrPayOrd](#createcrpayord)
+  - [CreateCreditPaymentOrder](#createcreditpaymentorder)
 
 # Ներածություն
 
@@ -20,10 +20,10 @@ sublinks:
 
 # Մեթոդներ
 
-## CreateCrPayOrd
+## CreateCreditPaymentOrder
 
 ```csharp
-public Task<OuterPaymentOrderResponse> CreateCrPayOrd(OuterPaymentOrderRequest request)
+public Task<CreateCreditPaymentOrderResponse> CreateCreditPaymentOrder(CreateCreditPaymentOrderRequest request)
 ```
 
 Ստեղծում է վճարման հանձնարարագիր փաստաթուղթ ստանալով անհրաժեշտ տվյալները։
@@ -32,17 +32,17 @@ public Task<OuterPaymentOrderResponse> CreateCrPayOrd(OuterPaymentOrderRequest r
 
 ### Պարամետրեր
 
-#### request - [OuterPaymentOrderRequest](outerpaymentorderrequest)
+#### request - [CreateCreditPaymentOrderRequest](createcreditpaymentorderrequest)
 
 Ստեղծվող վճարման հանձնարարագրի տվյալներ։
 
 Տե՛ս [Օրինակ](#օրինակ)
 
 ```csharp
-var request = new OuterPaymentOrderRequest
+var request = new CreateCreditPaymentOrderRequest
 {
     // Լրացնել անհրաժեշտ դաշտերը
 };
 
-var response = await bankApiClient.PaymentDocs.CreateCrPayOrd(request);
+var response = await bankApiClient.PaymentDocs.CreateCreditPaymentOrder(request);
 ```
