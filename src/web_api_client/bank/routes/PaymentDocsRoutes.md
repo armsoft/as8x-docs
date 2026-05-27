@@ -32,8 +32,7 @@ public Task<CreateCreditPaymentOrderResponse> CreateCreditPaymentOrder(CreateCre
 
 ### Պարամետրեր
 
-#### request - [CreateCreditPaymentOrderRequest](createcreditpaymentorderrequest)
-
+* `request` - [CreateCreditPaymentOrderRequest](../types/CreateCreditPaymentOrderRequest.md)
 Ստեղծվող վճարման հանձնարարագրի տվյալներ։
 
 Տե՛ս [Օրինակ](#օրինակ)
