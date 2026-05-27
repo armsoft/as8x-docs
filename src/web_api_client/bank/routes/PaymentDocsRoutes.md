@@ -36,13 +36,7 @@ public Task<CreateCreditPaymentOrderResponse> CreateCreditPaymentOrder(CreateCre
   
 Ստեղծվող վճարման հանձնարարագրի տվյալներ։
 
-Տե՛ս [Օրինակ](#օրինակ)
+**Օրինակ**
 
-```csharp
-var request = new CreateCreditPaymentOrderRequest
-{
-    // Լրացնել անհրաժեշտ դաշտերը
-};
-
-var response = await bankApiClient.PaymentDocs.CreateCreditPaymentOrder(request);
+Տե՛ս օգտագործման [օրինակը](../examples/TransactionDocsRoutes.md#օրինակ-1)։
 ```
