@@ -149,4 +149,4 @@ public TransactionDocsRoutes TransactionDocs { get; }
 public PaymentDocsRoutes PaymentDocs { get; }
 ```
 
-Վերադարձնում է [PaymentDocsRoutes](../routes/PaymentDocsRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ գործողությունների վճարային փաստաթղթերի հետ աշխատանքը ապահովելու համար։
+Վերադարձնում է [PaymentDocsRoutes](../routes/PaymentDocsRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ վճարային փաստաթղթերի հետ աշխատանքը ապահովելու համար։
