@@ -98,7 +98,7 @@ public class CreateCreditPaymentOrderRequest
     public string EMail { get; set; }
 
     /// <summary> Հիմք </summary>
-    public string BASE { get; set; }
+    public string Base { get; set; }
 
     /// <summary> Մուծողի ծննդյան ամսաթիվ </summary>
     public DateTime? DateOfBirth { get; set; }
