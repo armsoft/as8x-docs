@@ -28,6 +28,7 @@ sublinks:
   - [NBAccounts](#nbaccounts)
   - [NBOrders](#nborders)
   - [TransactionDocs](#transactiondocs)
+  - [PaymentDocs](#paymentdocs)
 
 ## Ներածություն
 
@@ -141,3 +142,11 @@ public TransactionDocsRoutes TransactionDocs { get; }
 ```
 
 Վերադարձնում է [TransactionDocsRoutes](../routes/TransactionDocsRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ գործողությունների փաստաթղթերի հետ աշխատանքը ապահովելու համար։
+
+### PaymentDocs
+
+```c#
+public PaymentDocsRoutes PaymentDocs { get; }
+```
+
+Վերադարձնում է [PaymentDocsRoutes](../routes/PaymentDocsRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ գործողությունների վճարային փաստաթղթերի հետ աշխատանքը ապահովելու համար։
