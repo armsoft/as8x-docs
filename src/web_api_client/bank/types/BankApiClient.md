@@ -11,6 +11,7 @@ sublinks:
 - { title: "NBAccounts", ref: nbaccounts }
 - { title: "NBOrders", ref: nborders }
 - { title: "TransactionDocs", ref: transactiondocs }
+- { title: "PaymentDocs", ref: paymentdocs }
 - { title: "Կոնստրուկտոր", ref: կոնստրուկտոր }
 ---
 
