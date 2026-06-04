@@ -2,9 +2,9 @@
 layout: page
 title: PaymentDocsRoutes դաս
 sublinks:
-  - title: CreateCreditPaymentOrder
-    ref: createcreditpaymentorder
+- { title: "CreateCreditPaymentOrder", ref: createcreditpaymentorder }
 ---
+
 
 # Բովանդակություն
 
