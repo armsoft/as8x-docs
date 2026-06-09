@@ -10,8 +10,8 @@ sublinks:
 - { title: "LoanApplications", ref: loanapplications }
 - { title: "NBAccounts", ref: nbaccounts }
 - { title: "NBOrders", ref: nborders }
-- { title: "TransactionDocs", ref: transactiondocs }
 - { title: "PaymentDocs", ref: paymentdocs }
+- { title: "TransactionDocs", ref: transactiondocs }
 - { title: "Կոնստրուկտոր", ref: կոնստրուկտոր }
 ---
 
