@@ -12,7 +12,7 @@ sublinks:
 - [Մեթոդներ](#մեթոդներ)
   - [CreateCreditPaymentOrder](#createcreditpaymentorder)
 
-# Ներածություն
+## Ներածություն
 
 `PaymentDocsRoutes` դասը պարունակում է մեթոդներ գործողությունների փաստաթղթերի հետ աշխատանքը ապահովելու համար։  
 Այն հասանելի է [`BankApiClient`](../types/BankApiClient.md) դասի միջից։
