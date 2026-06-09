@@ -28,8 +28,8 @@ sublinks:
   - [LoanApplications](#loanapplications)
   - [NBAccounts](#nbaccounts)
   - [NBOrders](#nborders)
-  - [TransactionDocs](#transactiondocs)
   - [PaymentDocs](#paymentdocs)
+  - [TransactionDocs](#transactiondocs)
 
 ## Ներածություն
 
