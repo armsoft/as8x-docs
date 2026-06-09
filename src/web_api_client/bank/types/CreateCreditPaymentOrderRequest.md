@@ -5,7 +5,7 @@ title: CreateCreditPaymentOrderRequest դաս
 
 Այս դասը նախատեսված է վճարման հանձնարարագիր փաստաթղթի ստեղծման համար։
 
-Օգտագործվում է `PaymentDocsRoutes.CreateCreditPaymentOrder` մեթոդում։
+Օգտագործվում է [PaymentDocsRoutes](../routes/PaymentDocsRoutes.md).[CreateCreditPaymentOrder](../routes/PaymentDocsRoutes.md#createcreditpaymentorder) մեթոդում։
 
 ```csharp
 public class CreateCreditPaymentOrderRequest
