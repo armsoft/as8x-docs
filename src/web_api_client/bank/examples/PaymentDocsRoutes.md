@@ -2,8 +2,7 @@
 layout: page
 title: Օրինակ PaymentDocsRoutes
 sublinks:
-  - title: Օրինակ CreateCreditPaymentOrder
-    ref: օրինակ
+    - { title: "Օրինակ CreateMemOrder", ref: օրինակ-1 }
 ---
 
 # Բովանդակություն
