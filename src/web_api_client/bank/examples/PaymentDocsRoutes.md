@@ -25,9 +25,9 @@ public static async Task CreateCreditPaymentOrder(BankApiClient apiClient)
             Residence = "1", // Ռեզիդենտություն
             AccountDebit = "1111110110070200", // Հաշիվ դեբետ
             AccountCredit = "1111110099440301", // Հաշիվ կրեդիտ
-            Payer = "ÐáíÑ³ÝÝ»ë ÐáíÑ³ÝÝÇëÛ³Ý", // Վճարող
-            PayerEng = "Hovhannes Hovhannisyan", // Վճարող անգլերեն
-            Receiver = "öáË³ÝóáõÙ", // Ստացող
+            Payer = "Պողոս Պողոսյան".ToArmenianANSI(), // Վճարող
+            PayerEng = "Poxos Poxosyan", // Վճարող անգլերեն
+            Receiver = "ԱԲՍ ՍՊԸ".ToArmenianANSI(), // Ստացող
             ReceiverEng = "ABC LLC", // Ստացող անգլերեն
             Summa = 100, // Գումար
             Aim = "Payment for services", // Նպատակ
