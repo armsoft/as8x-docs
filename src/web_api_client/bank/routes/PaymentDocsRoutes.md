@@ -29,7 +29,7 @@ public Task<CreateCreditPaymentOrderResponse> CreateCreditPaymentOrder(CreateCre
 
 Վերադարձնում է ստեղծված վճարման հանձնարարագրի Isn-ը։
 
-### Պարամետրեր
+**Պարամետրեր**
 
 * `request` - [CreateCreditPaymentOrderRequest](../types/CreateCreditPaymentOrderRequest.md)
   
