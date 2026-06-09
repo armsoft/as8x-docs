@@ -136,14 +136,6 @@ public NBOrdersRoutes NBOrders { get; }
 
 Վերադարձնում է [NBOrdersRoutes](../routes/NBOrdersRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ Ե/Հ մուտքի/ելքի օրդերների հետ աշխատանքը ապահովելու համար։
 
-### TransactionDocs
-
-```c#
-public TransactionDocsRoutes TransactionDocs { get; }
-```
-
-Վերադարձնում է [TransactionDocsRoutes](../routes/TransactionDocsRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ գործողությունների փաստաթղթերի հետ աշխատանքը ապահովելու համար։
-
 ### PaymentDocs
 
 ```c#
@@ -151,3 +143,11 @@ public PaymentDocsRoutes PaymentDocs { get; }
 ```
 
 Վերադարձնում է [PaymentDocsRoutes](../routes/PaymentDocsRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ վճարային փաստաթղթերի հետ աշխատանքը ապահովելու համար։
+
+### TransactionDocs
+
+```c#
+public TransactionDocsRoutes TransactionDocs { get; }
+```
+
+Վերադարձնում է [TransactionDocsRoutes](../routes/TransactionDocsRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ գործողությունների փաստաթղթերի հետ աշխատանքը ապահովելու համար։
