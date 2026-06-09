@@ -38,5 +38,5 @@ public Task<CreateCreditPaymentOrderResponse> CreateCreditPaymentOrder(CreateCre
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/PaymentDocsRoutes.md)։
+Տե՛ս օգտագործման [օրինակը](../examples/PaymentDocsRoutes.md#օրինակ-1)։
 ```
