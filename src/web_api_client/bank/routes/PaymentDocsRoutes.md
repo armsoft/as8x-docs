@@ -17,9 +17,9 @@ sublinks:
 `PaymentDocsRoutes` դասը պարունակում է մեթոդներ գործողությունների փաստաթղթերի հետ աշխատանքը ապահովելու համար։  
 Այն հասանելի է [`BankApiClient`](../types/BankApiClient.md) դասի միջից։
 
-# Մեթոդներ
+## Մեթոդներ
 
-## CreateCreditPaymentOrder
+### CreateCreditPaymentOrder
 
 ```csharp
 public Task<CreateCreditPaymentOrderResponse> CreateCreditPaymentOrder(CreateCreditPaymentOrderRequest request)
