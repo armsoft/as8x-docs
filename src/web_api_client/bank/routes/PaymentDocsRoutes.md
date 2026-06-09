@@ -15,8 +15,7 @@ sublinks:
 # Ներածություն
 
 `PaymentDocsRoutes` դասը պարունակում է վճարային փաստաթղթերի ստեղծմանը վերաբերող REST API կանչեր։
-
-Այն հասանելի է `BankApiClient` դասի միջից։
+Այն հասանելի է [`BankApiClient`](../types/BankApiClient.md) դասի միջից։
 
 # Մեթոդներ
 
