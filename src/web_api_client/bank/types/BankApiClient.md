@@ -128,7 +128,7 @@ public LoanApplicationsRoutes LoanApplications { get; }
 public CreditOffersRoutes CreditOffers { get; }
 ```
 
-Վերադարձնում է [CreditOffersRoutes](../routes/CreditOffersRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ վարկային հայտերի հետ աշխատանքը ապահովելու համար։
+Վերադարձնում է [CreditOffersRoutes](../routes/CreditOffersRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ վարկային առաջարկների հետ աշխատանքը ապահովելու համար։
 
 
 ### NBAccounts
