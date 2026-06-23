@@ -5,7 +5,7 @@ title: CreditOffer.CreateRequest դաս
 
 Այս դասը նախատեսված է վարկային առաջարկի ստեղծման համար։
 
-Օգտագործվում է [CreditOffersRoutes](.../routes/CreditOffersRoutes.md).[Create](.../routes/CreditOffersRoutes.md#create) մեթոդում։
+Օգտագործվում է [CreditOffersRoutes](../../routes/CreditOffersRoutes.md).[Create](../../routes/CreditOffersRoutes.md#create) մեթոդում։
 
 ```csharp
 public class CreateRequest
