@@ -1,6 +1,6 @@
 ---
 layout: page
-title: CreditOffers.CreateResponse դաս
+title: CreateResponse դաս
 ---
 
 Այս դասը պարունակում է վարկային առաջարկի ստեղծման պատասխանի տվյալները։
