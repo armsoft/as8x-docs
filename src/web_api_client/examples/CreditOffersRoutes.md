@@ -22,7 +22,7 @@ public static async Task CreateCreditOffer(BankApiClient apiClient)
         {
             Date = new DateTime(2025, 1, 1), // Ամսաթիվ
             CliCode = "00000001", // Հաճախորդի կոդ
-            Name = "Վարկային առաջարկ", // Անվանում
+            Name = "Վարկային առաջարկ".ToArmenianANSI(), // Անվանում
             NameEng = "Credit Offer", // Անգլերեն անվանում
             AppType = "", // Հայտատեսակ
             Shablon = "0001", // Ձևանմուշի N
