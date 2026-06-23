@@ -32,6 +32,7 @@ public Task<CreateResponse> Create(CreateRequest request)
 **Պարամետրեր**
 
 * `request` - [CreateRequest](../types/CreditOffers/CreateRequest.md)
+* `response` - [CreateResponse](../types/CreditOffers/CreateResponse.md)
   
 Ստեղծվող վարկային առաջարկի տվյալներ։
 
