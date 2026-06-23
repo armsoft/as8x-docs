@@ -1,6 +1,6 @@
 ---
 layout: page
-title: CreditOffer.CreateRequest դաս
+title: CreateRequest դաս
 ---
 
 Այս դասը նախատեսված է վարկային առաջարկի ստեղծման համար։
