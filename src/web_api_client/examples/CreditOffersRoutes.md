@@ -41,7 +41,7 @@ public static async Task CreateCreditOffer(BankApiClient apiClient)
             AccountNumber = "1111110110070200"                 // Հաշվարկային հաշիվ
         });
 
-        Console.WriteLine(res.Code); // Ստեղծված վարկային առաջարկի կոդ
+        Console.WriteLine(res.Code);                           // Ստեղծված վարկային առաջարկի կոդ
     }
     catch (ApiException ex)
     {
