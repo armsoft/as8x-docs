@@ -8,6 +8,7 @@ sublinks:
 - { title: "ClientIBOptions", ref: clientiboptions }
 - { title: "Clients", ref: clients }
 - { title: "LoanApplications", ref: loanapplications }
+- { title: "CreditOffers", ref: creditoffers }
 - { title: "NBAccounts", ref: nbaccounts }
 - { title: "NBOrders", ref: nborders }
 - { title: "PaymentDocs", ref: paymentdocs }
@@ -26,6 +27,7 @@ sublinks:
   - [ClientIBOptions](#clientiboptions)
   - [Clients](#clients)
   - [LoanApplications](#loanapplications)
+  - [CreditOffers](#creditoffers)
   - [NBAccounts](#nbaccounts)
   - [NBOrders](#nborders)
   - [PaymentDocs](#paymentdocs)
@@ -119,6 +121,15 @@ public LoanApplicationsRoutes LoanApplications { get; }
 ```
 
 Վերադարձնում է [LoanApplicationsRoutes](../routes/LoanApplicationsRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ վարկային հայտերի հետ աշխատանքը ապահովելու համար։
+
+### CreditOffers
+
+```c#
+public CreditOffersRoutes CreditOffers { get; }
+```
+
+Վերադարձնում է [CreditOffersRoutes](../routes/CreditOffersRoutes.md) դասի օբյեկտ, որը պարունակում է մեթոդներ վարկային հայտերի հետ աշխատանքը ապահովելու համար։
+
 
 ### NBAccounts
 
