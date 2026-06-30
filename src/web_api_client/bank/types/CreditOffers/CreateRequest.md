@@ -45,5 +45,5 @@ public class CreateRequest
 }
 ```
 
-* [InterestRate](../types/InterestRate.md) դասի նկարագիր
-* [Periodicity](../types/Periodicity.md) դասի նկարագիր
+* [InterestRate](../../types/InterestRate.md) դասի նկարագիր
+* [Periodicity](../../types/Periodicity.md) դասի նկարագիր
