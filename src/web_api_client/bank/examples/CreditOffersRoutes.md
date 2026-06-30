@@ -38,7 +38,7 @@ public static async Task CreateCreditOffer(BankApiClient apiClient)
                 Day = 0                                 
             },
             EndDate = new DateTime(2026, 1, 1),                // Առաջարկի վերջնաժամկետ
-            AccountNumber = "1111110110070200"                 // Հաշվարկային հաշիվ
+            AccountNumber = "33069150300"                      // Հաշվարկային հաշիվ
         });
 
         Console.WriteLine(res.Code);                           // Ստեղծված վարկային առաջարկի կոդ
