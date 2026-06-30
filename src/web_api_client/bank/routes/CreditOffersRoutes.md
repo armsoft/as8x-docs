@@ -27,14 +27,12 @@ public Task<CreateResponse> Create(CreateRequest request)
 
 Ստեղծում է վարկային առաջարկ ստանալով անհրաժեշտ տվյալները։
 
-Վերադարձնում է ստեղծված վարկային առաջարկի կոդը։
+Վերադարձնում է ստեղծված վարկային առաջարկի կոդը` [CreateResponse](../types/CreditOffers/CreateResponse.md)։
 
 **Պարամետրեր**
 
 * `request` - [CreateRequest](../types/CreditOffers/CreateRequest.md)
-* `response` - [CreateResponse](../types/CreditOffers/CreateResponse.md)
-  
-Ստեղծվող վարկային առաջարկի տվյալներ։
+  Ստեղծվող վարկային առաջարկի տվյալներ։
 
 **Օրինակ**
 
