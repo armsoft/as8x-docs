@@ -44,3 +44,6 @@ public class CreateRequest
     public string AccountNumber { get; set; }
 }
 ```
+
+* [InterestRate](../types/InterestRate.md) դասի նկարագիր
+* [Periodicity](../types/Periodicity.md) դասի նկարագիր
