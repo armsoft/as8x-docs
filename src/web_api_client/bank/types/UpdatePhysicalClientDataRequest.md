@@ -40,6 +40,27 @@ public class UpdatePhysicalClientDataRequest
     /// <summary> Անձնագրի տվյալներ 2 </summary>
     public PassData Passport2 { get; set; } = null;
 
+    /// <summary> Ակտիվացնել փակ հաճախորդին </summary>
+    public bool OpenClosedClient { get; set; } = false;
+
+    /// <summary>Զբաղվածություն</summary>
+    public string NewEmployment { get; set; } = null;
+
+    /// <summary>Կրթական մակարդակ</summary>
+    public string NewEducationStage { get; set; } = null;
+
+    /// <summary>Ընտանեկան կարգավիճակ</summary>
+    public string NewMaritalStatus { get; set; } = null;
+
+    /// <summary>Ընտանիքի անդամների քանակ</summary>
+    public short? NewFamilyMembCount { get; set; } = null;
+
+    /// <summary>Անձնական եկամուտներ</summary>
+    public decimal? NewPersonalIncome { get; set; } = null;
+
+    /// <summary>Ընտանեկան եկամուտներ</summary>
+    public decimal? NewFamilyIncome { get; set; } = null;
+
     /// <summary> Ընդլայնված դաշտերի անունները և արժեքները </summary>
     public Dictionary<string, string> OtherFieldValues { get; set; }
 }
