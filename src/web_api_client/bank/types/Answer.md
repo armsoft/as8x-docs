@@ -10,9 +10,9 @@ title: "Answer enum"
 public enum Answer
 {
     /// <summary> Հաստատում  </summary>    
-    Confirm = 1
+    Confirm = 1,
 
     /// <summary> Մերժում  </summary>    
-    Reject = 2,
+    Reject = 2
 }
 ```
