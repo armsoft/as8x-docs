@@ -82,3 +82,4 @@ public class GetJuridicalClientDataResponse
     public string RegType { get; set; }
 }
 ```
+* [StatementDeliverModes](../types/StatementDeliverModes.md) enum-ի նկարագիր
