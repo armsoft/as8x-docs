@@ -136,3 +136,4 @@ public class GetPhysicalClientDataResponse
 ```
 
 * [PassData](../types/PassData.md) դասի նկարագիր
+* [StatementDeliverModes](../types/StatementDeliverModes.md) enum-ի նկարագիր
