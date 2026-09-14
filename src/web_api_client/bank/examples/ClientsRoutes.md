@@ -259,6 +259,7 @@ private static async Task GetPhysicalClientData(BankApiClient apiClient)
         var res = await apiClient.Clients.GetPhysicalClientData(new()
         {
             ClientCode = "00000001", // հաճախորդի կոդ
+            OtherFieldNames = ["UDRFIELDNAME"] // UDR դաշտերի անունները որոնց արժեքները պետք է ստանալ
         });
 
         Console.WriteLine(res.ClientCode);  // տպում է հաճախորդի կոդը
