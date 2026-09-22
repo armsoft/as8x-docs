@@ -55,14 +55,6 @@ public class GetJuridicalClientDataResponse
     /// <summary> Գրանցման հասցե </summary>
     public Address RegAddress { get; set; } = null;
 
-    /// <summary>
-    /// Իրավաբանական կարգավիճակը 
-    /// 1 - իրավաբանական անձ
-    /// 2 - Ֆիզիկական անձ
-    /// 3 - անհատ ձեռներեց
-    /// </summary>
-    public short Status { get; set; } = 0;
-
     /// <summary> Այլ ռեկվիզիտներ/ընդլայնված ռեկվիզիտներ (UDR)</summary>
     public Dictionary<string, object> OtherFieldValues { get; set; }
 
