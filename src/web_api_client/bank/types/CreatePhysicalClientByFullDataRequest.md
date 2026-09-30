@@ -171,4 +171,4 @@ public class CreatePhysicalClientByFullDataRequest
 * [PayScaleRow](../types/PayScaleRow.md) դասի նկարագիր
 * [OuterPayScaleRow](../types/OuterPayScaleRow.md) դասի նկարագիր
 * [ResponsiblePersonRow](../types/ResponsiblePersonRow.md) դասի նկարագիր
-* [CliRates](../types/CliRates.md) դասի նկարագիր
+* [CliRatesRow](../types/CliRatesRow.md) դասի նկարագիր
