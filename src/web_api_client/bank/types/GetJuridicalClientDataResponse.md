@@ -87,3 +87,8 @@ public class GetJuridicalClientDataResponse
 }
 ```
 * [StatementDeliverModes](../types/StatementDeliverModes.md) enum-ի նկարագիր
+* [Address](../types/Address.md) դասի նկարագիր
+* [PayScaleRow](../types/PayScaleRow.md) դասի նկարագիր
+* [OuterPayScaleRow](../types/OuterPayScaleRow.md) դասի նկարագիր
+* [ResponsiblePersonRow](../types/ResponsiblePersonRow.md) դասի նկարագիր
+* [CliRatesRow](../types/CliRatesRow.md) դասի նկարագիր
