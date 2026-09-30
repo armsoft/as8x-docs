@@ -63,6 +63,18 @@ public class UpdatePhysicalClientDataRequest
 
     /// <summary> Ընդլայնված դաշտերի անունները և արժեքները </summary>
     public Dictionary<string, string> OtherFieldValues { get; set; }
+
+    /// <summary> Նոր գանձման տեսակներ (TUNINGS աղյուսակ)</summary>
+    public List<PayScaleRow> NewPayScales { get; set; } = null;
+
+    /// <summary> Նոր արտաքին փոխանց.գանձ.տեսակ (OPAYCOMT աղյուսակ) </summary>
+    public List<OuterPayScaleRow> NewOuterPayScales { get; set; } = null;
+
+    /// <summary> Նոր դիլինգային փոխարժեքի առաջարկման եղանակ (CLIRATES աղյուսակ) </summary>
+    public List<CliRateRow> NewCliRates { get; set; } = null;
+
+    /// <summary> Նոր պատասխանատուների ցուցակ (RESP աղյուսակ) </summary>
+    public List<ResponsiblePersonRow> NewResponsiblePersons { get; set; } = null;
 }
 ```
 
