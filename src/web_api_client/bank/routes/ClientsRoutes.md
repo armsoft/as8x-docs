@@ -107,7 +107,7 @@ public Task<GetJuridicalClientDataResponse> GetJuridicalClientData(GetClientData
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-4)։
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-7)։
 
 ### GetPhysicalClientData
 
@@ -129,7 +129,7 @@ public Task<GetPhysicalClientDataResponse> GetPhysicalClientData(GetClientDataRe
   
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-5)։
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-6)։
 
 ### UpdateJuridicalClientData
 
@@ -146,7 +146,7 @@ public Task<UpdateClientResponse> UpdateJuridicalClientData(UpdateJuridicalClien
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-6)։
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-5)։
 
 ### UpdatePhysicalClientData
 
@@ -163,5 +163,5 @@ public Task<UpdateClientResponse> UpdatePhysicalClientData(UpdatePhysicalClientD
 
 **Օրինակ**
 
-Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-7)։
+Տե՛ս օգտագործման [օրինակը](../examples/ClientsRoutes.md#օրինակ-4)։
 

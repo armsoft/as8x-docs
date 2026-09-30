@@ -15,5 +15,8 @@ public class GetClientDataRequest
 
     /// <summary> Հաճախորդի արտաքին ID </summary>
     public string ClientOuterID { get; set; }
+
+    /// <summary> Այլ ռեկվիզիտներ/ընդլայնված ռեկվիզիտներ (UDR) </summary>
+    public List<string> OtherFieldNames { get; set; }
 }
 ```

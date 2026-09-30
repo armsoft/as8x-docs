@@ -150,9 +150,25 @@ public class CreatePhysicalClientByFullDataRequest
     
     /// <summary> Այլ ռեկվիզիտներ/ընդլայնված ռեկվիզիտներ (UDR)</summary>
     public Dictionary<string, string> OtherFieldValues { get; set; }
+
+    /// <summary> Գանձման տեսակներ (TUNINGS աղյուսակ)</summary>
+    public List<PayScaleRow> PayScales { get; set; }
+
+    /// <summary> Արտաքին փոխանց.գանձ.տեսակ (OPAYCOMT աղյուսակ)</summary>
+    public List<OuterPayScaleRow> OuterPayScales { get; set; }
+
+    /// <summary> Դիլինգային փոխարժեքի առաջարկման եղանակ (CLIRATES աղյուսակ)</summary>
+    public List<CliRateRow> CliRates { get; set; }
+
+    /// <summary> Պատասխանատուների ցուցակ (RESP աղյուսակ)</summary>
+    public List<ResponsiblePersonRow> ResponsiblePersons { get; set; }
 }
 ```
 
 * [PassData](../types/PassData.md) դասի նկարագիր
 * [Address](../types/Address.md) դասի նկարագիր
 * [StatementDeliverModes](../types/StatementDeliverModes.md) enum-ի նկարագիր
+* [PayScaleRow](../types/PayScaleRow.md) դասի նկարագիր
+* [OuterPayScaleRow](../types/OuterPayScaleRow.md) դասի նկարագիր
+* [ResponsiblePersonRow](../types/ResponsiblePersonRow.md) դասի նկարագիր
+* [CliRatesRow](../types/CliRatesRow.md) դասի նկարագիր
