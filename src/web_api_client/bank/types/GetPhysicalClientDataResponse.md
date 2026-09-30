@@ -58,6 +58,18 @@ public class GetPhysicalClientDataResponse
     /// <summary> Այլ ռեկվիզիտներ/ընդլայնված ռեկվիզիտներ (UDR)</summary>
     public Dictionary<string, object> OtherFieldValues { get; set; }
 
+    /// <summary> Գանձման տեսակներ (TUNINGS աղյուսակ) </summary>
+    public List<PayScaleRow> PayScales { get; set; }
+
+    /// <summary> Արտաքին փոխանց.գանձ.տեսակ (OPAYCOMT աղյուսակ) </summary>
+    public List<OuterPayScaleRow> OuterPayScales { get; set; }
+
+    /// <summary> Դիլինգային փոխարժեքի առաջարկման եղանակ (CLIRATES աղյուսակ) </summary>
+    public List<CliRateRow> CliRates { get; set; }
+
+    /// <summary> Պատասխանատուների ցուցակ (RESP աղյուսակ) </summary>
+    public List<ResponsiblePersonRow> ResponsiblePersons { get; set; }
+
     /// <summary> Անուն </summary>
     public string FirstName { get; set; }
 
