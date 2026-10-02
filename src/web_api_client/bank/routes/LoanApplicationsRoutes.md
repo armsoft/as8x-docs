@@ -19,8 +19,8 @@ sublinks:
 
 ## Ներածություն
 
-LoanApplicationsRoutes դասը պարունակում է մեթոդներ հաճախորդների տվյալների հետ աշխատանքը ապահովելու համար։
-Այն հասանելի է [BankApiClient](../types/BankApiClient.md) դասի միջից։
+`LoanApplicationsRoutes` դասը պարունակում է մեթոդներ հաճախորդների տվյալների հետ աշխատանքը ապահովելու համար։
+Այն հասանելի է [`BankApiClient`](../types/BankApiClient.md) դասի միջից։
 
 ## Մեթոդներ
 
@@ -32,9 +32,11 @@ public Task<CreateResponse> Create(CreateRequest request)
 
 Ստեղծում է վարկային հայտ ըստ հաճախորդի հայտի տվյալների։
 
+Վերադարձնում է ստեղծված վարկային հայտի կոդը` [CreateResponse](../types/LoanApplications/CreateResponse.md)։
+
 **Պարամետրեր**
 
-* `request` - Բացվող վարկային հայտի տվյալները։
+* `request` - [CreateRequest](../types/LoanApplications/CreateRequest.md) Բացվող վարկային հայտի տվյալները։
 
 **Օրինակ**
 
@@ -46,11 +48,11 @@ public Task<CreateResponse> Create(CreateRequest request)
 public Task<GetAllResponse> GetAll(GetAllRequest request)
 ```
 
-Վերադարձնում է հաճախորդի բոլոր վարկային հայտերի տվյալները։
+Վերադարձնում է հաճախորդի բոլոր վարկային հայտերի տվյալները՝ [GetAllResponse](../types/LoanApplications/GetAllResponse.md)։
 
 **Պարամետրեր**
 
-* `request` - Հաճախորդի և վարկային հայտի տվյալները՝ հաճախորդի կոդ, վարկի համար:
+* `request` - [GetAllRequest](../types/LoanApplications/GetAllRequest.md) Հաճախորդի և վարկային հայտի տվյալները՝ հաճախորդի կոդ, հայտի համար:
 
 **Օրինակ**
 
@@ -62,12 +64,12 @@ public Task<GetAllResponse> GetAll(GetAllRequest request)
 public Task<LoanApplications.GetPrintFormsResponse> GetPrintForms(GetPrintFormsRequest request)
 ```
 
-Վերադարձնում է վարկային հայտի լրացված տպելու ձևանմուշների տվյալները և պարունակությունը ցուցակով։
+Վերադարձնում է վարկային հայտի լրացված տպելու ձևանմուշների տվյալները և պարունակությունը ցուցակով՝ [GetPrintFormsResponse](../types/LoanApplications/GetPrintFormsResponse.md)։
 Հնարավոր է ստանալ «Պայմանագիրը», «Արբիտրաժային համաձայնագիրը» և «Անհատական թերթիկ»։
 
 **Պարամետրեր**
 
-* `request` - Վարկային հայտի կոդը և անհրաժեշտ տպելու ձևանմուշների տեսակների ցուցակը։
+* `request` - [GetPrintFormsRequest](../types/LoanApplications/GetPrintFormsRequest.md) Վարկային հայտի կոդը և անհրաժեշտ տպելու ձևանմուշների տեսակների ցուցակը։
 
 **Օրինակ**
 
@@ -79,11 +81,11 @@ public Task<LoanApplications.GetPrintFormsResponse> GetPrintForms(GetPrintFormsR
 public Task<SignResponse> Sign(SignRequest request)
 ```
 
-Հաստատում կամ մերժում վարկային հայտը, եթե այն գտնվում է համապատասխան վիճակում։
+Հաստատում կամ մերժում է վարկային հայտը, եթե այն գտնվում է համապատասխան վիճակում։
 
 **Պարամետրեր**
 
-* `request` - Վարկային հայտի տվյալները և կատարվող գործողության տեսակը՝ մերժում կամ հաստատում։
+* `request` - [SignRequest](../types/LoanApplications/SignRequest.md) Վարկային հայտի տվյալները և կատարվող գործողության տեսակը՝ մերժում կամ հաստատում։
 
 **Օրինակ**
 
