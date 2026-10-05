@@ -1,6 +1,6 @@
-﻿---
+---
 layout: page
-title: "CreateResponse դաս" 
+title: CreateResponse դաս
 ---
 
 Այս դասը պարունակում է վարկային պայմանագրի ստեղծման պատասխանի տվյալները։
