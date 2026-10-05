@@ -39,25 +39,6 @@ public Task<CreateResponse> Create(CreateRequest request)
 * `response` -  [CreateResponse](../types/Loans/CreateResponse.md)  
   Ստեղծված պայմանագրի տվյալներ։
 
-**Սխալներ**
-
-Փոխանցված տվյալների ստուգման ժամանակ սխալի առաջացման դեպքում մեթոդը առաջացնում է `ApiException`, որի `Code` հատկությունը պարունակում է սխալի կոդը։
-
-| Սխալի կոդ | Նկարագրություն |
-|-----------|----------------|
-| `required_outercode` | Արտաքին N դաշտը պարտադիր է։ |
-| `required_date` | Կնքման ամսաթիվը պարտադիր է։ |
-| `required_dategive` | Հատկացման ամսաթիվը պարտադիր է։ |
-| `required_clicode` | Հաճախորդի կոդը պարտադիր է։ |
-| `required_amount` | Պայմանագրի գումարը պարտադիր է։ |
-| `required_shablon` | Ձևանմուշը պարտադիր է։ |
-| `invalid_divisor_interestrate` | `InterestRate` տոկոսադրույքի բաժանարարի սխալ արժեք։ |
-| `invalid_divisor_pcpenagr` | `PcPenAgr` տոկոսադրույքի բաժանարարի սխալ արժեք։ |
-| `invalid_divisor_pcpenper` | `PcPenPer` տոկոսադրույքի բաժանարարի սխալ արժեք։ |
-| `invalid_divisor_pcnochoose` | `PcNoChoose` տոկոսադրույքի բաժանարարի սխալ արժեք։ |
-| `invalid_divisor_pcgrant` | `PcGrant` տոկոսադրույքի բաժանարարի սխալ արժեք։ |
-| `invalid_divisor_pcloss` | `PcLoss` տոկոսադրույքի բաժանարարի սխալ արժեք։ |
-
 **Օրինակ**
 
 Տե՛ս օգտագործման [օրինակը](../examples/LoansRoutes.md#օրինակ-1)։
