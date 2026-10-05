@@ -1,6 +1,6 @@
 ﻿---
 layout: page
-title: "Օրինակ LoansRoutes" 
+title: Օրինակ LoansRoutes 
 sublinks:
 - { title: "Օրինակ Create", ref: օրինակ-1 }
 ---
