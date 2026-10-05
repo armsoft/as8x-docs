@@ -1,6 +1,6 @@
 ﻿---
 layout: page
-title: "LoansRoutes դաս" 
+title: LoansRoutes դաս
 sublinks:
 - { title: "Create", ref: create }
 ---
