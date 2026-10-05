@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: LoansRoutes դաս
 sublinks:
