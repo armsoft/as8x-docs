@@ -5,8 +5,6 @@ title: "CodebtorRow դաս"
 
 Պայմանագրի համավարկառուի տվյալներ։
 
-Օգտագործվում է [Loans.CreateRequest](../types/Loans/CreateRequest.md) դասում։
-
 ```c#
 public class CodebtorRow
 {
