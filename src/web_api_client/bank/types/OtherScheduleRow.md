@@ -5,7 +5,6 @@ title: "OtherScheduleRow դաս"
 
 Պայմանագրի այլ մարումների գրաֆիկի տող։
 
-Օգտագործվում է [Loans.CreateRequest](../types/Loans/CreateRequest.md) դասում։
 
 ```c#
 public class OtherScheduleRow
