@@ -5,8 +5,6 @@ title: "NoteRow դաս"
 
 Պայմանագրի նշումներ աղյուսակի տող։
 
-Օգտագործվում է [Loans.CreateRequest](../types/Loans/CreateRequest.md) դասում։
-
 ```c#
 public class NoteRow
 {
