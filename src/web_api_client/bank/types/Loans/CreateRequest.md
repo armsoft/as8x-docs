@@ -8,7 +8,6 @@ title: "CreateRequest դաս"
 Օգտագործվում է [LoansRoutes](../../routes/LoansRoutes.md).[Create](../../routes/LoansRoutes.md#create) մեթոդում։
 
 Պարտադիր լրացման դաշտերն են՝ `OuterCode`, `Date`, `DateGive`, `CliCode`, `Amount`, `Shablon`։  
-Մնացած դաշտերը չլրացնելու դեպքում ստանում են պայմանագրի լռությամբ արժեքները։
 
 ```c#
 public class CreateRequest
