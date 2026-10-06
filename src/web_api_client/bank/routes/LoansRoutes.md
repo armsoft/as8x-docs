@@ -1,0 +1,42 @@
+---
+layout: page
+title: LoansRoutes դաս
+sublinks:
+- { title: "Create", ref: create }
+---
+
+## Բովանդակություն
+
+- [Ներածություն](#ներածություն)
+- [Մեթոդներ](#մեթոդներ)
+  - [Create](#create)
+
+## Ներածություն
+
+LoansRoutes դասը պարունակում է մեթոդներ վարկային պայմանագրերի հետ աշխատանքը ապահովելու համար։
+Այն հասանելի է [BankApiClient](../types/BankApiClient.md) դասի միջից։
+
+## Մեթոդներ
+
+### Create
+
+```c#
+public Task<CreateResponse> Create(CreateRequest request)
+```
+
+Ստեղծում է գրաֆիկով վարկային պայմանագիր (C1Univer) ըստ փոխանցված տվյալների։
+Վերադարձնում է ստեղծված պայմանագրի մասին տվյալներ՝ պայմանագրի կոդ, ISN, ստեղծված պայմանագրի վիճակը վերջնական է, թե ոչ։
+
+**Պարամետրեր**
+
+* `request` -  [CreateRequest](../types/Loans/CreateRequest.md)  
+  Ստեղծվող վարկային պայմանագրի տվյալներ։
+
+**Վերադարձվող արժեք**
+
+* `response` -  [CreateResponse](../types/Loans/CreateResponse.md)  
+  Ստեղծված պայմանագրի տվյալներ։
+
+**Օրինակ**
+
+Տե՛ս օգտագործման [օրինակը](../examples/LoansRoutes.md#օրինակ-1)։
