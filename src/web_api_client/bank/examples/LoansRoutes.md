@@ -42,9 +42,10 @@ public static async Task CreateLoan(BankApiClient apiClient)
             [
                 new() { CliCode = "00000002", Proportion = 50, SRCSend = false }
             ],
-            Notes =                                                     // նշումներ
+            Notes =                                                       // նշումներ
             [
-                new() { Code = "1", Value = "Թեստ".ToArmenianANSI() }
+                new() { Code = "0001", Value = "Թեստ".ToArmenianANSI() },
+                new() { Code = "0002", Value = "29/10/26" }
             ],
             OtherScheduleRows =                                           // այլ մարումների գրաֆիկի տողեր
             [
@@ -54,7 +55,8 @@ public static async Task CreateLoan(BankApiClient apiClient)
             ],
             OtherFieldValues = new()                                      // ընդլայնված ռեկվիզիտներ (UDR)
             {
-                ["UDRPERCON"] = "ABC"
+                ["UDRPERCON"] = "ABC",
+                ["UDRGCSDATE"] = "2026-10-29"
             }
         });
 
